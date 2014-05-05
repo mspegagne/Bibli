@@ -1,0 +1,61 @@
+body {
+ padding-top: 30px;
+ margin-bottom: 60px;
+ text-align: justify;
+ background-image: url(images/backgroundblur.jpg);
+ background-size: 100% 100%;
+ background-repeat: no-repeat;
+ -webkit-filter: blur(5px); -moz-filter: blur(5px); -ms-filter: blur(5px); -o-filter: blur(5px); filter: blur(5px);
+ display: compact;
+}
+
+.principal{
+  margin-top: 20px;
+}
+
+[class*="col-"] { margin-bottom: 20px; }
+img { width: 100%; }
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+body > .container {
+  padding: 60px 15px 0;
+}
+.container .text-muted {
+  margin: 20px 0;
+}
+
+#footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+code {
+  font-size: 80%;
+}
+
+.blur {
+	width: auto;
+	position: relative;
+	background: transparent url(screenfeed.png) 3px 3px no-repeat;
+	opacity: .9;
+}
