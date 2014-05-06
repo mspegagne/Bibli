@@ -92,26 +92,120 @@ class Bdd
 			else{
 			die(mysql_error()); 
 			}
-		}
-		
-		public function convertBdd()
-		{
-			$values= $this->values();
-			
-			$fichier=$values['nom'];
-			
-			
-			
-			
-			$bd = Db::getInstance();
-			if($bd->autoExecute('bdd', $values, 'INSERT'))
-			{
+			$nom = wd_remove_accents($nom);
+			$query = "DROP TABLE ".$nom."";
+			if($bd->q($query))
+			{ 
 			
 			}
 
 			else{
 			die(mysql_error()); 
 			}
+		}
+		
+		public function convertBdd()
+		{
+			$values= $this->values();
+			
+			$fichier='bdd/'.$values['fichier'];
+			$nom=$values['nom'];
+			
+			// Tableau contenant la première ligne du fichier
+			$entete ;
+
+			// Tableau bidimensionnel contenant les autres lignes du fichier
+			$champs;
+			function lireChamps($nomFich, &$tab) 
+			{
+				global $entete ;
+				
+				$fp = fopen($nomFich, "r") ;        // Ouverture du fichier
+				if( ! $fp) die("Abandon ".$nomFich." non lisible") ;
+
+				// Lecture de la première ligne 
+
+				$entete = fgetcsv($fp, 500, ",");
+
+				// Boucle de lecture du reste du fichier
+				while(!feof($fp)) {
+					$tab[] = fgetcsv($fp, 500, ",");
+				}
+				
+				fclose($fp) ;
+			}
+			
+			
+			global $entete ;
+			lireChamps($fichier, $champs) ;
+			
+			//Création de la table à partir de l'entete du fichier csv
+			
+			$table='';			
+			
+			for($col = 0 ; $col < count($entete) ; $col++) 
+			{
+				if( $entete[$col]=='ISSN' OR $entete[$col]=='ISBN' )
+				{
+					$table.= wd_remove_accents($entete[$col])." VARCHAR(20),";
+				}
+				else
+				{
+					if($col==(count($entete)-1))
+					{
+						$table.= wd_remove_accents($entete[$col])." VARCHAR(500)";
+					}
+					else
+					{
+						$table.= wd_remove_accents($entete[$col])." VARCHAR(500),";
+					}
+				}
+			}
+			
+			$nom=wd_remove_accents($nom);
+			
+			$bd = Db::getInstance();
+			$query = "CREATE TABLE ".$nom." ( ".$table." )";		
+			
+			if($bd->q($query))
+			{			
+			}
+
+			else{
+			die(mysql_error()); 
+			}
+
+			
+			//Enregistrement des données dans la table précédemment créée
+			
+			
+			for($lig = 0 ; $lig < count($champs) ; $lig++) 
+			{			
+				$values='';
+				
+				for($col = 0 ; $col < count($champs[$lig]) ; $col++) 
+				{		
+					if($champs[$lig][$col] == '')
+					{
+							$champs[$lig][$col]= 'null';
+					}
+					if($col==(count($champs[$lig])-1))
+					{
+						$values.= "'".mysql_real_escape_string($champs[$lig][$col])."' ";
+					}
+					else
+					{
+						$values.= "'".mysql_real_escape_string($champs[$lig][$col])."', ";
+					}
+				}
+			
+				$query = "INSERT INTO ".$nom." VALUES (".$values.")";		
+				
+				$bd->q($query);
+			}
+			
+			return $lig;
+			
 		}
 		
 		

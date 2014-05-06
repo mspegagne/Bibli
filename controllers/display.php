@@ -8,6 +8,7 @@
 
 include_once ("classes/Db.php");
 include_once ("classes/Bdd.php");
+include_once ("classes/function.php");
 
 function afficher($affichage)
 {

@@ -6,18 +6,7 @@ if(isset($_FILES['bdd']) AND $_FILES['bdd']['error'] == 0)
 { 
 
 	$filename = basename($_FILES['bdd']['name']);
-	$name1=str_replace(' ', '_', ''.$filename.'');
-	$name2=str_replace('È', 'e', ''.$name1.'');
-	$name3=str_replace('Ë', 'e', ''.$name2.'');
-	$name4=str_replace('Í', 'e', ''.$name3.'');
-	$name5=str_replace('Î', 'e', ''.$name4.'');
-	$name6=str_replace('Ù', 'o', ''.$name5.'');
-	$name7=str_replace('Ô', 'i', ''.$name6.'');
-	$name8=str_replace('˚', 'u', ''.$name7.'');
-	$name9=str_replace('‡', 'a', ''.$name8.'');
-	$name10=str_replace('‚', 'a', ''.$name9.'');
-	$name11=str_replace('\'', '_', ''.$name10.'');
-	$filename=strtolower($name11);
+	$filename=wd_remove_accents($filename);
 
 	function check($nom)
 	{
@@ -63,8 +52,9 @@ if(isset($_FILES['bdd']) AND $_FILES['bdd']['error'] == 0)
 	$maj= time();
 	
 	$bdd = new Bdd($nom, $fichier, $description, $nb, $maj);
+	$nb=$bdd->convertBdd();
+	$bdd = new Bdd($nom, $fichier, $description, $nb, $maj);
 	$bdd->saveBdd();
-	
 	
 	?>
 	<script type="text/javascript">
