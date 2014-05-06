@@ -7,6 +7,7 @@
 //c'est une architecture MVC (Model View Controller)
 
 include_once ("classes/Db.php");
+include_once ("classes/Bdd.php");
 
 function afficher($affichage)
 {

@@ -1,3 +1,8 @@
+<?php
+session_start();
+include_once ("config.php");
+?>
+
 <!DOCTYPE html>
 <html>
  <head>
@@ -19,6 +24,8 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
+	
+	<script src="bootstrap/js/jquery.js"></script>
   </head>
 <body>
 
@@ -53,8 +60,6 @@
 
 
 	
-	
-    <script src="bootstrap/js/jquery.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
   </body>
 </html>

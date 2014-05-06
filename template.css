@@ -44,6 +44,10 @@ body > .container {
   margin: 20px 0;
 }
 
+.page-header{
+  margin-top: 0px;
+}
+
 #footer > .container {
   padding-right: 15px;
   padding-left: 15px;
