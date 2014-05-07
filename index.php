@@ -38,8 +38,8 @@ include_once ("config.php");
 		  <ul class="nav navbar-nav">
 			<li><a href="index.php?afficher=admin">Admin</a></li>
 		  </ul>
-		  <form class="navbar-form pull-right">
-			<input type="text" style="width:150px" class="input-sm form-control" placeholder="Recherche...">
+		  <form class="navbar-form pull-right" action="index.php?afficher=index" method="post" name="search" enctype="multipart/form-data">
+			<input type="text" style="width:150px" id="search" name="search" class="input-sm form-control" placeholder="Recherche...">
 			<button type="submit" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-search"></span> Chercher</button>
 		  </form>
       </div>

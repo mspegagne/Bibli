@@ -141,7 +141,7 @@ class Bdd
 			
 			//Création de la table à partir de l'entete du fichier csv
 			
-			$table='';			
+			$table='id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, ';			
 			
 			for($col = 0 ; $col < count($entete) ; $col++) 
 			{
@@ -181,7 +181,7 @@ class Bdd
 			
 			for($lig = 0 ; $lig < count($champs) ; $lig++) 
 			{			
-				$values='';
+				$values="'',";
 				
 				for($col = 0 ; $col < count($champs[$lig]) ; $col++) 
 				{		

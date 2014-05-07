@@ -52,7 +52,7 @@ if(isset($_FILES['bdd']) AND $_FILES['bdd']['error'] == 0)
 	$maj= time();
 	
 	$bdd = new Bdd($nom, $fichier, $description, $nb, $maj);
-	$nb=$bdd->convertBdd();
+	$nb=($bdd->convertBdd())-1;
 	$bdd = new Bdd($nom, $fichier, $description, $nb, $maj);
 	$bdd->saveBdd();
 	

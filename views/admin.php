@@ -43,7 +43,7 @@
 		</div>
 
 		<!-- Description -->
-		<div class="form-group">
+		<div class="form-group" style="margin-bottom: 0px;">
 		  <label class="col-md-3 control-label" for="description">Description</label>
 		  <div class="col-md-9">
 			<textarea class="form-control" id="description" name="description" placeholder="" rows="3"></textarea>
@@ -51,10 +51,11 @@
 		</div>
 
 		<!-- bdd input-->
-		<div class="form-group">
+		<div class="form-group" style="margin-bottom: 0px;">
 		  <label class="col-md-3 control-label" for="bdd"></label>
-			  <div class="controls">
+			  <div class="col-md-9 controls">
 				<input id="bdd" name="bdd" class="input-file" type="file">
+				<span class="help-block">La bdd doit être un fichier CSV encodé en ANSI</span>  
 			  </div> 
 		</div>
 

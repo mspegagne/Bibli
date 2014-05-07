@@ -6,9 +6,10 @@
 //a la fin des controlleurs on affiche les views dans lesquels on affiche les résultats
 //c'est une architecture MVC (Model View Controller)
 
+include_once ("classes/function.php");
 include_once ("classes/Db.php");
 include_once ("classes/Bdd.php");
-include_once ("classes/function.php");
+include_once ("classes/Ouvrage.php");
 
 function afficher($affichage)
 {
