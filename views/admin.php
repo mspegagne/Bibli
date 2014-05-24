@@ -55,7 +55,6 @@
 		  <label class="col-md-3 control-label" for="bdd"></label>
 			  <div class="col-md-9 controls">
 				<input id="bdd" name="bdd" class="input-file" type="file">
-				<span class="help-block">La bdd doit être un fichier CSV encodé en ANSI</span>  
 			  </div> 
 		</div>
 

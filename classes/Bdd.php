@@ -153,11 +153,11 @@ class Bdd
 				{
 					if($col==(count($entete)-1))
 					{
-						$table.= wd_remove_accents($entete[$col])." VARCHAR(500)";
+						$table.= wd_remove_accents($entete[$col])." TEXT";
 					}
 					else
 					{
-						$table.= wd_remove_accents($entete[$col])." VARCHAR(500),";
+						$table.= wd_remove_accents($entete[$col])." TEXT,";
 					}
 				}
 			}
@@ -165,7 +165,7 @@ class Bdd
 			$nom=wd_remove_accents($nom);
 			
 			$bd = Db::getInstance();
-			$query = "CREATE TABLE ".$nom." ( ".$table." )";		
+			$query = "CREATE TABLE ".$nom." ( ".$table." ) DEFAULT CHARSET=utf8;";		
 			
 			if($bd->q($query))
 			{			
