@@ -126,7 +126,20 @@ class Ouvrage
 		if((!is_numeric($cle)) AND $cle!='id')
 		{
 			?>
-				<div class="panel-body"><?php echo $cle; ?> : <?php echo $valeur; ?></div>
+				<div class="panel-body"><?php echo "<strong>".$cle."</strong>"; ?> : <?php 
+				if(filter_var($valeur, FILTER_VALIDATE_URL))
+				{
+					echo "<a href=".$valeur.">".$valeur."</a>";
+				}
+				elseif($cle=="Title"||$cle=="Titre"||$cle=="title"||$cle=="titre")
+				{
+					echo "<strong style='color:red;'>".$valeur."</strong>";
+				}
+				else
+				{
+					echo $valeur;
+				}
+				?></div>
 			<?php		
 		}
 	}
