@@ -3,7 +3,7 @@
 
 class Label
 {	
-	
+	/*champs de base*/
 	private $labels = array(
 		"titre"  => "Titre",
 		"Titre" => "Titre",
@@ -19,10 +19,10 @@ class Label
 		"startdate" => "Date de fin",
 	);
 	
-	
+	/* ajout d'une clé et son label à la table*/
 	public function addLabel($key, $label)
 	{
-	$this->labels[$key] = $label;
+		$this->labels[$key] = $label;
 	}
 	
 	public function getLabel($key)
@@ -32,20 +32,26 @@ class Label
 	
 	// ajoute une liste de clés et son label associé
 	
-	/*public function add LabelList($keyList, $label)
+	public function addLabelList($keyList, $label)
 	{
-		
+		$length = count($keyList);
+		$i = 0;
+		while($i < $length)
+		{
+		$this->addLabel($keyList[$i], $label);
+		$i++;
+		}
 	}
-	*/
 	
+	/*Booléen : retourne true si la clé passée en paramètre est présente dans la table, false sinon*/
 	public function existKey($key)
 	{
 	
-		if(array_key_exists($key, $this->labels) == true)
+		if(array_key_exists($key, $this->labels))
 		{
-		return true;
+		return "true";
 		}
-		else return false;
+		else return "false";
 		
 	}
 	
