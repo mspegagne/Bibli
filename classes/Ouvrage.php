@@ -1,16 +1,21 @@
 <?php
 
+include_once('Label.php');
+
 class Ouvrage
 {
 	public $champs = array();
 	
 	public $values = array();
 	
+	public $tablab;
+	
 	
 	public function __construct($champs, $values)
 	{	
 		$this->champs = $champs;
 		$this->values = $values;	
+		$this->tablab = new Label();
 	}
 	
 	public function values(){
@@ -110,6 +115,22 @@ class Ouvrage
 		return $resultat;
 	}
 	
+			//Affichage du label des champs
+	public function printChamps($cle)
+	{	
+			if($this->tablab->existKey($cle))
+			{
+			$label = $this->tablab->getLabel($cle);
+			echo "<strong>".$label."</strong>";
+			}
+			
+			else 
+		{
+			echo "<strong>".$cle."</strong>"; 
+		}
+		
+	}
+	
 	//Affichage propre d'UN ouvrage, $data de type ouvrage
 	public function printOuvrage()
 	{
@@ -126,14 +147,17 @@ class Ouvrage
 		if((!is_numeric($cle)) AND $cle!='id')
 		{
 			?>
-				<div class="panel-body"><?php echo "<strong>".$cle."</strong>"; ?> : <?php 
+				<div class="panel-body">
+				<?php $this->printChamps($cle); ?> 
+				:
+				<?php 
 				if(filter_var($valeur, FILTER_VALIDATE_URL))
 				{
 					echo "<a href=".$valeur.">".$valeur."</a>";
 				}
 				elseif($cle=="Title"||$cle=="Titre"||$cle=="title"||$cle=="titre")
 				{
-					echo "<strong style='color:red;'>".$valeur."</strong>";
+					echo "<strong style='color: rgb(180, 46 , 69);'>".$valeur."</strong>";
 				}
 				elseif($cle="ISBN"||$cle="isbn"||$cle="Isbn"){
 					echo $valeur;
@@ -148,11 +172,14 @@ class Ouvrage
 		}
 	}
 	?>
+	
+	
 	</div>
 	</div>
 	<?php
 	}
-	
+
+		
 	//Affichage d'une recherche
 	public static function printRetour($data)
 	{	
