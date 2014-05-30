@@ -138,8 +138,10 @@ class Ouvrage
 	$champs = $this->champs;
 	$values = $this->values;
 	
-	?>	<div class="row" style="margin-left: 15px;">
-		<div class="col-lg-10 panel panel-info">
+	?>	
+		<div class="row" style="margin-left: 15px;">
+			<div class="col-lg-10 panel panel-info">
+				<div class="col-lg-9 col-lg-push-3">
 	<?php
 	
 	foreach($values as $cle =>$valeur)
@@ -148,10 +150,17 @@ class Ouvrage
 		{
 			?>
 				<div class="panel-body">
-				<?php $this->printChamps($cle); ?> 
-				:
+				<?php $this->printChamps($cle); ?> 				:
 				<?php 
-				if(filter_var($valeur, FILTER_VALIDATE_URL))
+				if($valeur == "null")
+				{
+					echo "Non disponible";
+				}
+				elseif($cle=="ISBN"||$cle=="isbn"||$cle=="Isbn")
+				{
+				$isbn = $valeur;
+				}
+				elseif(filter_var($valeur, FILTER_VALIDATE_URL))
 				{
 					echo "<a href=".$valeur.">".$valeur."</a>";
 				}
@@ -159,7 +168,6 @@ class Ouvrage
 				{
 					echo "<strong style='color: rgb(180, 46 , 69);'>".$valeur."</strong>";
 				}
-				
 				else
 				{
 					echo $valeur;
@@ -168,13 +176,15 @@ class Ouvrage
 			<?php		
 		}
 	}
-	if($cle="ISBN"||$cle="isbn"||$cle="Isbn"){
-					echo $valeur;
-					echo '<img src="images.amazon.com/images/P/'.$valeur.'.01.SZZZZZZZ.jpg" alt="couverture"/>';
-					}
 	?>
-	</div>
-	</div>
+				</div>
+				<div class="col-lg-3 col-lg-pull-9" style="margin-top: 45px;">
+				<?php
+				echo '<img src="images.amazon.com/images/P/'.$valeur.'.01.SZZZZZZZ.jpg" alt="couverture" height=200 align="center"/>';
+				?>
+				</div>
+			</div>
+		</div>
 	<?php
 	}
 
