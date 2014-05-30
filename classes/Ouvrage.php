@@ -158,7 +158,15 @@ class Ouvrage
 				}
 				elseif($cle=="ISBN"||$cle=="isbn"||$cle=="Isbn")
 				{
-				$isbn = $valeur;
+				/*enlève le "-" de l'isbn*/
+				$expl_isbn = explode("-" , $valeur);
+				$isbn = $expl_isbn[0];
+				$length = count($expl_isbn);
+				for($i=1; $i<$length; $i++)
+				{
+				$isbn = $isbn.$expl_isbn[$i];
+				}
+				
 				}
 				elseif(filter_var($valeur, FILTER_VALIDATE_URL))
 				{
@@ -180,7 +188,8 @@ class Ouvrage
 				</div>
 				<div class="col-lg-3 col-lg-pull-9" style="margin-top: 45px;">
 				<?php
-				echo '<img src="images.amazon.com/images/P/'.$valeur.'.01.SZZZZZZZ.jpg" alt="couverture" height=200 align="center"/>';
+				//echo '<img src="http://images.amazon.com/images/P/'.$isbn.'.01.LZZZZZZZ.jpg" alt="couverture" align="center"/>';
+				echo '<img src="http://images.amazon.com/images/P/2765414173.01.LZZZZZZZ.jpg" alt="couverture" align="center"/>';
 				?>
 				</div>
 			</div>
