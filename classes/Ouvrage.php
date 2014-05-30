@@ -159,10 +159,7 @@ class Ouvrage
 				{
 					echo "<strong style='color: rgb(180, 46 , 69);'>".$valeur."</strong>";
 				}
-				elseif($cle="ISBN"||$cle="isbn"||$cle="Isbn"){
-					echo $valeur;
-					echo '<img src="images.amazon.com/images/P/'.$valeur.'.01.SZZZZZZZ.jpg" alt="couverture"/>';
-				}
+				
 				else
 				{
 					echo $valeur;
@@ -171,9 +168,11 @@ class Ouvrage
 			<?php		
 		}
 	}
+	if($cle="ISBN"||$cle="isbn"||$cle="Isbn"){
+					echo $valeur;
+					echo '<img src="images.amazon.com/images/P/'.$valeur.'.01.SZZZZZZZ.jpg" alt="couverture"/>';
+					}
 	?>
-	
-	
 	</div>
 	</div>
 	<?php
