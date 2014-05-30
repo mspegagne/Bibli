@@ -45,9 +45,6 @@ class Bdd
 		{
 			$values= $this->values();
 			
-			$values['nom']=mysql_real_escape_string($values['nom']);			
-			$values['fichier']=mysql_real_escape_string($values['fichier']);
-			$values['description']=mysql_real_escape_string($values['description']);
 			
 			$bd = Db::getInstance();
 			if($bd->autoExecute('bdd', $values, 'INSERT'))
@@ -56,7 +53,7 @@ class Bdd
 			}
 
 			else{
-			die(mysql_error()); 
+			
 			}
 		}
 		
@@ -67,8 +64,6 @@ class Bdd
 			$bd = Db::getInstance();
 			
 			$nom = $values['nom'];
-			$values['fichier']=mysql_real_escape_string($values['fichier']);
-			$values['description']=mysql_real_escape_string($values['description']);
 			
 			if($bd->autoExecute('bdd', $values, 'UPDATE', 'nom=\''.$nom.'\''))
 			{
@@ -76,7 +71,7 @@ class Bdd
 			}
 
 			else{
-			die(mysql_error()); 
+			
 			}
 		}
 		
@@ -90,7 +85,7 @@ class Bdd
 			}
 
 			else{
-			die(mysql_error()); 
+			
 			}
 			$nom = wd_remove_accents($nom);
 			$query = "DROP TABLE ".$nom."";
@@ -100,7 +95,7 @@ class Bdd
 			}
 
 			else{
-			die(mysql_error()); 
+			
 			}
 		}
 		
@@ -172,7 +167,7 @@ class Bdd
 			}
 
 			else{
-			die(mysql_error()); 
+			
 			}
 
 			
@@ -191,11 +186,11 @@ class Bdd
 					}
 					if($col==(count($champs[$lig])-1))
 					{
-						$values.= "'".mysql_real_escape_string($champs[$lig][$col])."' ";
+						$values.= "'".$champs[$lig][$col]."' ";
 					}
 					else
 					{
-						$values.= "'".mysql_real_escape_string($champs[$lig][$col])."', ";
+						$values.= "'".$champs[$lig][$col]."', ";
 					}
 				}
 			

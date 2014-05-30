@@ -10,6 +10,7 @@ include_once ("classes/function.php");
 include_once ("classes/Db.php");
 include_once ("classes/Bdd.php");
 include_once ("classes/Ouvrage.php");
+include_once("classes/Label.php");
 
 function afficher($affichage)
 {

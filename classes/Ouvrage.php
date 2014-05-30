@@ -1,7 +1,5 @@
 <?php
 
-include_once('Label.php');
-
 class Ouvrage
 {
 	public $champs = array();
@@ -25,27 +23,17 @@ class Ouvrage
 	}
 	
 	public static function getChamps($table)
-	{
-		//récupère tous les champs de la table $table dans la base de données $bdd.
-		$champs = mysql_list_fields(_MYSQL_DATABASE_,$table);
-
-		// Enumère le nombre de champs de la table.
-		$nb_champs = mysql_num_fields($champs);
-
-		// rempli le tableau temporaire des noms de champs.
-		for ($i = 0; $i < $nb_champs; $i++)
+	{		
+		$bd = Db::getInstance();
+		$retour = array();
+		$requete = "SHOW COLUMNS FROM ".$table.";";
+		$res = $bd->q($requete);
+		foreach($res as $value)
 		{
-			$tableau_noms_temp[$i] = mysql_field_name($champs, $i);
+			$retour[] = $value['Field'];
 		}
-
-	   $tableau_noms = array();
-
-		for ($i = 1; $i < $nb_champs; $i++)
-		{
-			array_push($tableau_noms,$tableau_noms_temp[$i]);
-		}
-		return $tableau_noms;
-
+		
+		return $retour;
 	}
 	
 	public static function getValues($table, $id)
@@ -72,12 +60,10 @@ class Ouvrage
 		{
 			$table = wd_remove_accents($value['nom']);
 			$champs = Ouvrage::getChamps($table);
-			
 			$chercher = trim($keywords);
 			$elts = explode(" ", $chercher);
 			$premier = "%".$elts[0]."%";
 			$recherche = "((".$champs[1]." LIKE'".$premier."'";
-			
 			foreach($champs as $champ)
 			{					
 				$recherche.= "OR ".$champ." LIKE '".$premier."'";

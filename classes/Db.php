@@ -43,9 +43,9 @@
 		//Connect to database
 		private function connect()
 		{
-			$this->connection = mysql_connect($this->server, $this->username, $this->password);
-			mysql_select_db($this->database, $this->connection);
-			mysql_query("SET character_set_results = 'utf8', character_set_client = 'utf8', character_set_connection = 'utf8', character_set_database = 'utf8', character_set_server = 'utf8'");
+			$this->connection = mysqli_connect($this->server, $this->username, $this->password);
+			mysqli_select_db($this->connection, $this->database);
+			mysqli_query($this->connection, "SET character_set_results = 'utf8', character_set_client = 'utf8', character_set_connection = 'utf8', character_set_database = 'utf8', character_set_server = 'utf8'");
 			$this->connected = true;
 			return;
 		}
@@ -106,27 +106,30 @@
 			if (!$this->connected)
 				$this->connect();
 			
-			$ret = mysql_query($query, $this->connection);
+			$ret = mysqli_query($this->connection, $query);
 			
-			if ($ret === false)
+			if ($ret == false)
 				return false;
 				
-			if (is_resource($ret))
-			{
-				while ($res = mysql_fetch_array($ret))
+			if ($ret instanceof mysqli_result) {
+				while ($res = mysqli_fetch_array($ret))
 					$tab_res[sizeof($tab_res)] = $res;
-					return $tab_res;
+
+			return $tab_res;
 			}
+			
 			else{
 			return true;
 			
 			}
+			
+			
 				
 		}
 		
 		public function disconnect()
 		{
-			mysql_close($this->connection);
+			mysqli_close($this->connection);
 		}
 		
 		//Get the first value of the first row
