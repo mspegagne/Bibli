@@ -108,17 +108,17 @@ class Ouvrage
 	$champs = $this->champs;
 	$values = $this->values;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 	?>	<div class="row" style="margin-left: 15px;">
 		<div class="col-lg-10 panel panel-info">
-=======
+<?php
 	$isbn ="";
 	
 	?>	
 		<div class="row" style="margin-left: 15px;">
 			<div class="col-lg-10 panel panel-info">
 				<div class="col-lg-9 col-lg-push-3">
->>>>>>> 9d921ba14214f56f4b6133feac4149d769a3b66c
 	<?php
 
 	foreach($values as $cle =>$valeur)
@@ -157,15 +157,31 @@ class Ouvrage
 			}
 			?>
 			</div>
+<?php
+				$isbn = $isbn.$expl_isbn[$i];
+				}
+				
+				}
+				elseif(filter_var($valeur, FILTER_VALIDATE_URL))
+				{
+					echo "<a href=".$valeur.">".$valeur."</a>";
+				}
+				elseif($cle=="Title"||$cle=="Titre"||$cle=="title"||$cle=="titre")
+				{
+					echo "<strong style='color: rgb(180, 46 , 69);'>".$valeur."</strong>";
+				}
+				else
+				{
+					echo $valeur;
+				}
+				?></div>
 			<?php		
 		}
 	}
 	?>
-<<<<<<< HEAD
 		
 	</div>
 	</div>
-=======
 				</div>
 				<div class="col-lg-3 col-lg-pull-9" style="margin-top: 45px;">
 				<?php
@@ -185,7 +201,6 @@ class Ouvrage
 				</div>
 			</div>
 		</div>
->>>>>>> 9d921ba14214f56f4b6133feac4149d769a3b66c
 	<?php
 	}
 	
