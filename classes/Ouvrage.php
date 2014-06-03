@@ -123,6 +123,7 @@ class Ouvrage
 	
 	$champs = $this->champs;
 	$values = $this->values;
+	$isbn ="";
 	
 	?>	
 		<div class="row" style="margin-left: 15px;">
@@ -174,8 +175,18 @@ class Ouvrage
 				</div>
 				<div class="col-lg-3 col-lg-pull-9" style="margin-top: 45px;">
 				<?php
-				//echo '<img src="http://images.amazon.com/images/P/'.$isbn.'.01.LZZZZZZZ.jpg" alt="couverture" align="center"/>';
-				echo '<img src="http://images.amazon.com/images/P/2765414173.01.LZZZZZZZ.jpg" alt="couverture" align="center"/>';
+				if(filter_var("http://images.amazon.com/images/P/'.$isbn.'.01.LZZZZZZZ.jpg", FILTER_VALIDATE_URL))
+				// mauvais test : il faudrait tester si l'url est valide
+				{
+	
+					//echo '<img src="http://images.amazon.com/images/P/'.$isbn.'.01.LZZZZZZZ.jpg" alt="couverture" align="center"/>';
+					echo '<img src="http://images.amazon.com/images/P/2765414173.01.LZZZZZZZ.jpg" alt="couverture" align="center"/>';
+					// pour le moment on affiche une couverture exemple
+				}
+				else
+				{
+					echo '<img src="images\default_couv.jpg" title="couverture non-disponible" align="center"/>';
+				}
 				?>
 				</div>
 			</div>
