@@ -49,9 +49,9 @@ class Label
 	
 		if(array_key_exists($key, $this->labels))
 		{
-		return "true";
+		return true;
 		}
-		else return "false";
+		else return false;
 		
 	}
 	

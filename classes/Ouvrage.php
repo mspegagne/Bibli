@@ -1,7 +1,5 @@
 <?php
 
-include_once('Label.php');
-
 class Ouvrage
 {
 	public $champs = array();
@@ -25,27 +23,17 @@ class Ouvrage
 	}
 	
 	public static function getChamps($table)
-	{
-		//récupère tous les champs de la table $table dans la base de données $bdd.
-		$champs = mysql_list_fields(_MYSQL_DATABASE_,$table);
-
-		// Enumère le nombre de champs de la table.
-		$nb_champs = mysql_num_fields($champs);
-
-		// rempli le tableau temporaire des noms de champs.
-		for ($i = 0; $i < $nb_champs; $i++)
+	{		
+		$bd = Db::getInstance();
+		$retour = array();
+		$requete = "SHOW COLUMNS FROM ".$table.";";
+		$res = $bd->q($requete);
+		foreach($res as $value)
 		{
-			$tableau_noms_temp[$i] = mysql_field_name($champs, $i);
+			$retour[] = $value['Field'];
 		}
-
-	   $tableau_noms = array();
-
-		for ($i = 1; $i < $nb_champs; $i++)
-		{
-			array_push($tableau_noms,$tableau_noms_temp[$i]);
-		}
-		return $tableau_noms;
-
+		
+		return $retour;
 	}
 	
 	public static function getValues($table, $id)
@@ -72,12 +60,10 @@ class Ouvrage
 		{
 			$table = wd_remove_accents($value['nom']);
 			$champs = Ouvrage::getChamps($table);
-			
 			$chercher = trim($keywords);
 			$elts = explode(" ", $chercher);
 			$premier = "%".$elts[0]."%";
 			$recherche = "((".$champs[1]." LIKE'".$premier."'";
-			
 			foreach($champs as $champ)
 			{					
 				$recherche.= "OR ".$champ." LIKE '".$premier."'";
@@ -138,8 +124,10 @@ class Ouvrage
 	$champs = $this->champs;
 	$values = $this->values;
 	
-	?>	<div class="row" style="margin-left: 15px;">
-		<div class="col-lg-10 panel panel-info">
+	?>	
+		<div class="row" style="margin-left: 15px;">
+			<div class="col-lg-10 panel panel-info">
+				<div class="col-lg-9 col-lg-push-3">
 	<?php
 	
 	foreach($values as $cle =>$valeur)
@@ -148,10 +136,25 @@ class Ouvrage
 		{
 			?>
 				<div class="panel-body">
-				<?php $this->printChamps($cle); ?> 
-				:
+				<?php $this->printChamps($cle); ?> 				:
 				<?php 
-				if(filter_var($valeur, FILTER_VALIDATE_URL))
+				if($valeur == "null")
+				{
+					echo "Non disponible";
+				}
+				elseif($cle=="ISBN"||$cle=="isbn"||$cle=="Isbn")
+				{
+				/*enlève le "-" de l'isbn*/
+				$expl_isbn = explode("-" , $valeur);
+				$isbn = $expl_isbn[0];
+				$length = count($expl_isbn);
+				for($i=1; $i<$length; $i++)
+				{
+				$isbn = $isbn.$expl_isbn[$i];
+				}
+				
+				}
+				elseif(filter_var($valeur, FILTER_VALIDATE_URL))
 				{
 					echo "<a href=".$valeur.">".$valeur."</a>";
 				}
@@ -159,11 +162,14 @@ class Ouvrage
 				{
 					echo "<strong style='color: rgb(180, 46 , 69);'>".$valeur."</strong>";
 				}
+<<<<<<< HEAD
 				elseif($cle="ISBN"||$cle="isbn")
 				{
 					echo $valeur;
 					echo '<img src="images.amazon.com/images/P/'.$valeur.'.01.SZZZZZZZ.jpg" alt="couverture"/>';
 				}
+=======
+>>>>>>> ec7b045acc0fd8bc3e17b9335445ba7e2cf5cc51
 				else
 				{
 					echo $valeur;
@@ -173,10 +179,15 @@ class Ouvrage
 		}
 	}
 	?>
-	
-	
-	</div>
-	</div>
+				</div>
+				<div class="col-lg-3 col-lg-pull-9" style="margin-top: 45px;">
+				<?php
+				//echo '<img src="http://images.amazon.com/images/P/'.$isbn.'.01.LZZZZZZZ.jpg" alt="couverture" align="center"/>';
+				echo '<img src="http://images.amazon.com/images/P/2765414173.01.LZZZZZZZ.jpg" alt="couverture" align="center"/>';
+				?>
+				</div>
+			</div>
+		</div>
 	<?php
 	}
 
