@@ -41,7 +41,24 @@ include_once ("config.php");
 		  <form class="navbar-form pull-right" action="index.php?afficher=index" method="post" name="search" enctype="multipart/form-data">
 			<input type="text" style="width:150px" id="search" name="search" class="input-sm form-control" placeholder="Recherche...">
 			<button type="submit" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-search"></span> Chercher</button>
+			<?php
+			if (isset($_SESSION['connect']))//On vérifie que le variable existe
+			{
+					$connect=$_SESSION['connect'];//On récupère la valeur de la variable de session
+			}
+			else
+			{
+					$connect=0;//Si $_SESSION['connect'] n'existe pas, on donne la valeur "0"
+			}
+			if ($connect == '1')
+			{
+				?>
+				<a href="index.php?executer=deconnexion" class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-off"></span></a>
+				<?php
+			}
+			?>
 		  </form>
+		  
       </div>
     </header>
 
@@ -54,7 +71,7 @@ include_once ("config.php");
 
     <footer id="footer">
       <div class="container">
-        <p class="text-muted">By Mathieu - Copyright INSA</p>
+        <p class="text-muted">By Dpt INFO - Copyright INSA</p>
       </div>
     </footer>
 

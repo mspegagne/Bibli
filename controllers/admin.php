@@ -1,5 +1,9 @@
 <?php 
 
+
+include_once ("control-session.php");
+
+
 //fonction de récupération et d'enregistrement du fichier csv
 
 if(isset($_FILES['bdd']) AND $_FILES['bdd']['error'] == 0)
