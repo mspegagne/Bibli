@@ -6,14 +6,11 @@ class Ouvrage
 	
 	public $values = array();
 	
-	public $tablab;
-	
 	
 	public function __construct($champs, $values)
 	{	
 		$this->champs = $champs;
 		$this->values = $values;	
-		$this->tablab = new Label();
 	}
 	
 	public function values(){
@@ -101,95 +98,97 @@ class Ouvrage
 		return $resultat;
 	}
 	
-			//Affichage du label des champs
-	public function printChamps($cle)
-	{	
-			if($this->tablab->existKey($cle))
-			{
-			$label = $this->tablab->getLabel($cle);
-			echo "<strong>".$label."</strong>";
-			}
-			
-			else 
-		{
-			echo "<strong>".$cle."</strong>"; 
-		}
-		
-	}
+
 	
 	//Affichage propre d'UN ouvrage, $data de type ouvrage
+	
 	public function printOuvrage()
 	{
-	
+
 	$champs = $this->champs;
 	$values = $this->values;
+<<<<<<< HEAD
+
+	?>	<div class="row" style="margin-left: 15px;">
+		<div class="col-lg-10 panel panel-info">
+=======
+	$isbn ="";
 	
 	?>	
 		<div class="row" style="margin-left: 15px;">
 			<div class="col-lg-10 panel panel-info">
 				<div class="col-lg-9 col-lg-push-3">
+>>>>>>> 9d921ba14214f56f4b6133feac4149d769a3b66c
 	<?php
-	
+
 	foreach($values as $cle =>$valeur)
 	{
 		if((!is_numeric($cle)) AND $cle!='id')
 		{
 			?>
-				<div class="panel-body">
-				<?php $this->printChamps($cle); ?> 				:
-				<?php 
-				if($valeur == "null")
-				{
-					echo "Non disponible";
-				}
-				elseif($cle=="ISBN"||$cle=="isbn"||$cle=="Isbn")
-				{
-				/*enlève le "-" de l'isbn*/
-				$expl_isbn = explode("-" , $valeur);
-				$isbn = $expl_isbn[0];
-				$length = count($expl_isbn);
+			<div class="panel-body"><?php echo "<strong>".$cle."</strong>"; ?> : <?php 
+			if(filter_var($valeur, FILTER_VALIDATE_URL))
+			{
+				echo "<a href=".$valeur." target=_blank>".$valeur."</a>";
+			}
+			elseif($cle=="ISBN"||$cle=="isbn"||$cle=="Isbn")
+			{
+			/*enlève le "-" de l'isbn*/
+			$expl_isbn = explode("-" , $valeur);
+			$isbn = $expl_isbn[0];
+			$length = count($expl_isbn);
 				for($i=1; $i<$length; $i++)
 				{
-				$isbn = $isbn.$expl_isbn[$i];
-				}
-				
-				}
-				elseif(filter_var($valeur, FILTER_VALIDATE_URL))
-				{
-					echo "<a href=".$valeur.">".$valeur."</a>";
-				}
-				elseif($cle=="Title"||$cle=="Titre"||$cle=="title"||$cle=="titre")
-				{
-					echo "<strong style='color: rgb(180, 46 , 69);'>".$valeur."</strong>";
-				}
-<<<<<<< HEAD
-				elseif($cle="ISBN"||$cle="isbn")
-				{
-					echo $valeur;
-					echo '<img src="images.amazon.com/images/P/'.$valeur.'.01.SZZZZZZZ.jpg" alt="couverture"/>';
-				}
-=======
->>>>>>> ec7b045acc0fd8bc3e17b9335445ba7e2cf5cc51
-				else
-				{
-					echo $valeur;
-				}
-				?></div>
+					$isbn = $isbn.$expl_isbn[$i];
+				}				
+			}
+			elseif($cle=="Title"||$cle=="Titre"||$cle=="title"||$cle=="titre")
+			{
+				echo "<strong style='color:red;'>".$valeur."</strong>";
+			}
+			elseif($cle=="ISBN"||$cle=="isbn")
+			{
+				echo $valeur;
+				echo '<img src="images.amazon.com/images/P/'.$valeur.'.01.SZZZZZZZ.jpg" alt="couverture"/>';
+			}
+			else
+			{
+				echo $valeur;
+			}
+			?>
+			</div>
 			<?php		
 		}
 	}
 	?>
+<<<<<<< HEAD
+		
+	</div>
+	</div>
+=======
 				</div>
 				<div class="col-lg-3 col-lg-pull-9" style="margin-top: 45px;">
 				<?php
-				//echo '<img src="http://images.amazon.com/images/P/'.$isbn.'.01.LZZZZZZZ.jpg" alt="couverture" align="center"/>';
-				echo '<img src="http://images.amazon.com/images/P/2765414173.01.LZZZZZZZ.jpg" alt="couverture" align="center"/>';
+				if(filter_var("http://images.amazon.com/images/P/'.$isbn.'.01.LZZZZZZZ.jpg", FILTER_VALIDATE_URL))
+				// mauvais test : il faudrait tester si l'url est valide
+				{
+	
+					//echo '<img src="http://images.amazon.com/images/P/'.$isbn.'.01.LZZZZZZZ.jpg" alt="couverture" align="center"/>';
+					echo '<img src="http://images.amazon.com/images/P/2765414173.01.LZZZZZZZ.jpg" alt="couverture" align="center"/>';
+					// pour le moment on affiche une couverture exemple
+				}
+				else
+				{
+					echo '<img src="images\default_couv.jpg" title="couverture non-disponible" align="center"/>';
+				}
 				?>
 				</div>
 			</div>
 		</div>
+>>>>>>> 9d921ba14214f56f4b6133feac4149d769a3b66c
 	<?php
 	}
+	
 
 		
 	//Affichage d'une recherche
