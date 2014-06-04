@@ -161,7 +161,7 @@ function afficheRelation()
 		?>
 		 <div href="#" class="list-group-item">
 		 
-			<span class="list-group-item-heading"><h4><?php echo $csv." "; ?><span class="glyphicon glyphicon-arrow-right" ></span><?php echo " ".$sql; ?><a href="index.php?afficher=admin&amp;supprrel=<?php echo $csv; ?>"><span class="glyphicon glyphicon-remove pull-right" style="margin-left: 10px;"></span></a></h4></span>
+			<span class="list-group-item-heading"><?php echo $csv." "; ?><span class="glyphicon glyphicon-arrow-right" ></span><?php echo " ".$sql; ?><a href="index.php?afficher=admin&amp;supprrel=<?php echo $csv; ?>"><span class="glyphicon glyphicon-remove pull-right" style="margin-left: 10px;"></span></a></span>
 			
 		 </div>
           

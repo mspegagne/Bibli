@@ -154,7 +154,8 @@ class Ouvrage
 	//Affichage propre d'UN ouvrage, $data de type ouvrage
 	public function printOuvrage()
 	{
-
+	
+	$bd = Db::getInstance();
 	$champs = $this->champs;
 	$values = $this->values;
 	$image = 'images/book.png';
@@ -162,10 +163,18 @@ class Ouvrage
 
 		foreach($values as $cle =>$valeur)
 		{
+		
+				
+			
 			if((!is_numeric($cle)) AND $cle!='id')
 			{
+			
+				$requete = 'SELECT * FROM relation WHERE csv="'.$cle.'";';
+				$res = $bd->getValue($requete);
+				if($res!=null)
+				$cle=$res;
 				
-				
+				//récupération image
 				if($cle=="ISBN"||$cle=="isbn"||$cle=="Isbn")
 				{
 				/*enlève le "-" de l'isbn*/
@@ -181,6 +190,7 @@ class Ouvrage
 							
 				$image = 'http://images.amazon.com/images/P/'.$isbn.'.01.SZZZZZZZ.jpg';
 				}
+				
 				elseif($cle=="Title"||$cle=="Titre"||$cle=="title"||$cle=="titre")
 				{
 				}
@@ -242,6 +252,7 @@ class Ouvrage
 	<hgroup class="mb20">
 		<h1>Search Results</h1>
 		<h2 class="lead"><strong class="text-danger"><?php echo $total; ?></strong> ouvrage<?php if($total!=0) echo 's';;
+		$searchorigin=$search;
 		$search = explode("-=-", $search);
 		$keywords = $search[0];
 		$base = $search[1];
@@ -270,7 +281,7 @@ class Ouvrage
 	 </div>	 
 	 <?php
 		
-		pagination($nombreDePages, $pageActuelle, $search);		
+		pagination($nombreDePages, $pageActuelle, $searchorigin);		
 
 	}
 }
