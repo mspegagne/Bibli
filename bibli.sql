@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Mer 07 Mai 2014 à 15:43
+-- Généré le: Mer 04 Juin 2014 à 22:02
 -- Version du serveur: 5.6.12-log
 -- Version de PHP: 5.4.16
 
@@ -43,7 +43,8 @@ CREATE TABLE IF NOT EXISTS `bdd` (
 --
 
 INSERT INTO `bdd` (`nom`, `fichier`, `description`, `nombre`, `maj`) VALUES
-('Journaux', '070514report.csv', 'Tous les journaux du monde entier !', 13337, 1399464622);
+('Journaux', '040614report.csv', 'Tous les journaux du monde', 13337, 1401919306),
+('Livres', '040614hp.csv', 'Tous les Harry Potter', 7, 1401919342);
 
 -- --------------------------------------------------------
 
@@ -53,24 +54,24 @@ INSERT INTO `bdd` (`nom`, `fichier`, `description`, `nombre`, `maj`) VALUES
 
 CREATE TABLE IF NOT EXISTS `journaux` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `type` varchar(500) DEFAULT NULL,
-  `title` varchar(500) DEFAULT NULL,
+  `﻿type` text,
+  `title` text,
   `issn` varchar(20) DEFAULT NULL,
-  `eissn` varchar(500) DEFAULT NULL,
-  `startdate` varchar(500) DEFAULT NULL,
-  `enddate` varchar(500) DEFAULT NULL,
-  `resource` varchar(500) DEFAULT NULL,
-  `url` varchar(500) DEFAULT NULL,
+  `eissn` text,
+  `startdate` text,
+  `enddate` text,
+  `resource` text,
+  `url` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13338 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13338 ;
 
 --
 -- Contenu de la table `journaux`
 --
 
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (1, 'Journal', '100 Mile House free press', '0843-0403', 'null', '09/04/2008', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
-(2, 'Journal', '1895 : bulletin de l''Association franc¸aise de recherche sur l''histoire du cinéma', '0769-0959', 'null', '2000', '2009', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://1895.revues.org'),
+(2, 'Journal', '1895 : bulletin de l''Association française de recherche sur l''histoire du cinéma', '0769-0959', 'null', '2000', '2009', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://1895.revues.org'),
 (3, 'Journal', '100 Years of Radio, 1995., International Conference on', 'null', 'null', '1995', '1995', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/servlet/opac?punumber=3533'),
 (4, 'Journal', '18h (site web)', 'null', 'null', '04/01/2006', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (5, 'Journal', '2 Rives (Sorel-Tracy, QC)', 'null', 'null', '30/04/2013', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
@@ -111,7 +112,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (40, 'Journal', 'Abdominal imaging', '0942-8925', '1432-0509', '1993', '31/12/1996', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0942-8925&volume='),
 (41, 'Journal', 'Aberdeen Evening Express (UK)', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (42, 'Journal', 'Aberdeen Press and Journal (UK)', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
-(43, 'Journal', 'Abhandlungen aus dem Mathematischen Seminar der Universita¨t Hamburg', '0025-5858', 'null', '01/12/1922', '31/12/1996', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0025-5858&volume='),
+(43, 'Journal', 'Abhandlungen aus dem Mathematischen Seminar der Universität Hamburg', '0025-5858', 'null', '01/12/1922', '31/12/1996', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0025-5858&volume='),
 (44, 'Journal', 'Abitibi Express Rouyn-Noranda/Abitibi-Ouest', 'null', 'null', '27/07/2010', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (45, 'Journal', 'Abitibi Express Vallée-de-l''Or/Amos-Harricana', 'null', 'null', '08/06/2010', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (46, 'Journal', 'ABN newswire', 'null', 'null', '28/06/2011', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
@@ -228,7 +229,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (157, 'Journal', 'Actualité économique', '0001-771X', 'null', '1969', '3 years ago', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.erudit.org/revue/ae/2012/v88/n1/index.html'),
 (158, 'Journal', 'Actualités (Asbestos, QC)', 'null', 'null', '04/04/2012', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (159, 'Journal', 'Actualités pharmaceutiques', '0515-3700', 'null', '2008', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/05153700'),
-(160, 'Journal', 'Actualite´s pharmaceutiques hospitalie`res', '1769-7344', 'null', '2005', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/17697344'),
+(160, 'Journal', 'Actualités pharmaceutiques hospitalières', '1769-7344', 'null', '2005', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/17697344'),
 (161, 'Journal', 'Actuel (Haute-Saint-Charles / Les Rivières)', 'null', 'null', '07/02/2004', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (162, 'Journal', 'Actusnews (English) (France)', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (163, 'Journal', 'Actusnews (French) (France)', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
@@ -276,7 +277,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (205, 'Journal', 'Advanced Ground Penetrating Radar (IWAGPR), International Workshop on', 'null', 'null', '2003', '2007', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1001204'),
 (206, 'Journal', 'Advanced Information Management and Service, International Conference on', 'null', 'null', '2010', 'null', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1800286'),
 (207, 'Journal', 'Advanced Information Networking and Applications Workshops (AINAW), International Conference on', 'null', 'null', '2007', 'null', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1001766');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (208, 'Journal', 'Advanced Information Systems for Enterprises, IWAISE, International Workshop on', 'null', 'null', '2008', '2008', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1001835'),
 (209, 'Journal', 'Advanced Intelligent Mechatronics, IEEE/ASME (AIM) International Conference on', 'null', 'null', '1997', 'null', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1000006'),
 (210, 'Journal', 'Advanced Issues of E-Commerce and Web-Based Information Systems (WECWIS), International Workshop on', '1530-1354', 'null', '1999', '2002', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1000007'),
@@ -386,7 +387,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (314, 'Journal', 'Afaqs! (web site)', 'null', 'null', '20/11/2012', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (315, 'Journal', 'Affaires - profils', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (316, 'Journal', 'Affaires (site web)', 'null', 'null', '13/01/2001', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
-(317, 'Journal', 'Affaires (Montre´al. 1981)', '0229-3404', 'null', '07/01/1989', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
+(317, 'Journal', 'Affaires (Montréal. 1981)', '0229-3404', 'null', '07/01/1989', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (318, 'Journal', 'Affective Computing and Intelligent Interaction and Workshops, ACII, International Conference on', 'null', 'null', 'null', 'null', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1002992'),
 (319, 'Journal', 'Afghan Islamic press', 'null', 'null', '05/03/2012', '17/06/2012', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (320, 'Journal', 'AFP - Journal Internet AFP (deutsch)', 'null', 'null', '08/01/2007', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
@@ -480,7 +481,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (408, 'Journal', 'Air transport world', '0002-2543', 'null', '01/06/2011', '01/09/2011', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (409, 'Journal', 'Aircraft design : an international journal', '1369-8869', 'null', '2001', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/13698869'),
 (410, 'Journal', 'Aite Group (web site ref.)', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (411, 'Journal', 'Aitia (Lyon)', 'null', '1775-4275', '2011', 'null', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://aitia.revues.org'),
 (412, 'Journal', 'AKIpress News Agency', 'null', 'null', '28/06/2011', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (413, 'Journal', 'Akron beacon journal (Akron, Ohio : 1903)', 'null', 'null', '18/12/2008', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
@@ -689,7 +690,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (616, 'Journal', 'Annales d''Éthiopie', '0066-2127', 'null', '2000', '2005', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/ethio'),
 (617, 'Journal', 'Annales d''histoire économique et sociale', '0003-441X', 'null', '1929', '1932', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/ahess'),
 (618, 'Journal', 'Annales d''histoire sociale (Paris, France : 1939)', '1243-2563', 'null', '1939', '1941', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/ahess');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (619, 'Journal', 'Annales d''histoire sociale (Paris, France : 1945)', '1243-258X', 'null', '1945', '1945', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/ahess'),
 (620, 'Journal', 'Annales d''urologie', '0003-4401', '1768-3378', '2001', '2007', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/00034401'),
 (621, 'Journal', 'Annales françaises d''anesthésie et de réanimation', '0750-7658', '1769-6623', '1995', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/07507658'),
@@ -743,20 +744,20 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (669, 'Journal', 'Annapolis County Spectator (NS)', 'null', 'null', '11/04/2006', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (670, 'Journal', 'Année biologique', '0003-5017', 'null', '1998', '2000', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/00035017'),
 (671, 'Journal', 'année du Maghreb', '1952-8108', 'null', '2004', 'null', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://anneemaghreb.revues.org'),
-(672, 'Journal', 'anne´e psychologique', '0003-5033', 'null', '1894', '1914', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/psy'),
-(673, 'Journal', 'anne´e psychologique', '0003-5033', 'null', '1920', '1920', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/psy'),
-(674, 'Journal', 'anne´e psychologique', '0003-5033', 'null', '1922', '1940', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/psy'),
-(675, 'Journal', 'anne´e psychologique', '0003-5033', 'null', '1942', '1942', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/psy'),
-(676, 'Journal', 'anne´e psychologique', '0003-5033', 'null', '1944', '1944', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/psy'),
-(677, 'Journal', 'anne´e psychologique', '0003-5033', 'null', '1946', '1946', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/psy'),
-(678, 'Journal', 'anne´e psychologique', '0003-5033', 'null', '1948', '1949', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/psy'),
-(679, 'Journal', 'anne´e psychologique', '0003-5033', 'null', '1952', '2008', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/psy'),
+(672, 'Journal', 'année psychologique', '0003-5033', 'null', '1894', '1914', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/psy'),
+(673, 'Journal', 'année psychologique', '0003-5033', 'null', '1920', '1920', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/psy'),
+(674, 'Journal', 'année psychologique', '0003-5033', 'null', '1922', '1940', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/psy'),
+(675, 'Journal', 'année psychologique', '0003-5033', 'null', '1942', '1942', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/psy'),
+(676, 'Journal', 'année psychologique', '0003-5033', 'null', '1944', '1944', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/psy'),
+(677, 'Journal', 'année psychologique', '0003-5033', 'null', '1946', '1946', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/psy'),
+(678, 'Journal', 'année psychologique', '0003-5033', 'null', '1948', '1949', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/psy'),
+(679, 'Journal', 'année psychologique', '0003-5033', 'null', '1952', '2008', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/psy'),
 (680, 'Journal', 'Anniston star', 'null', 'null', '28/10/2008', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (681, 'Journal', 'Annuaire (Ecole pratique des hautes études (France). Section des sciences historiques et philologiques.)', 'null', 'null', '2008', 'null', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://ashp.revues.org'),
 (682, 'Journal', 'Annuaire de la finance - Sociétés - L''AGEFI', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (683, 'Journal', 'Annuaire des collectivités locales', '0248-0573', 'null', '1981', '2006', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/coloc'),
 (684, 'Journal', 'Annuaire du Collège de France', '0069-5580', 'null', '2008', '2010', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://annuaire-cdf.revues.org'),
-(685, 'Journal', 'Annuaire - Ecole pratique des hautes e´tudes, Section-sciences religieuses', 'null', 'null', '2006', 'null', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://asr.revues.org'),
+(685, 'Journal', 'Annuaire - Ecole pratique des hautes études, Section-sciences religieuses', 'null', 'null', '2006', 'null', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://asr.revues.org'),
 (686, 'Journal', 'Annuaire français de droit international', '0066-3085', 'null', '1955', '2008', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/afdi'),
 (687, 'Journal', 'Annuaire suisse de politique de développement', '1660-5934', 'null', '1997', '2008', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://aspd.revues.org'),
 (688, 'Journal', 'Annual bulletin of historical literature', '0066-3832', '1467-8314', '1997', 'null', 'Wiley-Blackwell - Couperin 2012', 'http://rproxy.insa-rennes.fr/login?url=http://onlinelibrary.wiley.com/journal/10.1111/(ISSN)1467-8314'),
@@ -802,7 +803,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (728, 'Journal', 'Anzeiger für Schädlingskunde und Pflanzenschutz', '0003-6307', 'null', '01/09/1970', '31/12/1972', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=1436-5693&volume='),
 (729, 'Journal', 'Anzeiger für Schädlingskunde', '0365-6608', 'null', '01/01/1925', '30/06/1958', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=1612-4758&volume='),
 (730, 'Journal', 'Anzeiger für Schädlingskunde', '0365-6608', 'null', '01/07/1958', '01/09/1968', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=1436-5693&volume='),
-(731, 'Journal', 'Anzeiger fu¨r Scha¨dlingskunde, Pflanzenschutz, Umweltschutz', '0340-7330', 'null', '01/01/1975', '31/12/1996', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=1436-5693&volume='),
+(731, 'Journal', 'Anzeiger für Schädlingskunde, Pflanzenschutz, Umweltschutz', '0340-7330', 'null', '01/01/1975', '31/12/1996', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=1436-5693&volume='),
 (732, 'Journal', 'APA EconomicNews Service (Austria)', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (733, 'Journal', 'Apertura (sitio web ref.)', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (734, 'Journal', 'APMIS : acta pathologica, microbiologica et immunologica Scandinavica', '0903-4641', '1600-0463', '1997', 'null', 'Wiley-Blackwell - Couperin 2012', 'http://rproxy.insa-rennes.fr/login?url=http://onlinelibrary.wiley.com/journal/10.1111/(ISSN)1600-0463'),
@@ -892,7 +893,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (818, 'Journal', 'Applied Superconductivity and Electromagnetic Devices, ASEMD, International Conference on', 'null', 'null', '2009', 'null', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1002928'),
 (819, 'Journal', 'Applied surface science', '0169-4332', '1873-5584', '1995', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/01694332'),
 (820, 'Journal', 'Applied thermal engineering', '1359-4311', 'null', '1996', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/13594311');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (821, 'Journal', 'Applied vegetation science', '1402-2001', 'null', '1998', 'null', 'Wiley-Blackwell - Couperin 2012', 'http://rproxy.insa-rennes.fr/login?url=http://onlinelibrary.wiley.com/journal/10.1111/(ISSN)1654-109X'),
 (822, 'Journal', 'Approximate Dynamic Programming and Reinforcement Learning, ADPRL, IEEE International Symposium on', 'null', 'null', '2007', '2007', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1001970'),
 (823, 'Journal', 'Approximation theory and its applications', '1000-9221', 'null', '01/03/1989', '31/12/1996', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=1000-9221&volume='),
@@ -947,8 +948,8 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (872, 'Journal', 'Archiv für Anatomie', 'null', 'null', '1913', '1919', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0340-2061'),
 (873, 'Journal', 'Archiv für Anatomie und Entwickelungsgeschichte', 'null', 'null', '27/12/1891', '1912', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0340-2061'),
 (874, 'Journal', 'Archiv für Dermatologie und Syphilis', '0365-6020', 'null', '01/03/1869', '1953', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0340-3696'),
-(875, 'Journal', 'Archiv fu¨r dermatologische Forschung', '0003-9187', 'null', '1971', '1975', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0340-3696&volume='),
-(876, 'Journal', 'Archiv fu¨r die gesammte Physiologie des Menschen und der Thiere', 'null', 'null', '01/12/1868', '1910', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0031-6768'),
+(875, 'Journal', 'Archiv für dermatologische Forschung', '0003-9187', 'null', '1971', '1975', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0340-3696&volume='),
+(876, 'Journal', 'Archiv für die gesammte Physiologie des Menschen und der Thiere', 'null', 'null', '01/12/1868', '1910', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0031-6768'),
 (877, 'Journal', 'Archiv für die gesamte Virusforschung', '0003-9012', 'null', '01/02/1939', '31/03/1974', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0304-8608&volume='),
 (878, 'Journal', 'Archiv für Entwicklungsmechanik der Organismen', 'null', 'null', '28/10/1894', '1923', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0949-944X&volume='),
 (879, 'Journal', 'Archiv für experimentelle Pathologie und Pharmakologie', '0365-2041', 'null', '01/02/1873', '1925', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0028-1298&volume='),
@@ -956,10 +957,10 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (881, 'Journal', 'Archiv für Gynäkologie', '0003-9128', 'null', '01/02/1870', '31/08/1978', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0932-0067&volume='),
 (882, 'Journal', 'Archiv für klinische Chirurgie', '0365-3706', 'null', '04/03/1872', '30/11/1944', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=1435-2443&volume='),
 (883, 'Journal', 'Archiv für klinische und experimentelle Ohren-, Nasen- und Kehlkopfheilkunde', '0003-9195', 'null', '01/01/1966', '31/12/1973', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0937-4477&volume='),
-(884, 'Journal', 'Archiv fu¨r Kreislaufforschung', '0003-9217', 'null', '28/07/1937', '31/12/1972', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0300-8428&volume='),
+(884, 'Journal', 'Archiv für Kreislaufforschung', '0003-9217', 'null', '28/07/1937', '31/12/1972', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0300-8428&volume='),
 (885, 'Journal', 'Archiv für mathematische Logik und Grundlagenforschung', '0003-9268', 'null', '01/09/1950', '1987', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0933-5846&volume='),
 (886, 'Journal', 'Archiv für Meteorologie, Geophysik und Bioklimatologie. Serie A, Meteorologie und Geophysik', '0066-6394', 'null', '1948', '1980', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0177-7971&volume='),
-(887, 'Journal', 'Archiv fu¨r Mikrobiologie', '0003-9276', 'null', '21/01/1930', '1973', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0302-8933&volume='),
+(887, 'Journal', 'Archiv für Mikrobiologie', '0003-9276', 'null', '21/01/1930', '1973', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0302-8933&volume='),
 (888, 'Journal', 'Archiv für mikroskopische Anatomie', 'null', 'null', '01/12/1865', '31/05/1923', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0176-7364&volume='),
 (889, 'Journal', 'Archiv für mikroskopische Anatomie', 'null', 'null', '1911', '1923', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0949-944X&volume='),
 (890, 'Journal', 'Archiv für mikroskopische Anatomie und Entwicklungsmechanik', 'null', 'null', '1923', '1925', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0949-944X&volume='),
@@ -971,7 +972,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (896, 'Journal', 'Archiv für pathologische Anatomie und Physiologie und für klinische Medicin', 'null', 'null', '01/02/1847', '31/12/1902', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0945-6317&volume='),
 (897, 'Journal', 'Archiv für Protistenkunde', '0003-9365', 'null', '1995', '1997', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/00039365'),
 (898, 'Journal', 'Archiv für Psychiatrie und Nervenkrankheiten', '0003-9373', 'null', '01/02/1868', '1983', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0940-1334&volume='),
-(899, 'Journal', 'Archiv fü¨r Toxikologie', '0003-9446', 'null', '1954', '1974', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0340-5761&volume='),
+(899, 'Journal', 'Archiv fü̈r Toxikologie', '0003-9446', 'null', '1954', '1974', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0340-5761&volume='),
 (900, 'Journal', 'Archiv für klinische und experimentelle Dermatologie', '0300-8614', 'null', '1955', '1971', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0340-3696&volume='),
 (901, 'Journal', 'Archiv für Ohren-, Nasen- und Kehlkopfheilkunde', 'null', 'null', '01/02/1915', '31/12/1944', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0937-4477'),
 (902, 'Journal', 'Archiv für Ohren-, Nasen- und Kehlkopfheilkunde', 'null', 'null', '01/11/1958', '30/09/1965', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0937-4477'),
@@ -1094,7 +1095,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (1019, 'Journal', 'Asian-Pacific economic literature', '0818-9935', 'null', '1997', 'null', 'Wiley-Blackwell - Couperin 2012', 'http://rproxy.insa-rennes.fr/login?url=http://onlinelibrary.wiley.com/journal/10.1111/(ISSN)1467-8411'),
 (1020, 'Journal', 'Asian Pacific journal of tropical biomedicine', '2221-1691', '2221-1691', '2011', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/22211691'),
 (1021, 'Journal', 'Asian Pacific journal of tropical disease', '2222-1808', 'null', '2011', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/22221808');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (1022, 'Journal', 'Asian Pacific journal of tropical medicine', '1995-7645', 'null', '2010', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/19957645'),
 (1023, 'Journal', 'Asian politics & policy', '1943-0779', '1943-0787', '2009', 'null', 'Wiley-Blackwell - Couperin 2012', 'http://rproxy.insa-rennes.fr/login?url=http://onlinelibrary.wiley.com/journal/10.1111/(ISSN)1943-0787'),
 (1024, 'Journal', 'Asian social work and policy review', '1753-1403', 'null', '2007', 'null', 'Wiley-Blackwell - Couperin 2012', 'http://rproxy.insa-rennes.fr/login?url=http://onlinelibrary.wiley.com/journal/10.1111/(ISSN)1753-1411'),
@@ -1121,7 +1122,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (1045, 'Journal', 'Association can. des journaux (réf. site web)', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (1046, 'Journal', 'Association meetings', '1042-3141', 'null', '01/06/2010', '01/08/2012', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (1047, 'Journal', 'Assurances des Particuliers', 'null', 'null', '01/11/2000', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
-(1048, 'Journal', 'Aste´rion (Lyon)', 'null', '1762-6110', '2003', 'null', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://asterion.revues.org'),
+(1048, 'Journal', 'Astérion (Lyon)', 'null', '1762-6110', '2003', 'null', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://asterion.revues.org'),
 (1049, 'Journal', 'Asthma (Newton, Mass.)', '1088-0712', '1558-1543', '1996', '2006', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/10880712'),
 (1050, 'Journal', 'Astronomische Nachrichten', '0004-6337', '1521-3994', '1999', 'null', 'Wiley-Blackwell - Couperin 2012', 'http://rproxy.insa-rennes.fr/login?url=http://onlinelibrary.wiley.com/journal/10.1002/(ISSN)1521-3994'),
 (1051, 'Journal', 'Astronomy and astrophysics (Berlin)', '0004-6361', '1432-0746', '1969', '31/12/1996', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://aa.springer.de/'),
@@ -1303,7 +1304,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (1227, 'Journal', 'Bank technology news', '1060-3506', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (1228, 'Journal', 'Banker, Middle East', 'null', 'null', '05/09/2011', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (1229, 'Journal', 'Banking and St. Exch., Finance, Economics (Russia)', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (1230, 'Journal', 'Banking Frontiers', 'null', 'null', '01/10/2012', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (1231, 'Journal', 'Banking in France', 'null', 'null', '24/05/2012', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (1232, 'Journal', 'Bankrate (web site ref.)', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
@@ -1379,7 +1380,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (1302, 'Journal', 'Behaviour research and therapy', '0005-7967', '1873-622X', '1995', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/00057967'),
 (1303, 'Journal', 'Behavioural brain research', '0166-4328', '0166-4328', '1995', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/01664328'),
 (1304, 'Journal', 'Behavioural processes', '0376-6357', '1872-8308', '1995', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/03766357'),
-(1305, 'Journal', 'Beitra¨ge zur Mineralogie und Petrographie', '0366-1369', '0366-1369', '1957', '1965', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0010-7999&volume='),
+(1305, 'Journal', 'Beiträge zur Mineralogie und Petrographie', '0366-1369', '0366-1369', '1957', '1965', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0010-7999&volume='),
 (1306, 'Journal', 'Beiträge zur Klinik der Tuberkulose und spezifischen Tuberkulose-Forschung', '0366-0966', 'null', '01/03/1903', '1964', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0341-2040&volume='),
 (1307, 'Journal', 'Beiträge zur Klinik und Erforschung der Tuberkulose und der Lungenkrankheiten', '0300-9696', 'null', '1965', '1970', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0341-2040&volume='),
 (1308, 'Journal', 'Belfast Telegraph (Northern Ireland)', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
@@ -1512,7 +1513,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (1435, 'Journal', 'Biomedical Engineering Conference, CIBEC, Cairo International', '2156-6097', 'null', '2008', 'null', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1002634'),
 (1436, 'Journal', 'Biomedical Engineering Days, International', 'null', 'null', '1992', '1998', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1000078'),
 (1437, 'Journal', 'Biomedical Engineering Meeting, BIYOMUT, National', 'null', 'null', '2009', '2009', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1002777');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (1438, 'Journal', 'Biomedical Engineering, IEEE EMBS Asian-Pacific Conference on', 'null', 'null', '2003', '2003', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1002225'),
 (1439, 'Journal', 'Biomedical Engineering, IEEE Reviews in', '1937-3333', 'null', '2008', 'null', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/servlet/opac?punumber=4664312'),
 (1440, 'Journal', 'Biomedical Engineering., Proceedings of a Special Symposium on Maturing Technologies and Emerging Horizons in', 'null', 'null', '1988', '1988', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1001939'),
@@ -1721,7 +1722,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (1643, 'Journal', 'Bright (website ver.)', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (1644, 'Journal', 'Brimbank Leader (Australia)', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (1645, 'Journal', 'Brisbane news', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (1646, 'Journal', 'Bristol Evening Post (UK)', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (1647, 'Journal', 'Bristol herald courier (Bristol, Va./Tenn. : 1999 : Daily)', '1552-2458', 'null', '28/10/2008', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (1648, 'Journal', 'British accounting review', '0890-8389', '1095-8347', '1995', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/08908389'),
@@ -1812,11 +1813,11 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (1733, 'Journal', 'Bulletin de l''APAD', '1950-6929', 'null', '1991', '2011', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://apad.revues.org'),
 (1734, 'Journal', 'Bulletin de l''Association d''étude sur l''humanisme, la réforme et la renaissance', '1969-654X', 'null', '1975', '2005', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/rhren'),
 (1735, 'Journal', 'Bulletin de l''Association française pour l''étude du quaternaire', '0004-5500', 'null', '1964', '1989', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/quate'),
-(1736, 'Journal', 'Bulletin de l''E´cole franc¸aise d''Extre^me-Orient', '0336-1519', 'null', '1901', '1943', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/befeo'),
-(1737, 'Journal', 'Bulletin de l''E´cole franc¸aise d''Extre^me-Orient', '0336-1519', 'null', '1951', '1952', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/befeo'),
-(1738, 'Journal', 'Bulletin de l''E´cole franc¸aise d''Extre^me-Orient', '0336-1519', 'null', '1954', '1960', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/befeo'),
-(1739, 'Journal', 'Bulletin de l''E´cole franc¸aise d''Extre^me-Orient', '0336-1519', 'null', '1962', '1988', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/befeo'),
-(1740, 'Journal', 'Bulletin de l''E´cole franc¸aise d''Extre^me-Orient', '0336-1519', 'null', '1991', '2003', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/befeo'),
+(1736, 'Journal', 'Bulletin de l''École française d''Extrême-Orient', '0336-1519', 'null', '1901', '1943', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/befeo'),
+(1737, 'Journal', 'Bulletin de l''École française d''Extrême-Orient', '0336-1519', 'null', '1951', '1952', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/befeo'),
+(1738, 'Journal', 'Bulletin de l''École française d''Extrême-Orient', '0336-1519', 'null', '1954', '1960', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/befeo'),
+(1739, 'Journal', 'Bulletin de l''École française d''Extrême-Orient', '0336-1519', 'null', '1962', '1988', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/befeo'),
+(1740, 'Journal', 'Bulletin de l''École française d''Extrême-Orient', '0336-1519', 'null', '1991', '2003', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/befeo'),
 (1741, 'Journal', 'Bulletin de l''Institut Pasteur', '0020-2452', 'null', '1995', '1998', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/00202452'),
 (1742, 'Journal', 'Bulletin de méthodologie sociologique', '0759-1063', '2070-2779', '2003', '2008', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://bms.revues.org'),
 (1743, 'Journal', 'Bulletin des sciences mathématiques', '0007-4497', 'null', '1998', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/00074497'),
@@ -1923,7 +1924,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (1844, 'Journal', 'Buteman (UK)', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (1845, 'Journal', 'Buxton Advertiser (UK)', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (1846, 'Journal', 'CA: a cancer journal for clinicians', '0007-9235', '1542-4863', '1997', 'null', 'Wiley-Blackwell - Couperin 2012', 'http://rproxy.insa-rennes.fr/login?url=http://onlinelibrary.wiley.com/journal/10.3322/(ISSN)1542-4863');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (1847, 'Journal', 'Caboolture Shire herald (Caboolture, Qld.)', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (1848, 'Journal', 'CAD Systems in Microelectronics (CADSM) International Conference', 'null', 'null', '2001', '2009', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1000084'),
 (1849, 'Journal', 'CAD-Based Vision Workshop, Proceedings', 'null', 'null', '1994', '1994', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1001976'),
@@ -1932,8 +1933,8 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (1852, 'Journal', 'Cahiers ALHIM', '1628-6731', '1777-5175', '2000', 'null', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://alhim.revues.org'),
 (1853, 'Journal', 'Cahiers archéologiques de Picardie', 'null', 'null', '1974', '1981', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/pica'),
 (1854, 'Journal', 'Cahiers balkaniques (Paris)', '0290-7402', 'null', '2008', 'null', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://ceb.revues.org'),
-(1855, 'Journal', 'Cahiers d''e´tudes africaines', '0008-0055', 'null', '1960', '2008', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/cea'),
-(1856, 'Journal', 'Cahiers d''e´tudes africaines', '0008-0055', 'null', '2000', '2004', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://etudesafricaines.revues.org'),
+(1855, 'Journal', 'Cahiers d''études africaines', '0008-0055', 'null', '1960', '2008', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/cea'),
+(1856, 'Journal', 'Cahiers d''études africaines', '0008-0055', 'null', '2000', '2004', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://etudesafricaines.revues.org'),
 (1857, 'Journal', 'CAHIERS D’EMAM', '1969-248X', 'null', '2008', 'null', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://emam.revues.org'),
 (1858, 'Journal', 'Cahiers d''Asie centrale', '1270-9247', 'null', '1996', '2011', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://asiecentrale.revues.org'),
 (1859, 'Journal', 'Cahiers de civilisation espagnole contemporaine', 'null', '1957-7761', '2007', 'null', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://ccec.revues.org'),
@@ -1941,7 +1942,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (1861, 'Journal', 'Cahiers de droit (Québec)', '0007-974X', 'null', '1954', 'null', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.erudit.org/revue/cd/2013/v54/n2-3/index.html'),
 (1862, 'Journal', 'CAHIERS DE FRAMESPA', '1760-4761', 'null', '2005', 'null', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://framespa.revues.org'),
 (1863, 'Journal', 'Cahiers de géographie du Québec', '0007-9766', 'null', '1956', '3 years ago', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.erudit.org/revue/cgq/2012/v56/n159/index.html'),
-(1864, 'Journal', 'Cahiers de la Méditerrane´e', '0395-9317', 'null', '2001', 'null', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://cdlm.revues.org'),
+(1864, 'Journal', 'Cahiers de la Méditerranée', '0395-9317', 'null', '2001', 'null', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://cdlm.revues.org'),
 (1865, 'Journal', 'Cahiers de la nouvelle', '0294-0442', 'null', '1997', '2010', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://jsse.revues.org'),
 (1866, 'Journal', 'Cahiers de la publicité', '1268-7251', 'null', '1962', '1968', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/colan'),
 (1867, 'Journal', 'Cahiers de la recherche sur l''éducation et les savoirs', '1635-3544', 'null', '2002', '2011', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://cres.revues.org'),
@@ -1965,7 +1966,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (1885, 'Journal', 'Cahiers d''études du religieux', 'null', '1760-5776', '2007', 'null', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://cerri.revues.org'),
 (1886, 'Journal', 'Cahiers d''études hispaniques médiévales', '1779-4684', 'null', '2005', 'null', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/cehm'),
 (1887, 'Journal', 'Cahiers d''études italiennes', '1770-9571', 'null', '2004', '2011', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://cei.revues.org/'),
-(1888, 'Journal', 'Cahiers d''e´tudes sur la Me´diterrane´e orientale et le monde turco-iranien', '0764-9878', 'null', '1995', '1998', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://cemoti.revues.org'),
+(1888, 'Journal', 'Cahiers d''études sur la Méditerranée orientale et le monde turco-iranien', '0764-9878', 'null', '1995', '1998', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://cemoti.revues.org'),
 (1889, 'Journal', 'Cahiers d''Extrême-Asie', '0766-1177', 'null', '1985', '1989', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/asie'),
 (1890, 'Journal', 'Cahiers d''Extrême-Asie', '0766-1177', 'null', '1991', '1991', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/asie'),
 (1891, 'Journal', 'Cahiers d''Extrême-Asie', '0766-1177', 'null', '1993', '1993', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/asie'),
@@ -2139,7 +2140,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (2059, 'Journal', 'CBC New Brunswick (web site)', 'null', 'null', '02/06/2005', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (2060, 'Journal', 'CBC Newfoundland and Labrador (web site)', 'null', 'null', '02/06/2005', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (2061, 'Journal', 'CBC News (web site)', 'null', 'null', '13/11/1998', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (2062, 'Journal', 'CBC North (web site)', 'null', 'null', '26/09/2001', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (2063, 'Journal', 'CBC Nova Scotia (web site)', 'null', 'null', '02/06/2005', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (2064, 'Journal', 'CBC Ottawa (web site)', 'null', 'null', '14/03/2001', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
@@ -2349,7 +2350,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (2268, 'Journal', 'Chronicle (West Island) (web site ref.)', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (2269, 'Journal', 'Chronicle Herald (Halifax, NS)', '0828-1807', 'null', '16/08/1999', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (2270, 'Journal', 'Chronicle Herald (Halifax, NS) (web site)', 'null', 'null', '10/02/2013', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (2271, 'Journal', 'Chronicle-journal (Thunder Bay)', '0842-0084', 'null', '30/07/2002', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (2272, 'Journal', 'Chronique des activités archéologiques de l''École française de Rome', 'null', 'null', '2012', 'null', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://cefr.revues.org'),
 (2273, 'Journal', 'Ci ji yi xue za zhi', '1016-3190', 'null', '2008', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/10163190'),
@@ -2562,7 +2563,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (2480, 'Journal', 'Comicalités', 'null', '2117-4911', '2011', 'null', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://comicalites.revues.org/'),
 (2481, 'Journal', 'Comment news community', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (2482, 'Journal', 'Commentarii mathematici Helvetici', '0010-2571', '1420-8946', '21/12/1929', '31/12/1996', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0010-2571&volume=');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (2483, 'Journal', 'Commerce and Enterprise Computing, CEC, IEEE Conference on', '1530-1354', 'null', '2009', 'null', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1002843'),
 (2484, 'Journal', 'Commerce Department documents and publications', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (2485, 'Journal', 'Commerce journal (Commerce, Tex. : 1958)', 'null', 'null', '24/10/2008', '01/04/2010', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
@@ -2676,7 +2677,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (2593, 'Journal', 'Comptabilité(S)', 'null', '1775-3554', '2010', 'null', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://comptabilites.revues.org'),
 (2594, 'Journal', 'Comptes rendus. Biologies', '1631-0691', 'null', '2002', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/16310691'),
 (2595, 'Journal', 'Comptes rendus. Chimie', '1631-0748', '1878-1543', '2002', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/16310748'),
-(2596, 'Journal', 'Comptes rendus de l''Acade´mie des sciences. Se´rie II. Fascicule a, Sciences de la terre et des plane`tes', '1251-8050', 'null', '1997', '2001', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/12518050'),
+(2596, 'Journal', 'Comptes rendus de l''Académie des sciences. Série II. Fascicule a, Sciences de la terre et des planètes', '1251-8050', 'null', '1997', '2001', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/12518050'),
 (2597, 'Journal', 'Comptes Rendus de l''AcadÃ©mie des Sciences - Series IIB - Mechanics-Physics-Astronomy', '1287-4620', 'null', '1998', '2000', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/12874620'),
 (2598, 'Journal', 'Comptes Rendus de l''AcadÃ©mie des Sciences - Series IIB - Mechanics-Physics-Chemistry-Astronomy', '1251-8069', 'null', '1997', '1998', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/12518069'),
 (2599, 'Journal', 'Comptes rendus de l''Académie des sciences. Série I. Mathématique', '0764-4442', 'null', '1997', '2001', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/07644442'),
@@ -2757,7 +2758,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (2674, 'Journal', 'Computational statistics & data analysis', '0167-9473', '1872-7352', '1995', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/01679473'),
 (2675, 'Journal', 'Computational Systems Bioinformatics Conference, CSB, Proceedings, IEEE', 'null', 'null', '2004', '2005', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1002130'),
 (2676, 'Journal', 'Computational Systems Bioinformatics Conference, CSB, Workshops and Poster Abstracts. IEEE', 'null', 'null', '2005', '2005', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1002129');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (2677, 'Journal', 'Computational Technologies in Electrical and Electronics Engineering, SIBIRCON, IEEE Region 8 International Conference on', 'null', 'null', '2008', 'null', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1002416'),
 (2678, 'Journal', 'Computer (Long Beach, Calif.)', '0018-9162', '1558-0814', '1970', 'null', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/servlet/opac?punumber=2'),
 (2679, 'Journal', 'Computer act!ve', 'null', 'null', '01/09/2011', '31/01/2013', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
@@ -2956,7 +2957,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (2872, 'Journal', 'Conference proceedings - Canadian Conference on Electrical and Computer Engineering', '0840-7789', 'null', '1993', 'null', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1000225'),
 (2873, 'Journal', 'Conference proceedings - IEEE Applied Power Electronics Conference and Exposition', '1048-2334', 'null', '1988', 'null', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1000047'),
 (2874, 'Journal', 'Conference proceedings - IEEE Applied Power Electronics Conference and Exposition', '1048-2334', 'null', '1988', '2009', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1000047');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (2875, 'Journal', 'Conference proceedings - LEOS (Conference). 1996', '1092-8081', 'null', '1988', 'null', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1000413'),
 (2876, 'Journal', 'Conference proceedings : Midwest Symposium on Circuits and Systems', '1548-3746', '1558-3899', '1989', 'null', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1000090'),
 (2877, 'Journal', 'Conference record - Asilomar Conference on Signals, Systems, & Computers', '1058-6393', 'null', '1977', '2008', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1000671'),
@@ -3165,7 +3166,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (3080, 'Journal', 'Cryogenics (Guildford)', '0011-2275', '1879-2235', '1995', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/00112275'),
 (3081, 'Journal', 'Cryptogamie. Algologie', '0181-1568', 'null', '1999', '2001', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/01811568'),
 (3082, 'Journal', 'Cryptogamie. Bryologie', '1290-0796', 'null', '1999', '2001', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/12900796');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (3083, 'Journal', 'Cryptogamie. Mycologie (1979)', '0181-1584', 'null', '1999', '2001', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/01811584'),
 (3084, 'Journal', 'Crystal engineering', '1463-0184', 'null', '1999', '2003', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/14630184'),
 (3085, 'Journal', 'Crystal growth & design', '1528-7483', '1528-7505', '01/01/2001', 'null', 'ACS Journals - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://pubs.acs.org/journals/cgdefu/index.html'),
@@ -3374,7 +3375,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (3288, 'Journal', 'Day (New London, Conn. 1981)', '0744-0499', 'null', '28/10/2008', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (3289, 'Journal', 'day after', 'null', 'null', '01/03/2013', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (3290, 'Journal', 'Day care and early education', '0092-4199', '2331-3269', '01/09/1973', 'Summer 1995', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=1082-3301&volume=');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (3291, 'Journal', 'Day on Diffraction, International Seminar', 'null', 'null', '1999', '2009', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1000185'),
 (3292, 'Journal', 'Dayton Chapter Symposium, 1988. ''Avionics Integrity Program''., Ninth Annual IEEE/AESS', 'null', 'null', '1988', '1988', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1000187'),
 (3293, 'Journal', 'Dayton daily news (Dayton, Ohio. 1987)', '0897-0920', 'null', '18/12/2008', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
@@ -3499,7 +3500,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (3412, 'Journal', 'Developmental science', '1363-755X', '1467-7687', '1998', 'null', 'Wiley-Blackwell - Couperin 2012', 'http://rproxy.insa-rennes.fr/login?url=http://onlinelibrary.wiley.com/journal/10.1111/(ISSN)1467-7687'),
 (3413, 'Journal', 'Developments in eSystems Engineering (DESE), International Conference on', 'null', 'null', '2009', 'null', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1003085'),
 (3414, 'Journal', 'Developments in Renewable Energy Technology (ICDRET), International Conference on', 'null', 'null', 'null', 'null', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1003167'),
-(3415, 'Journal', 'De´veloppement durable & territoires', 'null', '1772-9971', '2002', 'null', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://developpementdurable.revues.org'),
+(3415, 'Journal', 'Développement durable & territoires', 'null', '1772-9971', '2002', 'null', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://developpementdurable.revues.org'),
 (3416, 'Journal', 'Déviance et sociéte', '0378-7931', 'null', '1977', '2005', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/ds'),
 (3417, 'Journal', 'Devices, Circuits and Systems, IEEE International Caracas Conference on', 'null', 'null', '1995', 'null', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1000200'),
 (3418, 'Journal', 'Devoir (blogues)', 'null', 'null', '22/12/2008', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
@@ -3581,7 +3582,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (3494, 'Journal', 'Digest of the LEOS Summer Topical Meetings', '1099-4742', 'null', '1990', 'null', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1000416'),
 (3495, 'Journal', 'Digestive and liver disease', '1590-8658', '1878-3562', '2000', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/15908658'),
 (3496, 'Journal', 'Digestive and liver disease. Supplements', 'null', '1594-5804', '2007', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/15945804');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (3497, 'Journal', 'Digestive diseases and sciences', '0163-2116', '1573-2568', '16/01/1956', '31/12/1996', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0163-2116&volume='),
 (3498, 'Journal', 'Digestive endoscopy', '0915-5635', '1443-1661', '1997', 'null', 'Wiley-Blackwell - Couperin 2012', 'http://rproxy.insa-rennes.fr/login?url=http://onlinelibrary.wiley.com/journal/10.1111/(ISSN)1443-1661'),
 (3499, 'Journal', 'Digests of International Magnetics Conference', '0074-6843', 'null', '1989', '1999', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1000426'),
@@ -3686,7 +3687,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (3598, 'Journal', 'Dose (web site ref.)', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (3599, 'Journal', 'dossiers du Grihl', 'null', '1958-9247', '2007', 'null', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://dossiersgrihl.revues.org'),
 (3600, 'Journal', 'Dothan eagle', '0745-855X', 'null', '28/10/2008', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
-(3601, 'Journal', 'Douleur et analge´sie', '1011-288X', 'null', '01/03/1988', '31/12/1996', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=1011-288X&volume='),
+(3601, 'Journal', 'Douleur et analgésie', '1011-288X', 'null', '01/03/1988', '31/12/1996', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=1011-288X&volume='),
 (3602, 'Journal', 'Dowagiac Daily News (MI)', 'null', 'null', '25/04/2013', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (3603, 'Journal', 'Down To Earth (India)', 'null', 'null', '29/03/2013', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (3604, 'Journal', 'DQ channels India', 'null', 'null', '30/06/2011', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
@@ -3789,7 +3790,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (3701, 'Journal', 'Écho de Saint-Jean-sur-Richelieu (QC)', 'null', 'null', '04/04/2012', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (3702, 'Journal', 'Écho de Shawinigan (QC)', 'null', 'null', '04/04/2012', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (3703, 'Journal', 'Écho de Trois-Rivières (QC)', 'null', 'null', '04/04/2012', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (3704, 'Journal', 'Écho de Trois-Rivières (QC) (réf. site web)', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (3705, 'Journal', 'Écho de Victoriaville (QC)', 'null', 'null', '27/06/2012', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (3706, 'Journal', 'Écho du Nord (St-Jérôme, QC)', 'null', 'null', '04/04/2012', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
@@ -3993,7 +3994,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (3904, 'Journal', 'Electrical Performance of Electronic Packaging (EPEPS), IEEE Topical Meeting on', 'null', 'null', '1992', 'null', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1000236'),
 (3905, 'Journal', 'Electrical Power Conference, EPC, IEEE Canada', 'null', 'null', '2007', '2007', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1002015'),
 (3906, 'Journal', 'Electrical Power Quality and Utilisation (EPQU), International Conference on', '2150-6655', 'null', '2007', '2009', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1001587');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (3907, 'Journal', 'Electrical Safety In Industry, Proceedings of IEEE IAS Workshop on', 'null', 'null', '2000', '2000', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1002352'),
 (3908, 'Journal', 'Electrical Safety Workshop', 'null', 'null', '1995', 'null', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1002351'),
 (3909, 'Journal', 'Electrical Systems for Aircraft, Railway and Ship Propulsion', 'null', 'null', '2010', 'null', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1800196'),
@@ -4198,7 +4199,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (4108, 'Journal', 'Energy Market, EEM, International Conference on the European', 'null', 'null', '2009', '2009', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1002832'),
 (4109, 'Journal', 'Energy next', 'null', 'null', '21/12/2012', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (4110, 'Journal', 'Energy policy', '0301-4215', '1873-6777', '1995', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/03014215');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (4111, 'Journal', 'Energy report (Washington)', '0093-7657', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (4112, 'Journal', 'Energy strategy reviews', 'null', '2211-467X', '2012', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/2211467X'),
 (4113, 'Journal', 'Energy update (Karachi, Pakistan)', 'null', 'null', '31/01/2012', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
@@ -4390,7 +4391,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (4299, 'Journal', 'Étoile du Lac (Roberval)', 'null', 'null', '25/01/2004', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (4300, 'Journal', 'Etudes balkaniques (Paris, France)', '1260-2116', '2102-5525', '2002', '2007', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://etudesbalkaniques.revues.org'),
 (4301, 'Journal', 'Etudes byzantines (Paris)', '0258-2880', 'null', '1943', '1945', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/rebyz'),
-(4302, 'Journal', 'Etudes caribe´ennes', '1779-0980', '1961-859X', '2005', '2010', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://etudescaribeennes.revues.org'),
+(4302, 'Journal', 'Etudes caribéennes', '1779-0980', '1961-859X', '2005', '2010', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://etudescaribeennes.revues.org'),
 (4303, 'Journal', 'Etudes de communication', '1270-6841', 'null', '1982', '2009', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://edc.revues.org'),
 (4304, 'Journal', 'Etudes écossaises', '1240-1439', 'null', '2005', '2011', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://etudesecossaises.revues.org'),
 (4305, 'Journal', 'Etudes et conjoncture - Economie mondiale', '1149-3755', 'null', '1946', '1953', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/estat'),
@@ -4407,7 +4408,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (4316, 'Journal', 'études rhodaniennes', '1164-6268', 'null', '1926', '1948', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/geoca'),
 (4317, 'Journal', 'Études rurales', '0014-2182', 'null', '2000', '2005', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://etudesrurales.revues.org'),
 (4318, 'Journal', 'Eufaula tribune (Eufaula, Ala.)', 'null', 'null', '30/10/2008', '20/10/2009', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (4319, 'Journal', 'Euphytica', '0014-2336', '1573-5060', '01/02/1952', '31/12/1996', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0014-2336&volume='),
 (4320, 'Journal', 'Euro ASIC', 'null', 'null', '1990', '1992', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1000278'),
 (4321, 'Journal', 'EuroChoices', '1478-0917', '1746-692X', '2001', 'null', 'Wiley-Blackwell - Couperin 2012', 'http://rproxy.insa-rennes.fr/login?url=http://onlinelibrary.wiley.com/journal/10.1111/(ISSN)1746-692X'),
@@ -4616,7 +4617,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (4524, 'Journal', 'F. Scott Fitzgerald review', '1543-3951', 'null', '2002', 'null', 'Wiley-Blackwell - Couperin 2012', 'http://rproxy.insa-rennes.fr/login?url=http://onlinelibrary.wiley.com/journal/10.1111/(ISSN)1755-6333'),
 (4525, 'Journal', 'Face à face', '1298-0390', 'null', '1999', '2011', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://faceaface.revues.org'),
 (4526, 'Journal', 'Facies', '0172-9179', '1612-4820', '01/12/1979', '31/12/1996', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0172-9179&volume=');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (4527, 'Journal', 'Factory Communication Systems (WFCS), IEEE International Workshop on', 'null', 'null', 'null', 'null', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1000286'),
 (4528, 'Journal', 'Facts for you', 'null', 'null', '10/12/2012', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (4529, 'Journal', 'Fadi Abu Sa''da (Palestine)', 'null', 'null', '16/09/2011', '17/10/2012', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
@@ -4675,7 +4676,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (4582, 'Journal', 'FEMS microbiology reviews', '0168-6445', '1574-6976', '1997', 'null', 'Wiley-Blackwell - Couperin 2012', 'http://rproxy.insa-rennes.fr/login?url=http://onlinelibrary.wiley.com/journal/10.1111/(ISSN)1574-6976'),
 (4583, 'Journal', 'FEMS yeast research', '1567-1356', '1567-1364', '2001', 'null', 'Wiley-Blackwell - Couperin 2012', 'http://rproxy.insa-rennes.fr/login?url=http://onlinelibrary.wiley.com/journal/10.1111/(ISSN)1567-1364'),
 (4584, 'Journal', 'Fenland Citizen (UK)', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
-(4585, 'Journal', 'Fenxi huàxué', '0253-3820', 'null', '2006', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/18722040'),
+(4585, 'Journal', 'Fēnxī huàxué', '0253-3820', 'null', '2006', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/18722040'),
 (4586, 'Journal', 'Fergus Falls Daily Journal (MN)', 'null', 'null', '13/11/2009', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (4587, 'Journal', 'Fertilizer research', '0167-1731', 'null', '01/03/1980', '31/10/1995', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=1385-1314&volume='),
 (4588, 'Journal', 'Few-body systems', '0177-7963', '1432-5411', '01/03/1986', '31/12/1996', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0177-7963&volume='),
@@ -4830,17 +4831,17 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (4737, 'Journal', 'Formation, emploi', '0759-6340', 'null', '2006', '2009', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://formationemploi.revues.org'),
 (4738, 'Journal', 'Formosan journal of surgery : the official publication of the Surgical Association ... [et al.]', '1682-606X', 'null', '2011', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/1682606X'),
 (4739, 'Journal', 'Forschung (Boppard)', '0172-1518', '1619-8166', '2001', 'null', 'Wiley-Blackwell - Couperin 2012', 'http://rproxy.insa-rennes.fr/login?url=http://onlinelibrary.wiley.com/journal/10.1002/(ISSN)1522-2357');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (4740, 'Journal', 'Forschung im Ingenieurwesen', '0015-7899', '1434-0860', '01/01/1930', '31/12/1996', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0015-7899&volume='),
 (4741, 'Journal', 'Forstwissenschaftliches Centralblatt', '0015-8003', '1439-0337', '01/10/1948', '31/12/1996', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0015-8003&volume='),
 (4742, 'Journal', 'Forstwissenschaftliches Centralblatt (Berlin, Germany : 1879)', '0015-8003', 'null', '01/01/1879', '28/02/1943', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0015-8003&volume='),
 (4743, 'Journal', 'Forstwissenschaftliches Centralblatt und Tharandter forstliches Jahrbuch', 'null', 'null', '01/06/1943', '31/03/1944', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0015-8003'),
 (4744, 'Journal', 'Fort Mill times', 'null', 'null', '28/10/2008', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (4745, 'Journal', 'Fort Morgan Times (CO)', 'null', 'null', '28/10/2008', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
-(4746, 'Journal', 'Fortschritte der Kieferorthopa¨die', '0015-816X', 'null', '01/01/1952', '31/12/1995', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=1434-5293&volume='),
+(4746, 'Journal', 'Fortschritte der Kieferorthopädie', '0015-816X', 'null', '01/01/1952', '31/12/1995', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=1434-5293&volume='),
 (4747, 'Journal', 'Fortschritte der Orthodontik', 'null', 'null', '01/01/1931', '31/12/1933', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=1434-5293&volume='),
 (4748, 'Journal', 'Fortschritte der Physik', '0015-8208', '1521-3978', '1998', 'null', 'Wiley-Blackwell - Couperin 2012', 'http://rproxy.insa-rennes.fr/login?url=http://onlinelibrary.wiley.com/journal/10.1002/(ISSN)1521-3978'),
-(4749, 'Journal', 'Fortschrittsberichte u¨ber Kolloide & Polymere', '0071-8017', 'null', '1971', '31/12/1971', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0071-8017&volume='),
+(4749, 'Journal', 'Fortschrittsberichte über Kolloide & Polymere', '0071-8017', 'null', '1971', '31/12/1971', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0071-8017&volume='),
 (4750, 'Journal', 'Forum', 'null', 'null', '01/03/2004', '01/06/2011', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (4751, 'Journal', 'Forum des As (réf. site web)', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (4752, 'Journal', 'Forum for social economics', '0736-0932', 'null', '06/02/1971', '31/12/1996', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0736-0932&volume='),
@@ -5035,7 +5036,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (4941, 'Journal', 'Genetic and Evolutionary Computing (WGEC), International Conference on', 'null', 'null', '2008', '2009', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1002460'),
 (4942, 'Journal', 'Genetic and Evolving Systems, GEFS, International Workshop on', 'null', 'null', '2008', 'null', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1001889'),
 (4943, 'Journal', 'Genetic epidemiology', '0741-0395', '1098-2272', '1996', 'null', 'Wiley-Blackwell - Couperin 2012', 'http://rproxy.insa-rennes.fr/login?url=http://onlinelibrary.wiley.com/journal/10.1002/(ISSN)1098-2272');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (4944, 'Journal', 'Genetic resources and crop evolution', '0925-9864', '1573-5109', '1992', '31/12/1996', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0925-9864&volume='),
 (4945, 'Journal', 'Genetica', '0016-6707', '1573-6857', '01/01/1919', '31/12/1996', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0016-6707&volume='),
 (4946, 'Journal', 'Genetics (Austin)', '0016-6731', '1943-2631', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
@@ -5247,7 +5248,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (5152, 'Journal', 'Guinée News (réf. site web)', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (5153, 'Journal', 'Gulf (Manama, Bahrain)', 'null', 'null', '06/07/2011', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (5154, 'Journal', 'Gulf business (Dubai, United Arab Emirates)', 'null', 'null', '04/07/2011', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (5155, 'Journal', 'Gulf construction & Saudi Arabia review directory', 'null', 'null', '01/09/2009', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (5156, 'Journal', 'Gulf daily news', 'null', 'null', '01/11/2008', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (5157, 'Journal', 'Gulf Industry (Bahrain)', 'null', 'null', '01/07/2010', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
@@ -5372,7 +5373,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (5276, 'Journal', 'Hebdos Régionaux Saguenay-LSJ (réf. site web)', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (5277, 'Journal', 'HEC forum', '0956-2737', '1572-8498', '01/01/1989', '31/12/1996', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0956-2737&volume='),
 (5278, 'Journal', 'Heidelberger (Melbourne, Australia)', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
-(5279, 'Journal', 'Heidelberger Beitra¨ge zur Mineralogie und Petrographie', '0367-5769', 'null', '01/01/1947', '1957', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0010-7999&volume='),
+(5279, 'Journal', 'Heidelberger Beiträge zur Mineralogie und Petrographie', '0367-5769', 'null', '01/01/1947', '1957', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0010-7999&volume='),
 (5280, 'Journal', 'Helgoländer Meeresuntersuchungen', '0174-3597', 'null', '1980', '31/12/1996', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=1438-387X&volume='),
 (5281, 'Journal', 'Helgoländer wissenschaftliche Meeresuntersuchungen', '0017-9957', 'null', '27/08/1937', '1979', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=1438-387X&volume='),
 (5282, 'Journal', 'Helicobacter (Cambridge, Mass.)', '1083-4389', '1523-5378', '1997', 'null', 'Wiley-Blackwell - Couperin 2012', 'http://rproxy.insa-rennes.fr/login?url=http://onlinelibrary.wiley.com/journal/10.1111/(ISSN)1523-5378'),
@@ -5452,7 +5453,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (5356, 'Journal', 'Higher education quarterly', '0951-5224', '1468-2273', '1997', 'null', 'Wiley-Blackwell - Couperin 2012', 'http://rproxy.insa-rennes.fr/login?url=http://onlinelibrary.wiley.com/journal/10.1111/(ISSN)1468-2273'),
 (5357, 'Journal', 'Higher-Level Knowledge in 3D Modeling and Motion Analysis (HLK), IEEE International Workshop on', 'null', 'null', '2003', '2003', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1002141'),
 (5358, 'Journal', 'Higher-Order Spectral Analysis, Workshop on', 'null', 'null', '1989', '1989', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1002259');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (5359, 'Journal', 'Higher-Order Statistics, IEEE Signal Processing Workshop on', 'null', 'null', '1993', '1999', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1000332'),
 (5360, 'Journal', 'Highlands today', 'null', 'null', '24/10/2008', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (5361, 'Journal', 'High-Level Design Validation and Test Workshop, IEEE International', '1552-6674', 'null', '2000', 'null', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1000333'),
@@ -5660,7 +5661,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (5563, 'Journal', 'IEE proceedings. Information security', '1747-0722', 'null', '2005', '2006', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/servlet/opac?punumber=10348'),
 (5564, 'Journal', 'IEE proceedings. Intelligent transport systems', '1748-0248', 'null', '2006', '2006', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/servlet/opac?punumber=10767'),
 (5565, 'Journal', 'IEE proceedings. Microwaves, antennas, and propagation', '1350-2417', 'null', '1994', '2006', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/servlet/opac?punumber=2196');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (5566, 'Journal', 'IEE proceedings. Nanobiotechnology', '1478-1581', '1740-9748', '2003', '2006', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/servlet/opac?punumber=8653'),
 (5567, 'Journal', 'IEE proceedings. Optoelectronics', '1350-2433', 'null', '1994', '2006', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/servlet/opac?punumber=2197'),
 (5568, 'Journal', 'IEE proceedings. Part A, Physical science, measurement and instrumentation, management and education, reviews', '0143-702X', 'null', '1980', '1988', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/servlet/opac?punumber=2201'),
@@ -5870,7 +5871,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (5772, 'Journal', 'IEEE transactions on nanobioscience', '1536-1241', '1558-2639', '2002', 'null', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/servlet/opac?punumber=7728'),
 (5773, 'Journal', 'IEEE transactions on nanotechnology', '1536-125X', '1941-0085', '2002', 'null', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/servlet/opac?punumber=7729'),
 (5774, 'Journal', 'IEEE transactions on neural networks', '1045-9227', '1941-0093', '1990', '2011', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/servlet/opac?punumber=72');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (5775, 'Journal', 'IEEE transactions on neural systems and rehabilitation engineering', '1534-4320', '1558-0210', '2001', 'null', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/servlet/opac?punumber=7333'),
 (5776, 'Journal', 'IEEE transactions on nuclear science', '0018-9499', '1558-1578', '1963', 'null', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/servlet/opac?punumber=23'),
 (5777, 'Journal', 'IEEE transactions on parallel and distributed systems', '1045-9219', '1558-2183', '1990', 'null', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/servlet/opac?punumber=71'),
@@ -6077,7 +6078,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (5978, 'Journal', 'Industrial Engineering and Engineering Management, IEEE International Conference on', '2157-3611', 'null', '2007', 'null', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1001598'),
 (5979, 'Journal', 'Industrial Fuzzy Control and Intelligent Systems, International Conference on', 'null', 'null', '1993', '1993', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1001993'),
 (5980, 'Journal', 'Industrial Informatics (INDIN), IEEE International Conference on', '1935-4576', 'null', '2003', 'null', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1001443');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (5981, 'Journal', 'Industrial marketing management', '0019-8501', '1873-2062', '1995', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/00198501'),
 (5982, 'Journal', 'Industrial Mechatronics and Automation, ICIMA, International Conference on', 'null', 'null', '2009', '2009', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1002791'),
 (5983, 'Journal', 'Industrial relations (Berkeley)', '0019-8676', '1468-232X', '1997', 'null', 'Wiley-Blackwell - Couperin 2012', 'http://rproxy.insa-rennes.fr/login?url=http://onlinelibrary.wiley.com/journal/10.1111/(ISSN)1468-232X'),
@@ -6276,7 +6277,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (6176, 'Journal', 'Inside the Air Force', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (6177, 'Journal', 'Inside the Army', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (6178, 'Journal', 'Inside the Navy', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (6179, 'Journal', 'Inside the Pentagon', '2164-814X', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (6180, 'Journal', 'Insights (Austin, Tex.)', '1056-0548', 'null', '30/09/2009', '31/03/2011', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (6181, 'Journal', 'Insta Blogs (web site)', 'null', 'null', '19/11/2012', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
@@ -6472,7 +6473,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (6371, 'Journal', 'International journal of consumer studies', '1470-6423', '1470-6431', '1997', 'null', 'Wiley-Blackwell - Couperin 2012', 'http://rproxy.insa-rennes.fr/login?url=http://onlinelibrary.wiley.com/journal/10.1111/(ISSN)1470-6431'),
 (6372, 'Journal', 'International journal of cosmetic science', '0142-5463', '1468-2494', '1997', 'null', 'Wiley-Blackwell - Couperin 2012', 'http://rproxy.insa-rennes.fr/login?url=http://onlinelibrary.wiley.com/journal/10.1111/(ISSN)1468-2494'),
 (6373, 'Journal', 'International journal of critical infrastructure protection', '1874-5482', 'null', '2008', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/18745482');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (6374, 'Journal', 'International journal of dairy technology', '1364-727X', '1471-0307', '1997', 'null', 'Wiley-Blackwell - Couperin 2012', 'http://rproxy.insa-rennes.fr/login?url=http://onlinelibrary.wiley.com/journal/10.1111/(ISSN)1471-0307'),
 (6375, 'Journal', 'International journal of dental hygiene', '1601-5029', '1601-5037', '2003', 'null', 'Wiley-Blackwell - Couperin 2012', 'http://rproxy.insa-rennes.fr/login?url=http://onlinelibrary.wiley.com/journal/10.1111/(ISSN)1601-5037'),
 (6376, 'Journal', 'International journal of dermatology', '0011-9059', '1365-4632', '1997', 'null', 'Wiley-Blackwell - Couperin 2012', 'http://rproxy.insa-rennes.fr/login?url=http://onlinelibrary.wiley.com/journal/10.1111/(ISSN)1365-4632'),
@@ -6656,7 +6657,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (6554, 'Journal', 'International urology and nephrology', '0301-1623', '1573-2584', '1970', '31/12/1996', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0301-1623&volume='),
 (6555, 'Journal', 'International wound journal', '1742-4801', '1742-481X', '2004', 'null', 'Wiley-Blackwell - Couperin 2012', 'http://rproxy.insa-rennes.fr/login?url=http://onlinelibrary.wiley.com/journal/10.1111/(ISSN)1742-481X'),
 (6556, 'Journal', 'International zoo yearbook', '0074-9664', '1748-1090', '1997', 'null', 'Wiley-Blackwell - Couperin 2012', 'http://rproxy.insa-rennes.fr/login?url=http://onlinelibrary.wiley.com/journal/10.1111/(ISSN)1748-1090'),
-(6557, 'Journal', 'Internationale Revue fu¨r soziale Sicherheit', '0379-0282', '1752-1726', '2007', 'null', 'Wiley-Blackwell - Couperin 2012', 'http://rproxy.insa-rennes.fr/login?url=http://onlinelibrary.wiley.com/journal/10.1111/(ISSN)1752-1726'),
+(6557, 'Journal', 'Internationale Revue für soziale Sicherheit', '0379-0282', '1752-1726', '2007', 'null', 'Wiley-Blackwell - Couperin 2012', 'http://rproxy.insa-rennes.fr/login?url=http://onlinelibrary.wiley.com/journal/10.1111/(ISSN)1752-1726'),
 (6558, 'Journal', 'Internationale Zeitschrift für angewandte Physiologie einschliesslich Arbeitsphysiologie', '0020-9376', 'null', '1955', '1973', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0301-5548&volume='),
 (6559, 'Journal', 'Internationales Archiv für Arbeitsmedizin', '0020-5923', 'null', '01/01/1970', '28/02/1975', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0340-0131&volume='),
 (6560, 'Journal', 'Internationales Archiv für Gewerbepathologie und Gewerbehygiene', '0367-9977', 'null', '01/01/1962', '31/12/1969', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0340-0131&volume='),
@@ -6672,7 +6673,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (6570, 'Journal', 'Internet Surveillance and Protection, ICISP, International Conference on', 'null', 'null', '2006', '2006', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1002087'),
 (6571, 'Journal', 'Internet Technology and Applications (iTAP), International Conference on', 'null', 'null', '2010', 'null', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1800200'),
 (6572, 'Journal', 'Internet Technology and Secured Transactions (ICITST), International Conference for', 'null', 'null', '2010', 'null', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1003084');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (6573, 'Journal', 'Internet weekly news', '1944-2327', '1944-2335', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (6574, 'Journal', 'Internet Workshop, IWS', 'null', 'null', '1999', '1999', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1002376'),
 (6575, 'Journal', 'Internet, AH-ICI, Asian Himalayas International Conference on', 'null', 'null', '2009', 'null', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1002963'),
@@ -6878,7 +6879,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (6775, 'Journal', 'Journal des Pays-d''en-Haut La Vallée (QC)', 'null', 'null', '04/04/2012', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (6776, 'Journal', 'Journal des Savants', '0021-8103', 'null', '1909', '2007', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/jds'),
 (6777, 'Journal', 'Journal du Centre', '0996-1259', 'null', '26/04/2011', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (6778, 'Journal', 'Journal du Centre (site web)', 'null', 'null', '21/06/2011', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (6779, 'Journal', 'Journal du Chauffage et du Sanitaire', '1148-554X', 'null', '01/07/2009', '05/11/2012', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (6780, 'Journal', 'Journal du Mali (réf. site web)', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
@@ -7086,7 +7087,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (6982, 'Journal', 'Journal of clinical epidemiology', '0895-4356', '1878-5921', '1995', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/08954356'),
 (6983, 'Journal', 'Journal of clinical forensic medicine', '1353-1131', '1532-2009', '1995', '2006', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/13531131'),
 (6984, 'Journal', 'Journal of clinical immunology', '0271-9142', '1573-2592', '01/01/1981', '31/12/1996', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0271-9142&volume=');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (6985, 'Journal', 'Journal of clinical laboratory analysis', '0887-8013', '1098-2825', '1996', 'null', 'Wiley-Blackwell - Couperin 2012', 'http://rproxy.insa-rennes.fr/login?url=http://onlinelibrary.wiley.com/journal/10.1002/(ISSN)1098-2825'),
 (6986, 'Journal', 'Journal of clinical lipidology', '1933-2874', '1876-4789', '2007', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/19332874'),
 (6987, 'Journal', 'Journal of clinical monitoring', '0748-1977', 'null', '01/01/1985', '31/12/1996', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=1387-1307&volume='),
@@ -7296,7 +7297,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (7191, 'Journal', 'Journal of forensic sciences', '0022-1198', '1556-4029', '2006', 'null', 'Wiley-Blackwell - Couperin 2012', 'http://rproxy.insa-rennes.fr/login?url=http://onlinelibrary.wiley.com/journal/10.1111/(ISSN)1556-4029'),
 (7192, 'Journal', 'Journal of forest economics', '1104-6899', '1618-1530', '2002', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/11046899'),
 (7193, 'Journal', 'Journal of forest research', '1341-6979', '1610-7403', '10/02/1996', '31/12/1996', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=1341-6979&volume=');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (7194, 'Journal', 'Journal of forestry research', '1007-662X', '1993-0607', '01/11/1990', '31/12/1996', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=1007-662X&volume='),
 (7195, 'Journal', 'Journal of fourier analysis and applications', '1069-5869', '1531-5851', '03/02/1994', '31/12/1996', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=1069-5869&volume='),
 (7196, 'Journal', 'Journal of fuel chemistry and technology', 'null', 'null', '2006', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/18725813'),
@@ -7503,7 +7504,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (7397, 'Journal', 'Journal of money, credit and banking', '0022-2879', '1538-4616', '2007', 'null', 'Wiley-Blackwell - Couperin 2012', 'http://rproxy.insa-rennes.fr/login?url=http://onlinelibrary.wiley.com/journal/10.1111/(ISSN)1538-4616'),
 (7398, 'Journal', 'Journal of morphology (1931)', '0362-2525', '1097-4687', '1996', 'null', 'Wiley-Blackwell - Couperin 2012', 'http://rproxy.insa-rennes.fr/login?url=http://onlinelibrary.wiley.com/journal/10.1002/(ISSN)1097-4687'),
 (7399, 'Journal', 'Journal of multi-criteria decision analysis', '1057-9214', '1099-1360', '1996', 'null', 'Wiley-Blackwell - Couperin 2012', 'http://rproxy.insa-rennes.fr/login?url=http://onlinelibrary.wiley.com/journal/10.1002/(ISSN)1099-1360');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (7400, 'Journal', 'Journal of multicultural counseling and development', '0883-8534', 'null', 'null', 'null', 'Wiley-Blackwell - Couperin 2012', 'http://rproxy.insa-rennes.fr/login?url=http://onlinelibrary.wiley.com/'),
 (7401, 'Journal', 'Journal of multinational financial management', '1042-444X', '1873-1309', '1997', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/1042444X'),
 (7402, 'Journal', 'Journal of multivariate analysis', '0047-259X', '1095-7243', '1995', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/0047259X'),
@@ -7711,7 +7712,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (7604, 'Journal', 'Journal of Russian laser research', '1071-2836', '1573-8760', '01/01/1980', '31/12/1996', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=1071-2836&volume='),
 (7605, 'Journal', 'Journal of safety research', '0022-4375', '1879-1247', '1995', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/00224375'),
 (7606, 'Journal', 'Journal of school health', '0022-4391', '1746-1561', '1997', 'null', 'Wiley-Blackwell - Couperin 2012', 'http://rproxy.insa-rennes.fr/login?url=http://onlinelibrary.wiley.com/journal/10.1111/(ISSN)1746-1561');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (7607, 'Journal', 'Journal of school psychology', '0022-4405', '1873-3506', '1995', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/00224405'),
 (7608, 'Journal', 'Journal of science and medicine in sport', '1440-2440', '1878-1861', '1998', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/14402440'),
 (7609, 'Journal', 'Journal of Science and Technology', 'null', 'null', '30/06/2010', '31/12/2010', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
@@ -7919,7 +7920,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (7811, 'Journal', 'Kennebec journal (Augusta, Me. : 1975)', '0745-2039', 'null', '18/12/2008', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (7812, 'Journal', 'Kent and Sussex Courier (UK)', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (7813, 'Journal', 'Kerala IT News (web site)', 'null', 'null', '21/11/2012', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (7814, 'Journal', 'Keremeos review (Keremeos, B.C.)', 'null', 'null', '24/04/2008', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (7815, 'Journal', 'Kernos', '0776-3824', 'null', '1988', '2009', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://kernos.revues.org'),
 (7816, 'Journal', 'Kerrville Daily Times (TX)', 'null', 'null', '28/10/2008', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
@@ -7966,7 +7967,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (7857, 'Journal', 'Kolloid-Beihefte', 'null', 'null', '31/10/1909', '1943', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0071-8017'),
 (7858, 'Journal', 'Kolloid-Zeitschrift', '0368-6590', 'null', '01/07/1913', '31/12/1961', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0303-402X&volume='),
 (7859, 'Journal', 'Kolloid-Zeitschrift und Zeitschrift für Polymere', '0023-2904', 'null', '01/01/1962', '31/12/1973', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0303-402X&volume='),
-(7860, 'Journal', 'Komplementa¨re und integrative Medizin', '1863-8678', 'null', '2008', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/18638678'),
+(7860, 'Journal', 'Komplementäre und integrative Medizin', '1863-8678', 'null', '2008', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/18638678'),
 (7861, 'Journal', 'Kootenay news advertiser (Cranbrook, British Columbia)', 'null', 'null', '07/04/2008', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (7862, 'Journal', 'Kootenay Woman', 'null', 'null', '27/01/2010', '21/02/2011', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (7863, 'Journal', 'Korea herald (U.S. ed.)', '0893-3685', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
@@ -8112,7 +8113,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (8003, 'Journal', 'Lethbridge Sun Times', 'null', 'null', '12/09/2007', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (8004, 'Journal', 'Lethbridge Sun Times (web site)', 'null', 'null', '02/03/2011', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (8005, 'Journal', 'Lettere al Nuovo cimento', '0024-1318', 'null', '01/01/1969', '31/12/1970', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0375-930X&volume='),
-(8006, 'Journal', 'Lettere al Nuovo cimento della Societa` italiana di fisica', '0375-930X', 'null', '01/01/1971', '31/12/1985', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0375-930X&volume='),
+(8006, 'Journal', 'Lettere al Nuovo cimento della Società italiana di fisica', '0375-930X', 'null', '01/01/1971', '31/12/1985', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0375-930X&volume='),
 (8007, 'Journal', 'Letters in applied microbiology', '0266-8254', '1472-765X', '1997', 'null', 'Wiley-Blackwell - Couperin 2012', 'http://rproxy.insa-rennes.fr/login?url=http://onlinelibrary.wiley.com/journal/10.1111/(ISSN)1472-765X'),
 (8008, 'Journal', 'Letters in mathematical physics', '0377-9017', '1573-0530', '01/12/1975', '31/12/1996', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0377-9017&volume='),
 (8009, 'Journal', 'Letters in peptide science : LIPS', '0929-5666', '1573-496X', '01/07/1994', '31/12/1996', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0929-5666&volume='),
@@ -8130,7 +8131,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (8021, 'Journal', 'Lettre du Transport et de la Logistique', 'null', 'null', '05/01/2005', '26/07/2006', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (8022, 'Journal', 'Lettre Valloire', '0986-6523', 'null', '28/03/2007', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (8023, 'Journal', 'Leukemia research', '0145-2126', '1873-5835', '1995', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/01452126');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (8024, 'Journal', 'Leveraging Applications of Formal Methods, Verification and Validation ( ISoLA), International Symposium on', 'null', 'null', '2006', '2006', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1001617'),
 (8025, 'Journal', 'Leviathan (Hempstead, N.Y.)', '1525-6995', '1750-1849', '1999', 'null', 'Wiley-Blackwell - Couperin 2012', 'http://rproxy.insa-rennes.fr/login?url=http://onlinelibrary.wiley.com/journal/10.1111/(ISSN)1750-1849'),
 (8026, 'Journal', 'Lewiston Morning Tribune (ID)', 'null', 'null', '21/01/2009', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
@@ -8340,7 +8341,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (8230, 'Journal', 'Management Science and Engineering (ICMSE), International Conference on', 'null', 'null', '2006', '2009', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1001515'),
 (8231, 'Journal', 'Management Science and Industrial Engineering (MSIE), International Conference on', 'null', 'null', '2011', 'null', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1800281'),
 (8232, 'Journal', 'Managerial and decision economics', '0143-6570', '1099-1468', '1996', 'null', 'Wiley-Blackwell - Couperin 2012', 'http://rproxy.insa-rennes.fr/login?url=http://onlinelibrary.wiley.com/journal/10.1002/(ISSN)1099-1468');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (8233, 'Journal', 'Managing Expert System Programs and Projects, IEEE Conference on', 'null', 'null', '1990', '1990', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1001906'),
 (8234, 'Journal', 'Managing Requirements Knowledge (AFIPS), International Workshop on', 'null', 'null', 'null', 'null', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1040031'),
 (8235, 'Journal', 'Managing Requirements Knowledge, MARK, International Workshop on', 'null', 'null', '2008', 'null', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1002646'),
@@ -8442,7 +8443,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (8331, 'Journal', 'Mathematical Methods in Electromagnetic Theory (MMET), International Conference on', 'null', 'null', '1996', 'null', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1000435'),
 (8332, 'Journal', 'Mathematical methods in the applied sciences', '0170-4214', '1099-1476', '1996', 'null', 'Wiley-Blackwell - Couperin 2012', 'http://rproxy.insa-rennes.fr/login?url=http://onlinelibrary.wiley.com/journal/10.1002/(ISSN)1099-1476'),
 (8333, 'Journal', 'Mathematical methods of operations research (Heidelberg, Germany)', '1432-2994', '1432-5217', '01/12/1956', '31/12/1996', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=1432-2994&volume='),
-(8334, 'Journal', 'Mathematical notes (Rossiiskaia akademiia nauk)', '1067-9073', 'null', '01/01/1992', '31/12/1996', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0001-4346&volume='),
+(8334, 'Journal', 'Mathematical notes (Rossiĭskaia akademiia nauk)', '1067-9073', 'null', '01/01/1992', '31/12/1996', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0001-4346&volume='),
 (8335, 'Journal', 'Mathematical notes of the Academy of Sciences of the USSR', '0001-4346', 'null', '01/01/1967', '31/12/1991', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0001-4346&volume='),
 (8336, 'Journal', 'Mathematical programming', '0025-5610', '1436-4646', '01/12/1971', '31/12/1996', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0025-5610&volume='),
 (8337, 'Journal', 'Mathematical social sciences', '0165-4896', '1879-3118', '1995', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/01654896'),
@@ -8511,7 +8512,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (8400, 'Journal', 'Mechtronic and Embedded Systems and Applications, MESA, IEEE/ASME International Conference on', 'null', 'null', '2008', 'null', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1002552'),
 (8401, 'Journal', 'Médecine de catastrophe, urgences collectives', '1279-8479', 'null', '1998', '2000', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/12798479'),
 (8402, 'Journal', 'Médecine & droit', '1246-7391', 'null', '1995', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/12467391'),
-(8403, 'Journal', 'Me´decine et maladies infectieuses', '0399-077X', '1769-6690', '1995', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/0399077X'),
+(8403, 'Journal', 'Médecine et maladies infectieuses', '0399-077X', '1769-6690', '1995', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/0399077X'),
 (8404, 'Journal', 'Médecine nucléaire : imagerie fonctionelle et métabolique', '0928-1258', 'null', '2007', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/09281258'),
 (8405, 'Journal', 'Media General Washington Bureau', 'null', 'null', '27/10/2008', '19/03/2009', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (8406, 'Journal', 'Media In Canada (web site ref.)', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
@@ -8546,7 +8547,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (8435, 'Journal', 'Medical microbiology and immunology', '0300-8584', '1432-1831', '1971', '31/12/1996', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0300-8584&volume='),
 (8436, 'Journal', 'Medical oncology (Northwood, London, England)', '1357-0560', '1559-131X', '01/01/1994', '31/12/1996', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=1357-0560&volume='),
 (8437, 'Journal', 'Medical oncology and tumor pharmacotherapy', '0736-0118', 'null', '01/03/1984', '31/12/1993', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=1357-0560&volume=');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (8438, 'Journal', 'Medical Technology Symposium, Proceedings. Pacific', 'null', 'null', '1998', '1998', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1002357'),
 (8439, 'Journal', 'Medical update for psychiatrists', '1082-7579', '1878-3708', '1997', '1998', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/10827579'),
 (8440, 'Journal', 'Medicina intensiva (English ed.)', 'null', '2173-5727', '2011', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/21735727'),
@@ -8554,8 +8555,8 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (8442, 'Journal', 'Medicine Hat news (1981)', '0834-9584', 'null', '09/01/1999', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (8443, 'Journal', 'Medicine Hat News (web site)', 'null', 'null', '11/03/2011', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (8444, 'Journal', 'Medicos y Pacientes (sitio web ref.)', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
-(8445, 'Journal', 'Me´die´vales', '0751-2708', '1777-5892', '1982', '3 years ago', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/medi'),
-(8446, 'Journal', 'Me´die´vales', '0751-2708', '1777-5892', '2003', '2009', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://medievales.revues.org'),
+(8445, 'Journal', 'Médiévales', '0751-2708', '1777-5892', '1982', '3 years ago', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/medi'),
+(8446, 'Journal', 'Médiévales', '0751-2708', '1777-5892', '2003', '2009', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://medievales.revues.org'),
 (8447, 'Journal', 'Méditerranée (Aix-en-Provence, France)', '0025-8296', 'null', '1960', '2004', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/medit'),
 (8448, 'Journal', 'Méditerranée (Aix-en-Provence, France)', '0025-8296', 'null', '2005', '2009', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://mediterranee.revues.org'),
 (8449, 'Journal', 'Meeting the Growing Demand for Engineers and Their Educators 2010-2020 International Summit, IEEE', 'null', 'null', '2007', '2007', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1002606'),
@@ -8752,7 +8753,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (8640, 'Journal', 'Mid Sussex Times (UK)', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (8641, 'Journal', 'Middle East (London, England : 1985)', '0305-0734', 'null', '01/01/2004', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (8642, 'Journal', 'Middle East business news (Cairo, Egypt)', 'null', 'null', '12/11/2011', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (8643, 'Journal', 'Middle East interiors', 'null', 'null', '07/07/2011', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (8644, 'Journal', 'Middle East Online (web site ref.)', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (8645, 'Journal', 'Middle East policy', '1061-1924', 'null', '1997', 'null', 'Wiley-Blackwell - Couperin 2012', 'http://rproxy.insa-rennes.fr/login?url=http://onlinelibrary.wiley.com/journal/10.1111/(ISSN)1475-4967'),
@@ -8910,7 +8911,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (8797, 'Journal', 'Monatshefte für Chemie', '0026-9247', '1434-4475', '01/12/1880', '31/12/1996', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0026-9247&volume='),
 (8798, 'Journal', 'Monatshefte für Mathematik', '0026-9255', '1436-5081', '1948', '31/12/1996', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0026-9255&volume='),
 (8799, 'Journal', 'Monatshefte für Mathematik und Physik', '1812-8076', 'null', '01/12/1890', '1944', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0026-9255&volume='),
-(8800, 'Journal', 'Monatsschrift fu¨r das Forst- und Jagdwesen', 'null', 'null', '01/01/1857', '31/12/1878', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0015-8003'),
+(8800, 'Journal', 'Monatsschrift für das Forst- und Jagdwesen', 'null', 'null', '01/01/1857', '31/12/1878', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0015-8003'),
 (8801, 'Journal', 'Monatsschrift Kinderheilkunde', '0026-9298', '1433-0474', '30/12/1902', '31/12/1996', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0026-9298&volume='),
 (8802, 'Journal', 'Mondaq (web site)', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (8803, 'Journal', 'Monday Magazine', 'null', 'null', '09/04/2008', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
@@ -8953,7 +8954,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (8840, 'Journal', 'Montréal Express - Édition Sud', 'null', 'null', '07/12/2006', '15/10/2008', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (8841, 'Journal', 'Montrose Review (UK)', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (8842, 'Journal', 'Monuments et mémoires de la Fondation Eugène Piot', 'null', 'null', '1894', '1895', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/piot');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (8843, 'Journal', 'Monuments et mémoires de la Fondation Eugène Piot', 'null', 'null', '1897', '1897', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/piot'),
 (8844, 'Journal', 'Monuments et mémoires de la Fondation Eugène Piot', 'null', 'null', '1899', '1900', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/piot'),
 (8845, 'Journal', 'Monuments et mémoires de la Fondation Eugène Piot', 'null', 'null', '1902', '1906', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/piot'),
@@ -8976,7 +8977,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (8862, 'Journal', 'Morpeth Herald (UK)', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (8863, 'Journal', 'Morris Daily Herald (IL)', 'null', 'null', '22/02/2011', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (8864, 'Journal', 'Morro Cotudo (sitio web ref.)', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
-(8865, 'Journal', 'Morskoi gidrofizicheskii zhurnal', '0920-5047', 'null', '30/01/1987', '1992', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0928-5105&volume='),
+(8865, 'Journal', 'Morskoĭ gidrofizicheskiĭ zhurnal', '0920-5047', 'null', '30/01/1987', '1992', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0928-5105&volume='),
 (8866, 'Journal', 'Mortgage Daily (web site)', 'null', 'null', '06/05/2013', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (8867, 'Journal', 'Mortgage Strategy', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (8868, 'Journal', 'Moscow Pullman daily news', '1061-8597', 'null', '21/01/2009', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
@@ -9158,7 +9159,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (9044, 'Journal', 'Naval research logistics', '0894-069X', '1520-6750', '1996', 'null', 'Wiley-Blackwell - Couperin 2012', 'http://rproxy.insa-rennes.fr/login?url=http://onlinelibrary.wiley.com/journal/10.1002/(ISSN)1520-6750'),
 (9045, 'Journal', 'Nawaat (réf. site web)', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (9046, 'Journal', 'NBM and CW', 'null', 'null', '01/03/2013', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (9047, 'Journal', 'NDT & E international : independent nondestructive testing and evaluation', '0963-8695', '1879-1174', '1995', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/09638695'),
 (9048, 'Journal', 'NE 10 (site ref.)', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (9049, 'Journal', 'Near Field Communication, NFC, International Workshop on', 'null', 'null', '2009', 'null', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1002809'),
@@ -9363,7 +9364,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (9248, 'Journal', 'News-Assurances (site web)', 'null', 'null', '14/08/2008', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (9249, 'Journal', 'News-Assurances Pro (site web)', 'null', 'null', '20/02/2011', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (9250, 'Journal', 'News-Banques (site web)', 'null', 'null', '08/10/2008', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (9251, 'Journal', 'Newsday (Melville, N.Y.)', 'null', 'null', '18/12/2008', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (9252, 'Journal', 'News-Democrat and Leader (Russellville, KY)', 'null', 'null', '27/08/2010', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (9253, 'Journal', 'Newsfile Press Release Wire', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
@@ -9403,7 +9404,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (9287, 'Journal', 'Niles Daily Star (MI)', 'null', 'null', '23/04/2013', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (9288, 'Journal', 'Nipawin Journal (SK)', 'null', 'null', '11/04/2012', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (9289, 'Journal', 'Nipawin Journal (SK) (web site ref.)', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
-(9290, 'Journal', 'Nippon Kaiyo Gakkai-shi', '0029-8131', 'null', '01/02/1970', '1992', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0916-8370&volume='),
+(9290, 'Journal', 'Nippon Kaiyō Gakkai-shi', '0029-8131', 'null', '01/02/1970', '1992', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0916-8370&volume='),
 (9291, 'Journal', 'Nitric oxide', '1089-8603', '1089-8611', '1997', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/10898603'),
 (9292, 'Journal', 'NJAS - Wageningen journal of life sciences', '1573-5214', 'null', '2000', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/15735214'),
 (9293, 'Journal', 'NMR in biomedicine', '0952-3480', '1099-1492', '1996', 'null', 'Wiley-Blackwell - Couperin 2012', 'http://rproxy.insa-rennes.fr/login?url=http://onlinelibrary.wiley.com/journal/10.1002/(ISSN)1099-1492'),
@@ -9569,7 +9570,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (9453, 'Journal', 'Nursing in critical care', '1362-1017', '1478-5153', '2003', 'null', 'Wiley-Blackwell - Couperin 2012', 'http://rproxy.insa-rennes.fr/login?url=http://onlinelibrary.wiley.com/journal/10.1111/(ISSN)1478-5153'),
 (9454, 'Journal', 'Nursing inquiry', '1320-7881', '1440-1800', '1997', 'null', 'Wiley-Blackwell - Couperin 2012', 'http://rproxy.insa-rennes.fr/login?url=http://onlinelibrary.wiley.com/journal/10.1111/(ISSN)1440-1800'),
 (9455, 'Journal', 'Nursing outlook', '0029-6554', '1528-3968', '1995', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/00296554');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (9456, 'Journal', 'Nursing philosophy', '1466-7681', '1466-769X', '2000', 'null', 'Wiley-Blackwell - Couperin 2012', 'http://rproxy.insa-rennes.fr/login?url=http://onlinelibrary.wiley.com/journal/10.1111/(ISSN)1466-769X'),
 (9457, 'Journal', 'Nutrient cycling in agroecosystems', '1385-1314', '1573-0867', '01/01/1996', '31/12/1996', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=1385-1314&volume='),
 (9458, 'Journal', 'Nutrition (Burbank, Los Angeles County, Calif.)', '0899-9007', '1873-1244', '1996', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/08999007'),
@@ -9780,7 +9781,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (9663, 'Journal', 'Oxbow Herald (SK)', 'null', 'null', '07/05/2012', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (9664, 'Journal', 'Oxford bulletin of economics and statistics', '0305-9049', '1468-0084', '1997', 'null', 'Wiley-Blackwell - Couperin 2012', 'http://rproxy.insa-rennes.fr/login?url=http://onlinelibrary.wiley.com/journal/10.1111/(ISSN)1468-0084'),
 (9665, 'Journal', 'Oxford journal of archaeology', '0262-5253', 'null', '1997', 'null', 'Wiley-Blackwell - Couperin 2012', 'http://rproxy.insa-rennes.fr/login?url=http://onlinelibrary.wiley.com/journal/10.1111/(ISSN)1468-0092');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (9666, 'Journal', 'Oxidation of metals', '0030-770X', '1573-4889', '01/03/1969', '31/12/1996', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0030-770X&volume='),
 (9667, 'Journal', 'Ozequities news bites', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (9668, 'Journal', 'P2P, Parallel, Grid, Cloud and Internet Computing (3PGCIC), International Conference on', 'null', 'null', '2010', 'null', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1800224'),
@@ -9843,7 +9844,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (9725, 'Journal', 'Pakistan Law Reporter', 'null', 'null', '28/05/2013', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (9726, 'Journal', 'Pakistan news releases', 'null', 'null', '21/02/2012', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (9727, 'Journal', 'Pakistan observer', 'null', 'null', '21/02/2012', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
-(9728, 'Journal', 'Pakistan official news (Islamabad, Pakistan)', 'null', 'null', '21/02/2012', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
+(9728, 'Journal', 'Pakistan official news (Islāmābād, Pakistan)', 'null', 'null', '21/02/2012', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (9729, 'Journal', 'Pakistan oral & dental journal', '1012-8700', 'null', '30/06/2011', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (9730, 'Journal', 'Pakistan perspectives', 'null', 'null', '30/06/2011', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (9731, 'Journal', 'Pakistan Press International (PPI)', 'null', 'null', '01/01/2004', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
@@ -9852,13 +9853,13 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (9734, 'Journal', 'Pakistan textile', '0048-2757', 'null', '31/01/2012', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (9735, 'Journal', 'Pakistan today', '1098-8424', 'null', '21/02/2012', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (9736, 'Journal', 'Palaeogeography, palaeoclimatology, palaeoecology', '0031-0182', '1872-616X', '1995', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/00310182'),
-(9737, 'Journal', 'Pala¨ontologische Zeitschrift', '0031-0220', 'null', '01/03/1914', '31/12/1996', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0031-0220&volume='),
+(9737, 'Journal', 'Paläontologische Zeitschrift', '0031-0220', 'null', '01/03/1914', '31/12/1996', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0031-0220&volume='),
 (9738, 'Journal', 'Palaeontology', '0031-0239', '1475-4983', '1999', 'null', 'Wiley-Blackwell - Couperin 2012', 'http://rproxy.insa-rennes.fr/login?url=http://onlinelibrary.wiley.com/journal/10.1111/(ISSN)1475-4983'),
 (9739, 'Journal', 'Palaeoworld', '1871-174X', 'null', '2006', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/1871174X'),
 (9740, 'Journal', 'Paléo (Les Eyzies de Tayac-Sireuil)', '1145-3370', '2101-0420', '1989', '2000', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/pal'),
 (9741, 'Journal', 'Paléo (Les Eyzies de Tayac-Sireuil)', '1145-3370', '2101-0420', '2001', '2011', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://paleo.revues.org'),
-(9742, 'Journal', 'Pale´orient', '0153-9345', 'null', '1973', '1975', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/paleo'),
-(9743, 'Journal', 'Pale´orient', '0153-9345', 'null', '1978', '2008', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/paleo'),
+(9742, 'Journal', 'Paléorient', '0153-9345', 'null', '1973', '1975', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/paleo'),
+(9743, 'Journal', 'Paléorient', '0153-9345', 'null', '1978', '2008', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/paleo'),
 (9744, 'Journal', 'Palestine Chronicle (Mountlake Terrace, WA)', 'null', 'null', '18/06/2008', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (9745, 'Journal', 'Palestine Herald-Press (TX)', 'null', 'null', '28/10/2008', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (9746, 'Journal', 'Palestine News and Info Agency (WAFA)', 'null', 'null', '28/06/2011', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
@@ -9978,7 +9979,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (9860, 'Journal', 'Pedobiologia', '0031-4056', '1873-1511', '2000', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/00314056'),
 (9861, 'Journal', 'Pedosphere', '1002-0160', '1002-0160', '2006', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/10020160'),
 (9862, 'Journal', 'Peer-to-Peer Computing, International Conference on', 'null', 'null', '2001', 'null', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1000546'),
-(9863, 'Journal', 'Pe`lerin', 'null', 'null', '17/05/2012', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
+(9863, 'Journal', 'Pèlerin', 'null', 'null', '17/05/2012', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (9864, 'Journal', 'Pelham News (ON)', 'null', 'null', '05/04/2012', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (9865, 'Journal', 'Pelham News (ON) (web site ref.)', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (9866, 'Journal', 'Pella Chronicle (IA)', 'null', 'null', '31/10/2008', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
@@ -9987,7 +9988,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (9869, 'Journal', 'Peninsula (Qatar)', 'null', 'null', '17/04/2012', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (9870, 'Journal', 'Peninsula gateway', '1066-2065', 'null', '22/10/2008', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (9871, 'Journal', 'Peninsula News Review (Sidney)', 'null', 'null', '04/04/2008', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (9872, 'Journal', 'Penrith Press (Australia)', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (9873, 'Journal', 'Penticton western news (Penticton, British Columbia)', 'null', 'null', '04/04/2008', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (9874, 'Journal', 'People (UK)', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
@@ -10056,7 +10057,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (9937, 'Journal', 'Peuple - Lotbinière (QC)', 'null', 'null', '04/04/2012', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (9938, 'Journal', 'Peuple - Lotbinière (QC) (réf. site web)', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (9939, 'Journal', 'Pflügers Archiv', '0031-6768', '1432-2013', '1968', '31/12/1996', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0031-6768&volume='),
-(9940, 'Journal', 'Pflu¨gers Archiv fu¨r die gesamte Physiologie des Menschen und der Tiere', '0365-267X', 'null', '1910', '1968', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0031-6768'),
+(9940, 'Journal', 'Pflügers Archiv für die gesamte Physiologie des Menschen und der Tiere', '0365-267X', 'null', '1910', '1968', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0031-6768'),
 (9941, 'Journal', 'PGMTT National Symposium', 'null', 'null', '1961', '1961', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1000556'),
 (9942, 'Journal', 'Phare (Kinshasa, Congo) (réf. site web)', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (9943, 'Journal', 'Pharillon (Gaspé, QC)', 'null', 'null', '04/04/2012', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
@@ -10197,7 +10198,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (10078, 'Journal', 'Picayune Item (MS)', 'null', 'null', '29/10/2008', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (10079, 'Journal', 'Picture Coding Symposium, PCS', 'null', 'null', '2009', 'null', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1002806'),
 (10080, 'Journal', 'Piezoelectricity, Acoustic Waves, and Device Applications, SPAWDA Symposium on', 'null', 'null', '2008', '2008', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1002617');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (10081, 'Journal', 'Pigment cell and melanoma research', '1755-1471', '1755-148X', '1997', 'null', 'Wiley-Blackwell - Couperin 2012', 'http://rproxy.insa-rennes.fr/login?url=http://onlinelibrary.wiley.com/journal/10.1111/(ISSN)1755-148X'),
 (10082, 'Journal', 'Pilot (Pilot Mountain, N.C.)', '0747-0606', 'null', '14/06/2012', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (10083, 'Journal', 'Pilot (Lewisporte, NL)', 'null', 'null', '22/03/2006', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
@@ -10276,7 +10277,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (10156, 'Journal', 'Points de Vente', '0150-1844', 'null', '12/09/2011', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (10157, 'Journal', 'Polar biology', '0722-4060', '1432-2056', '01/03/1982', '31/12/1996', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0722-4060&volume='),
 (10158, 'Journal', 'Polar science', '1873-9652', 'null', '2007', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/18739652'),
-(10159, 'Journal', 'Po^le sud (Montpellier)', '1262-1676', '1960-6656', '1994', '2009', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/pole'),
+(10159, 'Journal', 'Pôle sud (Montpellier)', '1262-1676', '1960-6656', '1994', '2009', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/pole'),
 (10160, 'Journal', 'Policies for Distributed Systems and Networks, International Workshop on', 'null', 'null', '2002', 'null', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1000569'),
 (10161, 'Journal', 'Policy & society', '1449-4035', 'null', '2002', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/14494035'),
 (10162, 'Journal', 'Policy Issues in Information and Communication Technologies in Medical Applications, Symposium Record', 'null', 'null', '1988', '1988', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1002265'),
@@ -10299,8 +10300,8 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (10179, 'Journal', 'Politics & policy (Statesboro, Ga.)', '1555-5623', '1747-1346', '1997', 'null', 'Wiley-Blackwell - Couperin 2012', 'http://rproxy.insa-rennes.fr/login?url=http://onlinelibrary.wiley.com/journal/10.1111/(ISSN)1747-1346'),
 (10180, 'Journal', 'Politiken (websted ref.)', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (10181, 'Journal', 'Politique et sociétés (Montréal)', '1203-9438', 'null', '1982', '3 years ago', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.erudit.org/revue/ps/2012/v31/n3/index.html'),
-(10182, 'Journal', 'Politique e´trange`re', '0032-342X', 'null', '1936', '1940', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/polit'),
-(10183, 'Journal', 'Politique e´trange`re', '0032-342X', 'null', '1945', '2005', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/polit'),
+(10182, 'Journal', 'Politique étrangère', '0032-342X', 'null', '1936', '1940', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/polit'),
+(10183, 'Journal', 'Politique étrangère', '0032-342X', 'null', '1945', '2005', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/polit'),
 (10184, 'Journal', 'Politiques et Management Public', '2119-4831', 'null', '1983', '2007', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/pomap'),
 (10185, 'Journal', 'POLITIQUES ET MANAGEMENT PUBLIC', '0758-1726', 'null', '2008', '2011', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://pmp.revues.org'),
 (10186, 'Journal', 'Politix', '0295-2319', 'null', '1988', '2006', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/polix'),
@@ -10405,7 +10406,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (10285, 'Journal', 'Power Industry Computer Application Conference (PICA)', 'null', 'null', '1979', '2001', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1000583'),
 (10286, 'Journal', 'Power Insight', 'null', 'null', '26/12/2012', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (10287, 'Journal', 'Power institutions in Post-Soviet societies', 'null', '1769-7069', '2004', 'null', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://pipss.revues.org');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (10288, 'Journal', 'Power Line Communications and Its Applications (ISPLC), IEEE International Symposium on', 'null', 'null', '2005', '2009', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1001141'),
 (10289, 'Journal', 'Power Modulator, IEEE Symposium', '1076-8467', 'null', '1988', '2006', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1000584'),
 (10290, 'Journal', 'Power Politics', 'null', 'null', '05/12/2012', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
@@ -10447,10 +10448,10 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (10326, 'Journal', 'Prairie Post', 'null', 'null', '07/06/2002', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (10327, 'Journal', 'Prairie Post (web site)', 'null', 'null', '23/03/2011', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (10328, 'Journal', 'Prairie Post West', 'null', 'null', '20/12/2002', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
-(10329, 'Journal', 'Prama¯n?a', '0304-4289', '0973-7111', '01/07/1973', '31/12/1996', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0304-4289&volume='),
+(10329, 'Journal', 'Pramāṇa', '0304-4289', '0973-7111', '01/07/1973', '31/12/1996', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0304-4289&volume='),
 (10330, 'Journal', 'Pratique Cuisine', 'null', 'null', '29/12/2011', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (10331, 'Journal', 'Pratique Magazine', 'null', 'null', '13/12/2011', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
-(10332, 'Journal', 'Pratique me´dicale & chirurgicale de l''animal de compagnie', '0758-1882', 'null', '2008', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/07581882'),
+(10332, 'Journal', 'Pratique médicale & chirurgicale de l''animal de compagnie', '0758-1882', 'null', '2008', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/07581882'),
 (10333, 'Journal', 'Pratique Santé', 'null', 'null', '10/01/2012', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (10334, 'Journal', 'Pratiques psychologiques', '1269-1763', '1878-092X', '2004', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/12691763'),
 (10335, 'Journal', 'Pravda (web site ref.)', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
@@ -10481,7 +10482,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (10360, 'Journal', 'Press-telegram', 'null', 'null', '28/10/2008', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (10361, 'Journal', 'Press TV (Iran)', 'null', 'null', '28/06/2011', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (10362, 'Journal', 'Presse (blogues)', 'null', 'null', '29/10/2008', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
-(10363, 'Journal', 'Presse (Montre´al, Que´bec : 1884)', '0317-9249', 'null', '02/01/1985', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
+(10363, 'Journal', 'Presse (Montréal, Québec : 1884)', '0317-9249', 'null', '02/01/1985', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (10364, 'Journal', 'Presse (site web)', 'null', 'null', '02/05/2001', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (10365, 'Journal', 'Presse Affaires (site web)', 'null', 'null', '05/09/2003', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (10366, 'Journal', 'Presse Affaires Magazine', 'null', 'null', '01/06/2009', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
@@ -10604,7 +10605,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (10483, 'Journal', 'Proceedings - International Workshop on Database and Expert Systems Applications', '1529-4188', 'null', '1996', 'null', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1000180'),
 (10484, 'Journal', 'Proceedings / International Workshop on Microprocessor Test and Verification', '1550-4093', 'null', '2003', '2008', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1001112'),
 (10485, 'Journal', 'Proceedings / International Workshop on Principles of Software Evaluation', '1550-4077', 'null', '2000', '2005', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1000693');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (10486, 'Journal', 'Proceedings - International Workshops on Parallel Processing', '1530-2016', 'null', '1996', 'null', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1000539'),
 (10487, 'Journal', 'Proceedings - International Workshops on Parallel Processing', '1530-2016', 'null', '1998', 'null', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1000539'),
 (10488, 'Journal', 'Proceedings of annual conference of the IEEE Vehicular Technology Society', '1042-458X', 'null', '1980', '1980', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1000784'),
@@ -10806,7 +10807,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (10684, 'Journal', 'Publishing research quarterly', '1053-8801', '1936-4792', 'Spring 1991', '31/12/1996', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=1053-8801&volume='),
 (10685, 'Journal', 'Pueblo chieftain (Pueblo, Colo. : 1889)', 'null', 'null', '27/10/2008', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (10686, 'Journal', 'Pulmonary pharmacology (Edinburgh)', '0952-0600', '1522-9637', '1995', '1996', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/09520600');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (10687, 'Journal', 'Pulmonary pharmacology & therapeutics', '1094-5539', '1522-9629', '1997', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/10945539'),
 (10688, 'Journal', 'Pulp and Paper Industry, PPIC, Annual Technical Conference', '0190-2172', 'null', '1988', 'null', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1000596'),
 (10689, 'Journal', 'Pulse international (Pakistan)', 'null', 'null', '14/02/2012', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
@@ -10906,7 +10907,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (10783, 'Journal', 'Rail, ASME/IEEE Joint Conference', 'null', 'null', '1989', '2006', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1000613'),
 (10784, 'Journal', 'Railway track and structures', '0033-9016', '2160-2514', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (10785, 'Journal', 'Rainforest Radio (Costa Rica) (sitio web ref.)', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
-(10786, 'Journal', 'Ranchi express (Ranchi, India)', 'null', 'null', '27/11/2012', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
+(10786, 'Journal', 'Ranchi express (Rānchī, India)', 'null', 'null', '27/11/2012', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (10787, 'Journal', 'Rand journal of economics', '0741-6261', '1756-2171', '2007', 'null', 'Wiley-Blackwell - Couperin 2012', 'http://rproxy.insa-rennes.fr/login?url=http://onlinelibrary.wiley.com/journal/10.1111/(ISSN)1756-2171'),
 (10788, 'Journal', 'Randolph Guide (Asheboro, NC)', 'null', 'null', '30/04/2009', '28/01/2011', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (10789, 'Journal', 'Random structures & algorithms', '1042-9832', '1098-2418', '1996', 'null', 'Wiley-Blackwell - Couperin 2012', 'http://rproxy.insa-rennes.fr/login?url=http://onlinelibrary.wiley.com/journal/10.1002/(ISSN)1098-2418'),
@@ -10966,7 +10967,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (10843, 'Journal', 'Recherches en anthropologie au Portugal', 'null', '1960-6664', '1998', '1998', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/rap'),
 (10844, 'Journal', 'Recherches en anthropologie au Portugal', 'null', '1960-6664', '2000', '2004', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/rap'),
 (10845, 'Journal', 'Recherches et prévisions', 'null', 'null', '1985', '2000', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/caf'),
-(10846, 'Journal', 'Recherches & travaux (Universite´ Stendhal-Grenoble 3. UFR de lettres classiques et modernes)', '0151-1874', 'null', '2005', '2011', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://recherchestravaux.revues.org'),
+(10846, 'Journal', 'Recherches & travaux (Université Stendhal-Grenoble 3. UFR de lettres classiques et modernes)', '0151-1874', 'null', '2005', '2011', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://recherchestravaux.revues.org'),
 (10847, 'Journal', 'Recherches féministes', '0838-4479', 'null', '1988', '3 years ago', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.erudit.org/revue/rf/2013/v26/n1/index.html'),
 (10848, 'Journal', 'Recherches linguistiques de Vincennes', '0986-6124', 'null', '1999', '2008', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://rlv.revues.org'),
 (10849, 'Journal', 'Recherches sociographiques', '0034-1282', '1705-6225', '1960', '2 years ago', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.erudit.org/revue/rs/2013/v54/n1/index.html'),
@@ -11016,7 +11017,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (10893, 'Journal', 'Regulation & governance', '1748-5983', 'null', '2007', 'null', 'Wiley-Blackwell - Couperin 2012', 'http://rproxy.insa-rennes.fr/login?url=http://onlinelibrary.wiley.com/journal/10.1111/(ISSN)1748-5991'),
 (10894, 'Journal', 'Regulatory peptides', '0167-0115', '1873-1686', '1995', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/01670115'),
 (10895, 'Journal', 'Regulatory toxicology and pharmacology', '0273-2300', '1096-0295', '1995', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/02732300');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (10896, 'Journal', 'Rehabilitation Robotics (ICORR), IEEE International Conference on', '1945-7898', 'null', '2005', 'null', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1001500'),
 (10897, 'Journal', 'Reidsville review', 'null', 'null', '28/10/2008', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (10898, 'Journal', 'Reinforced plastics (London)', '0034-3617', 'null', '1995', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/00343617'),
@@ -11222,11 +11223,11 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (11098, 'Journal', 'Revue archéologique de Picardie', '0752-5656', '2104-3914', '2000', '2007', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/pica'),
 (11099, 'Journal', 'Revue archéologique de Picardie', '0752-5656', '2104-3914', '2005', '2005', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/pica'),
 (11100, 'Journal', 'Revue archéologique de Picardie', '0752-5656', '2104-3914', '2007', '2007', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/pica');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
-(11101, 'Journal', 'Revue arche´ologique du centre', '0035-0753', 'null', '1962', '1968', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/racf'),
-(11102, 'Journal', 'Revue arche´ologique du centre de la France', '0220-6617', '1951-6207', '1969', '2004', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/racf'),
-(11103, 'Journal', 'Revue arche´ologique du centre de la France', '0220-6617', '1951-6207', '2004', '2005', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://racf.revues.org'),
-(11104, 'Journal', 'Revue arche´ologique du centre de la France', '0220-6617', '1951-6207', '2006', '2011', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://racf.revues.org'),
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+(11101, 'Journal', 'Revue archéologique du centre', '0035-0753', 'null', '1962', '1968', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/racf'),
+(11102, 'Journal', 'Revue archéologique du centre de la France', '0220-6617', '1951-6207', '1969', '2004', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/racf'),
+(11103, 'Journal', 'Revue archéologique du centre de la France', '0220-6617', '1951-6207', '2004', '2005', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://racf.revues.org'),
+(11104, 'Journal', 'Revue archéologique du centre de la France', '0220-6617', '1951-6207', '2006', '2011', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://racf.revues.org'),
 (11105, 'Journal', 'Revue archéologique du nord-est de l''Oise', 'null', 'null', '1971', '1972', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/pica'),
 (11106, 'Journal', 'Revue belge de philologie et d''histoire', '0035-0818', 'null', '1922', '1946', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/rbph'),
 (11107, 'Journal', 'Revue belge de philologie et d''histoire', '0035-0818', 'null', '1948', '2007', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/rbph'),
@@ -11256,10 +11257,10 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (11131, 'Journal', 'Revue d''économie industrielle', '0154-3229', '1773-0198', '1977', '2008', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/rei'),
 (11132, 'Journal', 'Revue d''économie industrielle', '0154-3229', '1773-0198', '2006', '2009', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://rei.revues.org'),
 (11133, 'Journal', 'Revue des études byzantines (Paris)', '0766-5598', 'null', '1946', '2008', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/rebyz'),
-(11134, 'Journal', 'Revue des e´tudes grecques', '0035-2039', 'null', '1936', '1937', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/reg'),
-(11135, 'Journal', 'Revue des e´tudes grecques', '0035-2039', 'null', '1939', '1946', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/reg'),
-(11136, 'Journal', 'Revue des e´tudes grecques', '0035-2039', 'null', '1948', '1966', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/reg'),
-(11137, 'Journal', 'Revue des e´tudes grecques', '0035-2039', 'null', '1968', '1997', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/reg'),
+(11134, 'Journal', 'Revue des études grecques', '0035-2039', 'null', '1936', '1937', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/reg'),
+(11135, 'Journal', 'Revue des études grecques', '0035-2039', 'null', '1939', '1946', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/reg'),
+(11136, 'Journal', 'Revue des études grecques', '0035-2039', 'null', '1948', '1966', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/reg'),
+(11137, 'Journal', 'Revue des études grecques', '0035-2039', 'null', '1968', '1997', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/reg'),
 (11138, 'Journal', 'Revue des Études Slaves', '2117-718X', 'null', '1921', '1939', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/slave'),
 (11139, 'Journal', 'Revue des Études Slaves', '2117-718X', 'null', '1942', '1942', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/slave'),
 (11140, 'Journal', 'Revue des Études Slaves', '2117-718X', 'null', '1944', '1944', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/slave'),
@@ -11294,7 +11295,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (11169, 'Journal', 'Revue européenne des migrations internationales', '0765-0752', 'null', '2002', '2009', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://remi.revues.org'),
 (11170, 'Journal', 'Revue européenne des sciences sociales', '0048-8046', 'null', '2000', '2009', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://ress.revues.org'),
 (11171, 'Journal', 'Revue finance, contrôle, stratégie : FCS', '1287-1141', 'null', '2012', 'null', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://fcs.revues.org'),
-(11172, 'Journal', 'Revue franc¸aise d''allergologie (2009)', '1877-0312', '1877-0320', '2009', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/18770320'),
+(11172, 'Journal', 'Revue française d''allergologie (2009)', '1877-0312', '1877-0320', '2009', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/18770320'),
 (11173, 'Journal', 'Revue française d''allergologie et d''immunologie clinique', '0335-7457', 'null', '1995', '2008', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/03357457'),
 (11174, 'Journal', 'Revue française de pédagogie', '0556-7807', '2105-2913', '1967', '2005', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/rfp'),
 (11175, 'Journal', 'Revue française de pédagogie', '0556-7807', '2105-2913', '2006', '2008', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://rfp.revues.org'),
@@ -11431,7 +11432,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (11306, 'Journal', 'Sahara Time', 'null', 'null', '27/10/2012', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (11307, 'Journal', 'Sahel (Niger) (réf. site web)', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (11308, 'Journal', 'St. Cloud times', '0899-5028', 'null', '22/10/2009', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (11309, 'Journal', 'Saint Croix Courier (NB)', 'null', 'null', '06/09/2011', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (11310, 'Journal', 'St. Louis post-dispatch', '1930-9600', 'null', '18/12/2008', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (11311, 'Journal', 'Salem News (Beverly, MA)', 'null', 'null', '18/12/2008', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
@@ -11519,7 +11520,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (11393, 'Journal', 'Science of the total environment', '0048-9697', '1879-1026', '1995', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/00489697'),
 (11394, 'Journal', 'Science Revue', 'null', 'null', '10/01/2012', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (11395, 'Journal', 'Science, Technology and Innovation Policy, Atlanta Conference on', 'null', 'null', '2007', '2007', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1001658'),
-(11396, 'Journal', 'Sciences sociales et sante´', '0294-0337', 'null', '1982', '2007', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/sosan'),
+(11396, 'Journal', 'Sciences sociales et santé', '0294-0337', 'null', '1982', '2007', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.persee.fr/web/revues/home/prescript/revue/sosan'),
 (11397, 'Journal', 'Scientia canadensis', '0829-2507', 'null', '1981', '3 years ago', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.erudit.org/revue/scientia/2010/v33/n1/index.html'),
 (11398, 'Journal', 'Scientia horticulturae', '0304-4238', '1879-1018', '1995', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/03044238'),
 (11399, 'Journal', 'Scientific and Statistical Database Management, International Working Conference on', '1099-3371', 'null', '1994', '2007', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1000645'),
@@ -11640,7 +11641,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (11514, 'Journal', 'Seminars in vascular surgery', '0895-7967', '1558-4518', '2002', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/08957967'),
 (11515, 'Journal', 'Seminars in virology', '1044-5773', '1098-1292', '1995', '1998', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/10445773'),
 (11516, 'Journal', 'Senckenbergiana lethaea', '0037-2110', 'null', '01/12/1996', '31/12/1996', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=1867-1594&volume=');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (11517, 'Journal', 'Senckenbergiana maritima', '0080-889X', 'null', '01/12/1996', '31/12/1996', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=1867-1616&volume='),
 (11518, 'Journal', 'Send2Press (Neotrope)', 'null', 'null', '27/06/2011', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (11519, 'Journal', 'S''Enrichir Magazine', 'null', 'null', '28/01/2011', '01/07/2012', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
@@ -11846,7 +11847,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (11719, 'Journal', 'Sociologie et sociétés', '0038-030X', 'null', '1969', '2 years ago', 'PERSEE - Portail de revues scientifiques en sciences humaines et sociales', 'http://rproxy.insa-rennes.fr/login?url=http://www.erudit.org/revue/socsoc/2013/v45/n1/index.html'),
 (11720, 'Journal', 'SociologieS', 'null', '1992-2655', '2006', 'null', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://sociologies.revues.org'),
 (11721, 'Journal', 'Sociology of health & illness', '0141-9889', '1467-9566', '1997', 'null', 'Wiley-Blackwell - Couperin 2012', 'http://rproxy.insa-rennes.fr/login?url=http://onlinelibrary.wiley.com/journal/10.1111/(ISSN)1467-9566');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (11722, 'Journal', 'Soft Computing and Pattern Recognition (SOCPAR), International Conference of', 'null', 'null', '2010', 'null', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1003023'),
 (11723, 'Journal', 'Soft Computing Applications (SOFA), International Workshop on', 'null', 'null', '2007', 'null', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1001311'),
 (11724, 'Journal', 'Soft Computing in Industrial Applications (SMCia), IEEE Workshop on', 'null', 'null', '1999', '2008', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1000679'),
@@ -12048,7 +12049,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (11920, 'Journal', 'Spectator (UK)', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (11921, 'Journal', 'Spectrochimica acta. Part A, Molecular and biomolecular spectroscopy', '1386-1425', 'null', '1995', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/13861425'),
 (11922, 'Journal', 'Spectrochimica acta. Part B: Atomic spectroscopy', '0584-8547', '1873-3565', '1995', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/05848547');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (11923, 'Journal', 'Spectroscopy', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (11924, 'Journal', 'Spectrum Estimation and Modeling, Annual ASSP Workshop on', 'null', 'null', '1988', '1990', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1000719'),
 (11925, 'Journal', 'Speech Coding For Telecommunications, IEEE Workshop on', 'null', 'null', '1993', '1997', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1000720'),
@@ -12255,7 +12256,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (12126, 'Journal', 'Sunday herald-sun', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (12127, 'Journal', 'Sunday independent (Johannesburg, South Africa)', 'null', 'null', '07/03/2013', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (12128, 'Journal', 'Sunday Indian', 'null', 'null', '17/05/2013', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (12129, 'Journal', 'Sunday Indian (web site)', 'null', 'null', '29/03/2013', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (12130, 'Journal', 'Sunday life (Belfast, Northern Ireland)', '1360-2772', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (12131, 'Journal', 'Sunday Mail (Adelaide, Australia)', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
@@ -12459,7 +12460,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (12329, 'Journal', 'Telecommunications Energy (INTELEC), International Conference', 'null', 'null', '1978', 'null', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1000745'),
 (12330, 'Journal', 'Telecommunications Energy (TELESCON), International Special Conference on', 'null', 'null', '1994', '2000', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1000746'),
 (12331, 'Journal', 'Telecommunications in Modern Satellite, Cable and Broadcasting Service (TELSIKS), International Conference on', 'null', 'null', '1999', '2007', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1000747');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (12332, 'Journal', 'Telecommunications Information Networking Architecture Conference Proceedings, TINA', 'null', 'null', '1999', '1999', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1002366'),
 (12333, 'Journal', 'Telecommunications Network Strategy and Planning Symposium. NETWORKS, International', 'null', 'null', '2004', 'null', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1002072'),
 (12334, 'Journal', 'Telecommunications policy', '0308-5961', '1879-3258', '1995', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/03085961'),
@@ -12513,7 +12514,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (12382, 'Journal', 'Terra nova (Oxford, England)', '0954-4879', '1365-3121', '1997', 'null', 'Wiley-Blackwell - Couperin 2012', 'http://rproxy.insa-rennes.fr/login?url=http://onlinelibrary.wiley.com/journal/10.1111/(ISSN)1365-3121'),
 (12383, 'Journal', 'Terrace standard', '0841-9264', 'null', '04/04/2008', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (12384, 'Journal', 'Terrain (Paris, 1983)', '0760-5668', 'null', '1983', '2008', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://terrain.revues.org'),
-(12385, 'Journal', 'Terre de chez nous (Montre´al)', '0040-3830', 'null', '22/09/2005', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
+(12385, 'Journal', 'Terre de chez nous (Montréal)', '0040-3830', 'null', '22/09/2005', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (12386, 'Journal', 'Territoire en mouvement (Villeneuve-d''Ascq)', '1954-4863', 'null', '2006', '2008', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://tem.revues.org'),
 (12387, 'Journal', 'Tertiary education and management', '1358-3883', '1573-1936', '11/03/1995', '31/12/1996', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=1358-3883&volume='),
 (12388, 'Journal', 'Test (Madrid, Spain)', '1133-0686', '1863-8260', '01/12/1992', '31/12/1996', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=1133-0686&volume='),
@@ -12668,7 +12669,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (12537, 'Journal', 'Traceability in Emerging Forms of Software Engineering, TEFSE, ICSE Workshop on', 'null', 'null', '2009', '2009', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1002752'),
 (12538, 'Journal', 'Tracés (Lyons, France)', '1763-0061', 'null', '2002', '2009', 'Revues.org', 'http://rproxy.insa-rennes.fr/login?url=http://traces.revues.org'),
 (12539, 'Journal', 'TradeArabia (Manama, Bahrain)', 'null', 'null', '12/06/2008', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (12540, 'Journal', 'Traders magazine', '0894-7295', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (12541, 'Journal', 'Trading Sat (site web)', 'null', 'null', '28/01/2010', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (12542, 'Journal', 'TradingMarkets (web site ref.)', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
@@ -12877,7 +12878,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (12745, 'Journal', 'UMCI News (Potomac Falls, VA)', 'null', 'null', '30/06/2011', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (12746, 'Journal', 'Umweltwissenschaften und Schadstoff-Forschung', '0934-3504', 'null', '01/03/1989', '31/12/1996', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0934-3504&volume='),
 (12747, 'Journal', 'Uncertainty Modeling and Analysis (ISUMA), International Symposium on', 'null', 'null', '1990', '2003', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1000771');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (12748, 'Journal', 'Undercurrent (Bowen Island)', '0229-2793', 'null', '04/04/2008', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (12749, 'Journal', 'Underwater Technology, International Symposium on', 'null', 'null', '1998', 'null', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1000772'),
 (12750, 'Journal', 'Unfallchirurg', '0177-5537', '1433-044X', '01/09/1996', '31/12/1996', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0177-5537&volume='),
@@ -13083,7 +13084,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (12950, 'Journal', 'Voice of America News', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (12951, 'Journal', 'Voice of Sikkim', 'null', 'null', '12/09/2011', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (12952, 'Journal', 'VoIP Management and Security, IEEE Workshop on', 'null', 'null', '2006', '2006', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1002045');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (12953, 'Journal', 'Voir (réf. site web)', 'null', 'null', 'null', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (12954, 'Journal', 'Voix (Sorel-Tracy, QC)', 'null', 'null', '26/04/2013', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (12955, 'Journal', 'Voix acadienne', '1195-5066', 'null', '01/12/2010', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
@@ -13287,7 +13288,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (13153, 'Journal', 'Wireless Communications Conference', 'null', 'null', '1992', '1997', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1000818'),
 (13154, 'Journal', 'Wireless Communications, Networking and Information Security (WCNIS), IEEE International Conference on', 'null', 'null', '2010', '2010', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1800097'),
 (13155, 'Journal', 'Wireless Communications, Networking and Mobile Computing (WiCom), International Conference on', 'null', 'null', '2007', 'null', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1001345');
-INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
+INSERT INTO `journaux` (`id`, `﻿type`, `title`, `issn`, `eissn`, `startdate`, `enddate`, `resource`, `url`) VALUES
 (13156, 'Journal', 'Wireless Conference (EW), European', 'null', 'null', '2008', 'null', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1002441'),
 (13157, 'Journal', 'Wireless Hive Networks Conference (WHNC), IEEE', 'null', 'null', '2008', '2008', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1002446'),
 (13158, 'Journal', 'Wireless Image/Video Communications, International Workshop on', 'null', 'null', '1996', '1996', 'IEEE/IET Electronic Library (IEL)', 'http://rproxy.insa-rennes.fr/login?url=http://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1001396'),
@@ -13382,7 +13383,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (13247, 'Journal', 'Yeast (Chichester, England)', '0749-503X', '1097-0061', '1996', 'null', 'Wiley-Blackwell - Couperin 2012', 'http://rproxy.insa-rennes.fr/login?url=http://onlinelibrary.wiley.com/journal/10.1002/(ISSN)1097-0061'),
 (13248, 'Journal', 'Yellowknifer (Yellowknife)', '0844-0697', 'null', '02/02/2000', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (13249, 'Journal', 'Yemen News Agency (SABA)', 'null', 'null', '29/06/2011', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
-(13250, 'Journal', 'Yemen observer (S?an?a¯?, Yemen)', 'null', 'null', '13/05/2012', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
+(13250, 'Journal', 'Yemen observer (Ṣanʻāʾ, Yemen)', 'null', 'null', '13/05/2012', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (13251, 'Journal', 'Yemen Post', 'null', 'null', '17/04/2012', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (13252, 'Journal', 'Yemen Times (Sana''a, Yemen)', 'null', 'null', '06/07/2008', 'null', 'Europresse.com', 'http://rproxy.insa-rennes.fr/login?url=http://rproxy.insa-rennes.fr/login?url=http://www.bpe.europresse.com/ip/intro.asp?user=INSAT_1'),
 (13253, 'Journal', 'Yíchuán xuébào', '0379-4172', 'null', '2006', '2006', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/03794172'),
@@ -13407,15 +13408,15 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (13272, 'Journal', 'Zeitschrift für angewandte Mathematik und Physik', '0044-2275', '1420-9039', '01/01/1950', '31/12/1996', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0044-2275&volume='),
 (13273, 'Journal', 'Zeitschrift für anorganische und allgemeine Chemie (1950)', '0044-2313', '1521-3749', '1998', 'null', 'Wiley-Blackwell - Couperin 2012', 'http://rproxy.insa-rennes.fr/login?url=http://onlinelibrary.wiley.com/journal/10.1002/(ISSN)1521-3749'),
 (13274, 'Journal', 'Zeitschrift für Chemie und Industrie der Kolloide', 'null', 'null', '01/07/1906', '30/06/1913', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0303-402X'),
-(13275, 'Journal', 'Zeitschrift fu¨r die gesamte Neurologie und Psychiatrie', '0303-4194', 'null', '01/12/1910', '31/12/1944', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0303-4194&volume='),
+(13275, 'Journal', 'Zeitschrift für die gesamte Neurologie und Psychiatrie', '0303-4194', 'null', '01/12/1910', '31/12/1944', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0303-4194&volume='),
 (13276, 'Journal', 'Zeitschrift für die gesamte Versicherungs-Wissenschaft', '0044-2585', 'null', '01/09/1979', '31/12/1996', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0044-2585&volume='),
 (13277, 'Journal', 'Zeitschrift für Ernährungswissenschaft', '0044-264X', 'null', '01/04/1960', '31/12/1996', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0044-264X&volume='),
-(13278, 'Journal', 'Zeitschrift fu¨r Evidenz, Fortbildung und Qualita¨t im Gesundheitswesen', '1865-9217', 'null', '2008', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/18659217'),
+(13278, 'Journal', 'Zeitschrift für Evidenz, Fortbildung und Qualität im Gesundheitswesen', '1865-9217', 'null', '2008', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/18659217'),
 (13279, 'Journal', 'Zeitschrift für experimentelle Pathologie und Therapie', 'null', 'null', '01/12/1904', '30/09/1921', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0372-8552&volume='),
 (13280, 'Journal', 'Zeitschrift für Hygiene', 'null', 'null', '30/12/1886', '1891', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0300-8584'),
 (13281, 'Journal', 'Zeitschrift für Hygiene und Infectionskrankheiten', '0340-1782', 'null', '1891', '30/09/1961', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0300-8584'),
 (13282, 'Journal', 'Zeitschrift für Hygiene und Infektionskrankheiten, medizinische Mikrobiologie, Immunologie und Virologie', '0340-1782', 'null', '01/10/1961', '31/12/1965', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0300-8584'),
-(13283, 'Journal', 'Zeitschrift fu¨r induktive Abstammungs- und Vererbungslehre', '0372-901X', 'null', '01/12/1908', '1957', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0026-8925&volume='),
+(13283, 'Journal', 'Zeitschrift für induktive Abstammungs- und Vererbungslehre', '0372-901X', 'null', '01/12/1908', '1957', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0026-8925&volume='),
 (13284, 'Journal', 'Zeitschrift für Jagdwissenschaft', '0044-2887', 'null', '01/03/1955', '31/12/1996', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0044-2887&volume='),
 (13285, 'Journal', 'Zeitschrift für Krebsforschung', '0301-1585', 'null', '01/02/1904', '1971', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0171-5216&volume='),
 (13286, 'Journal', 'Zeitschrift für Krebsforschung und Klinische Onkologie', '0084-5353', 'null', '1971', '1978', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0171-5216&volume='),
@@ -13434,7 +13435,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (13299, 'Journal', 'Zeitschrift für Physik. C, Particles and fields', '0170-9739', '1431-5858', '01/03/1979', '31/12/1996', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0170-9739&volume='),
 (13300, 'Journal', 'Zeitschrift für Physik. D, Atoms, molecules, and clusters', '0178-7683', 'null', '01/03/1986', '31/12/1996', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0178-7683&volume='),
 (13301, 'Journal', 'Zeitschrift für Präventivmedizin', '0044-3379', 'null', '01/01/1956', '31/12/1968', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0303-8408&volume='),
-(13302, 'Journal', 'Zeitschrift fu¨r Rechtsmedizin', '0044-3433', 'null', '1970', '1990', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0937-9827&volume='),
+(13302, 'Journal', 'Zeitschrift für Rechtsmedizin', '0044-3433', 'null', '1970', '1990', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0937-9827&volume='),
 (13303, 'Journal', 'Zeitschrift für Untersuchung der Lebensmittel', 'null', 'null', '01/01/1926', '30/06/1943', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=1431-4630&volume='),
 (13304, 'Journal', 'Zeitschrift für Untersuchung der Nahrungs- und Genussmittel, sowie der Gegrauchsgegenstände', '0372-9419', 'null', '14/01/1898', '31/12/1925', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=1431-4630'),
 (13305, 'Journal', 'Zeitschrift für Vererbungslehre', '0372-8609', 'null', '1958', '1966', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0026-8925&volume='),
@@ -13448,7 +13449,7 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (13313, 'Journal', 'Zeitschrift für Zellforschung und mikroskopische. Anatomie Abteilung Histochemie', '0340-0239', 'null', '21/01/1958', '30/04/1964', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0948-6143&volume='),
 (13314, 'Journal', 'Zeitschrift für Zellforschung und mikroskopische Anatomie (Berlin, Germany : 1934)', '0044-3794', 'null', '11/05/1934', '19/12/1938', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0302-766X&volume='),
 (13315, 'Journal', 'Zeitschrift für Neurologie', '0012-1037', 'null', '01/09/1970', '30/04/1974', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0340-5354&volume='),
-(13316, 'Journal', 'Zeitschrift fu¨r wissenschaftliche Biologie. Abteilung F, Zeitschrift fu¨r Parasitenkunde', 'null', 'null', '28/04/1928', '31/07/1934', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0932-0113'),
+(13316, 'Journal', 'Zeitschrift für wissenschaftliche Biologie. Abteilung F, Zeitschrift für Parasitenkunde', 'null', 'null', '28/04/1928', '31/07/1934', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0932-0113'),
 (13317, 'Journal', 'Zeitschrift für wissenschaftliche Biologie. Abteilung A. Zeitschrift für Morphologie und Ökologie der Tiere', 'null', 'null', '1924', '1934', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0720-213X'),
 (13318, 'Journal', 'Zentralblatt für Bakteriologie', '0934-8840', 'null', '1995', '2000', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/09348840'),
 (13319, 'Journal', 'Zeolites', '0144-2449', '1873-3115', '1995', 'null', 'ScienceDirect - COUPERIN', 'http://rproxy.insa-rennes.fr/login?url=http://www.sciencedirect.com/science/journal/01442449'),
@@ -13470,6 +13471,91 @@ INSERT INTO `journaux` (`id`, `type`, `title`, `issn`, `eissn`, `startdate`, `en
 (13335, 'Journal', 'Zoonoses and public health', '1863-1959', '1863-2378', '1997', 'null', 'Wiley-Blackwell - Couperin 2012', 'http://rproxy.insa-rennes.fr/login?url=http://onlinelibrary.wiley.com/journal/10.1111/(ISSN)1863-2378'),
 (13336, 'Journal', 'Züchter. Genetics and breeding research', '0514-0641', 'null', '01/04/1929', '1967', 'Springer Journal Archives (Licence Nationale France)', 'http://rproxy.insa-rennes.fr/login?url=http://link.springer.com/openurl?genre=journal&issn=0040-5752&volume='),
 (13337, 'Journal', 'Zygon', '0591-2385', '1467-9744', '1997', 'null', 'Wiley-Blackwell - Couperin 2012', 'http://rproxy.insa-rennes.fr/login?url=http://onlinelibrary.wiley.com/journal/10.1111/(ISSN)1467-9744');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `livres`
+--
+
+CREATE TABLE IF NOT EXISTS `livres` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `﻿nom` text,
+  `auteur` text,
+  `isbn` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+
+--
+-- Contenu de la table `livres`
+--
+
+INSERT INTO `livres` (`id`, `﻿nom`, `auteur`, `isbn`) VALUES
+(1, 'Harry Potter à l''école des sorciers ', 'J. K. Rowling', '9788478888566'),
+(2, 'Harry Potter et la Chambre des secrets', 'J. K. Rowling', '0747538492'),
+(3, 'Harry Potter et le Prisonnier d''Azkaban', 'J. K. Rowling', '9781551922461'),
+(4, 'Harry Potter et la Coupe de feu', 'J. K. Rowling', ' 074754624X'),
+(5, 'Harry Potter et l''Ordre du phénix', 'J. K. Rowling', '0747551006'),
+(6, 'Harry Potter et le Prince de sang-mêlé', 'J. K. Rowling', '0747581088'),
+(7, 'Harry Potter et les Reliques de la Mort ', 'J. K. Rowling', '9780605039070');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `membre`
+--
+
+CREATE TABLE IF NOT EXISTS `membre` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `pseudo` varchar(25) NOT NULL,
+  `mdp` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `pseudo` (`pseudo`),
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Contenu de la table `membre`
+--
+
+INSERT INTO `membre` (`id`, `pseudo`, `mdp`) VALUES
+(1, 'dbelveze', '940c0f26fd5a30775bb1cbd1f6840398d39bb813');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `relation`
+--
+
+CREATE TABLE IF NOT EXISTS `relation` (
+  `sql` varchar(50) NOT NULL,
+  `csv` varchar(50) NOT NULL,
+  UNIQUE KEY `csv` (`csv`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `relation`
+--
+
+INSERT INTO `relation` (`sql`, `csv`) VALUES
+('Auteur', 'Author'),
+('titre', 'nom'),
+('Ressource', 'resource'),
+('Titre', 'title');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `stber`
+--
+
+CREATE TABLE IF NOT EXISTS `stber` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `﻿nom` text,
+  `auteur` text,
+  `isbn` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -42,6 +42,39 @@
     </div>
 </div>
 
+<div class="modal fade" id="mdpok">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-body">
+          Mot de passe bien modifié
+          <button type="button" class="close" data-dismiss="modal">x</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="modal fade" id="mdpdiff">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-body">
+          Les mots de passe sont différents ou bien vides
+          <button type="button" class="close" data-dismiss="modal">x</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="modal fade" id="mdpnok">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-body">
+          Mot de passe ou pseudo erroné...
+          <button type="button" class="close" data-dismiss="modal">x</button>
+        </div>
+      </div>
+    </div>
+</div>
+
 
 
 <div class="page-header">
@@ -145,6 +178,64 @@
 		<legend class="text-center">Liste des relations</legend>
 			<?php afficheRelation(); ?>
 	  </fieldset>
+	  </form>
+	</div>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-md-6">
+	<div class="well well-sm">
+	  <form class="form-horizontal" action="index.php?afficher=admin" method="post" name="modifiermdp" enctype="multipart/form-data">
+	  <fieldset>
+
+		<!-- Form Name -->
+		<legend class="text-center">Mot de passe Administrateur</legend>
+
+		<!-- Text input-->
+		<div class="form-group">
+		  <label class="col-md-4 control-label" for="pseudo">Pseudo</label>  
+		  <div class="col-md-4">
+		  <input id="pseudo" name="pseudo" placeholder="<?php if (isset($_POST['pseudo'])){echo $_POST['pseudo'];} else{}   ?>" class="form-control input-md" required="" type="text">
+			
+		  </div>
+		</div>
+
+		<!-- Password input-->
+		<div class="form-group">
+		  <label class="col-md-4 control-label" for="ancien">Ancien mot de passe</label>
+		  <div class="col-md-4">
+			<input id="ancien" name="ancien" placeholder="" class="form-control input-md" required="" type="password">
+			
+		  </div>
+		</div>
+
+		<!-- Password input-->
+		<div class="form-group">
+		  <label class="col-md-4 control-label" for="new1">Nouveau</label>
+		  <div class="col-md-4">
+			<input id="new1" name="new1" placeholder="" class="form-control input-md" required="" type="password">
+			
+		  </div>
+		</div>
+
+		<!-- Password input-->
+		<div class="form-group">
+		  <label class="col-md-4 control-label" for="new2">Retaper nouveau</label>
+		  <div class="col-md-4">
+			<input id="new2" name="new2" placeholder="" class="form-control input-md" required="" type="password">
+			
+		  </div>
+		</div>
+		
+		<div class="form-group">
+		  <div class="col-md-12 text-center">
+			<button type="submit" class="btn btn-info"><span class="glyphicon glyphicon-cog"></span>  Modifier</button>
+		  </div>
+		</div>
+
+		</fieldset>
 	  </form>
 	</div>
   </div>

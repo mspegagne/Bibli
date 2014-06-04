@@ -39,6 +39,7 @@ class Ouvrage
 		$requete = "SELECT * FROM ".$table." WHERE id='".$id."';";
 		$res = $bd->getRow($requete);
 		
+		$res['table']=ucfirst($table);
 		return $res;
 	}
          
@@ -159,15 +160,29 @@ class Ouvrage
 	$champs = $this->champs;
 	$values = $this->values;
 	$image = 'images/book.png';
-	$url ='';
+	$titre = '';
+	$date = '';
+	$url = '';
+	$table = '';
+	$infos='<ul>';
+	$i=0;
+	$debut='';
 
-		foreach($values as $cle =>$valeur)
+		foreach($values as $cle => $valeur)
 		{
-		
-				
 			
 			if((!is_numeric($cle)) AND $cle!='id')
 			{
+			
+			if($i==0)
+			{
+				$debut=$cle;
+				$requete = "SELECT * FROM relation WHERE csv='".$debut."';";
+				$res = $bd->getValue($requete);
+				if($res!=null)
+				echo $res;
+			}
+			$i++;
 			
 				$requete = 'SELECT * FROM relation WHERE csv="'.$cle.'";';
 				$res = $bd->getValue($requete);
@@ -177,6 +192,7 @@ class Ouvrage
 				//récupération image
 				if($cle=="ISBN"||$cle=="isbn"||$cle=="Isbn")
 				{
+				$infos .= '<li><span>ISBN : '.$valeur.'</span></li>';
 				/*enlève le "-" de l'isbn*/
 				$expl_isbn = explode("-" , $valeur);
 				$isbn = $expl_isbn[0];
@@ -193,26 +209,63 @@ class Ouvrage
 				
 				elseif($cle=="Title"||$cle=="Titre"||$cle=="title"||$cle=="titre")
 				{
+				$titre=$valeur;
+				}
+				elseif($cle=="table")
+				{
+				$table=$valeur;
+				}
+				elseif($cle=="url" || $cle=="lien" || $cle=="link")
+				{
+				$url=$valeur;
 				}
 				
+				else
+				{
+				if($valeur!='null')
+				{
+				
+				$cle=ucfirst($cle);
+				
+				$infos .= '<li><span>'.$cle.' : '.$valeur.'</span></li>';
+				}
+				}
+				
+				
+				
 			}
+			
+			
+			$requete = 'SELECT maj FROM bdd WHERE nom="'.$table.'";';
+			$res = $bd->getValue($requete);
+			if($res!=null)
+			$date=date('d/m/Y', $res);
+			$infos .= '</ul>';
 		}
 		?>
 		<article class="search-result row">
 			<div class="col-xs-12 col-sm-12 col-md-3">
-				<a href="#" title="Lorem ipsum" class="thumbnail"><img src="<?php echo $image; ?>" alt="couverture" style="max-width: 150px;" /></a>
+				<span class="thumbnail"><img src="<?php echo $image; ?>" alt="couverture" style="max-width: 150px;" /></span>
 			</div>
 			<div class="col-xs-12 col-sm-12 col-md-2">
 				<ul class="meta-search">
-					<li><i class="glyphicon glyphicon-calendar"></i> <span>02/15/2014</span></li>
-					<li><i class="glyphicon glyphicon-time"></i> <span>4:28 pm</span></li>
-					<li><i class="glyphicon glyphicon-tags"></i> <span>People</span></li>
+					<li><i class="glyphicon glyphicon-calendar"></i> <span><?php echo $date; ?></span></li>
+					
+					<li><i class="glyphicon glyphicon-tags"></i> <span><?php echo $table; ?></span></li>
+					<?php
+					if($url!='')
+					{
+					?>
+					<li><i class="glyphicon glyphicon-link"></i> <a href="<?php echo $url; ?>" target="_blank" title="Lien"><span>Lien</span></a></li>
+					<?php
+					}
+					?>
 				</ul>
 			</div>
 			<div class="col-xs-11 col-sm-12 col-md-7 excerpet">
-				<h3><a href="#" title="">Voluptatem, exercitationem, suscipit, distinctio</a></h3>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, exercitationem, suscipit, distinctio, qui sapiente aspernatur molestiae non corporis magni sit sequi iusto debitis delectus doloremque.</p>						
-                <span class="plus"><a href="<?php echo $url; ?>" title="Lien"><i class="glyphicon glyphicon-plus"></i></a></span>
+				<h3><span style="color:#428bca;"><?php echo $titre; ?></span></h3>
+				<?php echo $infos; ?>
+				
 			</div>
 		</article>
 	<?php
@@ -251,14 +304,14 @@ class Ouvrage
 	<div class="col-lg-12 panel panel-info">
 	<hgroup class="mb20">
 		<h1>Search Results</h1>
-		<h2 class="lead"><strong class="text-danger"><?php echo $total; ?></strong> ouvrage<?php if($total!=0) echo 's';;
+		<h2 class="lead"><strong class="text-danger"><?php echo $total; ?></strong> ouvrage<?php if($total>1) echo 's';;
 		$searchorigin=$search;
 		$search = explode("-=-", $search);
 		$keywords = $search[0];
 		$base = $search[1];
 		
 		echo ' correspondant';
-		if($total!=0) echo 's';
+		if($total>1) echo 's';
 		echo ' à "'.$keywords.'"';
 		
 		$bd = Db::getInstance();

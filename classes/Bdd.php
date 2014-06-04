@@ -190,11 +190,11 @@ class Bdd
 					}
 					if($col==(count($champs[$lig])-1))
 					{
-						$values.= "'".$champs[$lig][$col]."' ";
+						$values.= "'".addslashes($champs[$lig][$col])."' ";
 					}
 					else
 					{
-						$values.= "'".$champs[$lig][$col]."', ";
+						$values.= "'".addslashes($champs[$lig][$col])."', ";
 					}
 				}
 				

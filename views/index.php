@@ -41,7 +41,10 @@
 if(isset($_POST['search']) AND $_POST['search']!=null)
 {
 	$keywords=$_POST['search'];
+	if(isset($_POST['bdd']))
 	$bdd=$_POST['bdd'];
+	else
+	$bdd='all';
 	$keywords=$keywords.'-=-'.$bdd;
 	$retour=Ouvrage::getList($keywords);
 	Ouvrage::printRetour($retour, $keywords);

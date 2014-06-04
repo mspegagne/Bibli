@@ -197,6 +197,70 @@ if(isset($_GET['supprrel']))
 	<?php 
 }
 
+if(isset($_POST['ancien']) AND !Empty($_POST['ancien'])) // Le champ du code de confirmation a été remplis
+{ 
+
+$pass = sha1($_POST['ancien']);
+$pseudo = $_POST['pseudo'];
+$new1 = $_POST['new1'];
+$new2 = $_POST['new2'];
+
+
+	if(($new1!=null) AND($new1==$new2))
+	{
+
+		$new=sha1($new1);
+
+		$bd = Db::getInstance();
+		$requete = "SELECT id FROM membre WHERE pseudo='".$pseudo."' AND mdp='".$pass."';";
+		$res = $bd->getRow($requete);
+
+		$id=$res['id'];
+
+		if ($id)
+		{
+					$values= array(
+					"id"=>$id,
+					"pseudo"=>$pseudo,
+					"mdp"=>$new
+					);
+					
+					if($bd->autoExecute('membre', $values, 'UPDATE', 'pseudo=\''.$pseudo.'\''))
+					{
+						?>
+						<script type="text/javascript">
+							$(window).load(function () {
+								$('#mdpok').modal('show');
+							});
+						</script>
+						<?php 
+					}
+
+		}
+
+		else
+		{
+		?>
+			<script type="text/javascript">
+				$(window).load(function () {
+					$('#mdpnok').modal('show');
+				});
+			</script>
+			<?php 
+		}
+	}
+	else
+	{
+	?>
+		<script type="text/javascript">
+			$(window).load(function () {
+				$('#mdpdiff').modal('show');
+			});
+		</script>
+		<?php 
+	}
+}
+
 include_once ("views/admin.php");
 
 ?> 
