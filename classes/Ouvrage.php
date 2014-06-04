@@ -49,13 +49,15 @@ class Ouvrage
 	{
 		$resultat = array();
 		
-		$bd = Db::getInstance();
-		$requete = "SELECT * FROM bdd;";
-		$res = $bd->q($requete);
+		$search = explode("-=-", $keywords);
+		$keywords = $search[0];
+		$base = $search[1];
 		
-		foreach($res as $value)
+		$bd = Db::getInstance();
+		
+		if($base!='all')
 		{
-			$table = wd_remove_accents($value['nom']);
+			$table=$base;
 			$champs = Ouvrage::getChamps($table);
 			$chercher = trim($keywords);
 			$elts = explode(" ", $chercher);
@@ -83,6 +85,8 @@ class Ouvrage
 			}
 			
 			$recherche .= ")";
+		
+			
 			$requete = 'SELECT * FROM '.$table.' WHERE '.$recherche.';';
 			$res = $bd->q($requete);
 			
@@ -92,7 +96,56 @@ class Ouvrage
 				$values = Ouvrage::getValues($table,$id);
 				$ouvrage = new Ouvrage($champs,$values);
 				array_push($resultat,$ouvrage);
-			}			
+			}
+		}
+		
+		else
+		{
+			$requete = "SELECT * FROM bdd;";
+			$res = $bd->q($requete);
+			
+			foreach($res as $value)
+			{
+				$table = wd_remove_accents($value['nom']);
+				$champs = Ouvrage::getChamps($table);
+				$chercher = trim($keywords);
+				$elts = explode(" ", $chercher);
+				$premier = "%".$elts[0]."%";
+				$recherche = "((".$champs[1]." LIKE'".$premier."'";
+				foreach($champs as $champ)
+				{					
+					$recherche.= "OR ".$champ." LIKE '".$premier."'";
+				}
+				
+				$recherche .= ")";	
+				
+				for ( $i = 1 ; $i < count($elts) ; $i++ )
+				{
+					
+					$elt_suivant = "%".$elts[$i]."%";				
+					$recherche .= "AND (".$champs[1]." LIKE'".$elt_suivant."'";
+					
+					foreach($champs as $champ)
+					{					
+						$recherche.= "OR ".$champ." LIKE '".$elt_suivant."'";
+					}
+					
+					$recherche .= ")";
+				}
+				
+				$recherche .= ")";
+							
+				$requete = 'SELECT * FROM '.$table.' WHERE '.$recherche.';';
+				$res = $bd->q($requete);
+				
+				foreach($res as $value)
+				{
+					$id = $value['id'];
+					$values = Ouvrage::getValues($table,$id);
+					$ouvrage = new Ouvrage($champs,$values);
+					array_push($resultat,$ouvrage);
+				}			
+			}
 		}		
 		
 		return $resultat;
@@ -188,7 +241,22 @@ class Ouvrage
 	<div class="col-lg-12 panel panel-info">
 	<hgroup class="mb20">
 		<h1>Search Results</h1>
-		<h2 class="lead"><strong class="text-danger"><?php echo $total; ?></strong> ouvrages</h2>								
+		<h2 class="lead"><strong class="text-danger"><?php echo $total; ?></strong> ouvrage<?php if($total!=0) echo 's';;
+		$search = explode("-=-", $search);
+		$keywords = $search[0];
+		$base = $search[1];
+		
+		echo ' correspondant';
+		if($total!=0) echo 's';
+		echo ' à "'.$keywords.'"';
+		
+		$bd = Db::getInstance();
+		
+		if($base!='all')
+		{
+		echo ' dans '.$base;
+		}
+		?> </h2>								
 	</hgroup>
 	<?php 
 	 

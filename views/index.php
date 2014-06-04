@@ -3,16 +3,29 @@
 				<h1 style="color: white;">Rechercher un ouvrage</h1>
 	</div>
 
-
+<br />
 	<form class="form-inline" action="index.php?afficher=index" method="post" name="search" >
 	
 		<div class="row">
-			<div class="col-lg-offset-5 col-lg-4">
-				<div class="form-group">
-					<label class="sr-only" for="search">Texte</label>
-					<input name="search" type="search" class="form-control" id="search" placeholder="Recherche...">
-				</div>
-				<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+			<div class="col-lg-offset-3 col-lg-6">
+		
+            <div class="input-group custom-search-form">
+			<div class="input-group-btn search-panel">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    	<span id="search_concept">Base de données</span> <span class="caret"></span>
+                    </button>
+                    <?php afficheList(); ?>
+                </div>
+			<input type="hidden" id="bdd" name="bdd" value="all">
+            <input name="search" type="search" class="form-control" id="search" placeholder="Recherche...">
+			<span class="input-group-btn">
+              <button type="submit" class="btn btn-primary" type="button">
+              <span class="glyphicon glyphicon-search"></span>
+             </button>
+             </span>
+             </div><!-- /input-group -->
+
+				
 			</div>
 		</div>
 			
@@ -28,37 +41,19 @@
 if(isset($_POST['search']) AND $_POST['search']!=null)
 {
 	$keywords=$_POST['search'];
+	$bdd=$_POST['bdd'];
+	$keywords=$keywords.'-=-'.$bdd;
 	$retour=Ouvrage::getList($keywords);
 	Ouvrage::printRetour($retour, $keywords);
-	if(empty($retour))
-	{
-	?>
-	<div class="row" style="margin-left: 15px;">
-		<div class="col-lg-10 panel panel-info">
-			<div class="panel-body">Aucun résultat...</div>
-		</div>
-	</div>
-	<?php
-	}
+	
 }
 if(isset($_GET['search']) AND $_GET['search']!=null)
 {
 	$keywords=$_GET['search'];
 	$retour=Ouvrage::getList($keywords);
 	Ouvrage::printRetour($retour, $keywords);
-	if(empty($retour))
-	{
-	?>
-	<div class="row" style="margin-left: 15px;">
-		<div class="col-lg-10 panel panel-info">
-			<div class="panel-body">Aucun résultat...</div>
-		</div>
-	</div>
-	<?php
-	}
+	
 }
 
-
-include_once ("views/index.php");
 
 ?> 
