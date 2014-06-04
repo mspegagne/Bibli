@@ -121,12 +121,18 @@ class Bdd
 
 				// Lecture de la première ligne 
 
-				$entete = fgetcsv($fp, 500, ",");
+				$entete = fgetcsv($fp, 0, ",");
 
 				// Boucle de lecture du reste du fichier
-				while(!feof($fp)) {
-					$tab[] = fgetcsv($fp, 500, ",");
-				}
+				
+					$file = file_get_contents($nomFich);
+					$data = array_map("str_getcsv", preg_split('/\r*\n+|\r+/', $file));
+					$entete = $data[0];
+					unset($data[0]);
+					foreach ($data as $key => $value){
+					$tab[]=$value;
+					}
+				
 				
 				fclose($fp) ;
 			}
@@ -143,7 +149,14 @@ class Bdd
 			{
 				if( $entete[$col]=='ISSN' OR $entete[$col]=='ISBN' )
 				{
-					$table.= wd_remove_accents($entete[$col])." VARCHAR(20),";
+					if($col==(count($entete)-1))
+					{
+						$table.= wd_remove_accents($entete[$col])." VARCHAR(20)";
+					}
+					else
+					{
+						$table.= wd_remove_accents($entete[$col])." VARCHAR(20), ";
+					}
 				}
 				else
 				{
@@ -153,13 +166,12 @@ class Bdd
 					}
 					else
 					{
-						$table.= wd_remove_accents($entete[$col])." TEXT,";
+						$table.= wd_remove_accents($entete[$col])." TEXT, ";
 					}
 				}
 			}
 			
 			$nom=wd_remove_accents($nom);
-			
 			$bd = Db::getInstance();
 			$query = "CREATE TABLE ".$nom." ( ".$table." ) DEFAULT CHARSET=utf8;";		
 			
@@ -181,6 +193,7 @@ class Bdd
 				
 				for($col = 0 ; $col < count($champs[$lig]) ; $col++) 
 				{		
+				
 					if($champs[$lig][$col] == '')
 					{
 							$champs[$lig][$col]= 'null';
@@ -194,7 +207,7 @@ class Bdd
 						$values.= "'".$champs[$lig][$col]."', ";
 					}
 				}
-			
+				
 				$query = "INSERT INTO ".$nom." VALUES (".$values.")";		
 				
 				$bd->q($query);

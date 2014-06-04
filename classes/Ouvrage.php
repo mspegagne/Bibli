@@ -98,83 +98,160 @@ class Ouvrage
 		return $resultat;
 	}
 	
-
-	
 	//Affichage propre d'UN ouvrage, $data de type ouvrage
-	
 	public function printOuvrage()
 	{
 
 	$champs = $this->champs;
 	$values = $this->values;
+	$image = 'images/book.png';
+	$url ='';
 
-
-	?>	
-		<div class="col-lg-10 panel panel-info">
-<?php
-	$isbn ="";
-	
-
-	foreach($values as $cle =>$valeur)
-	{
-		if((!is_numeric($cle)) AND $cle!='id')
+		foreach($values as $cle =>$valeur)
 		{
-			?>
-			<?php echo "<strong>".$cle."</strong>"; ?> : <?php 
-			if(filter_var($valeur, FILTER_VALIDATE_URL))
+			if((!is_numeric($cle)) AND $cle!='id')
 			{
-				echo "<a href=".$valeur." target=_blank>".$valeur."</a>";
-			}
-			elseif($cle=="ISBN"||$cle=="isbn"||$cle=="Isbn")
-			{
-			/*enlève le "-" de l'isbn*/
-			$expl_isbn = explode("-" , $valeur);
-			$isbn = $expl_isbn[0];
-			$length = count($expl_isbn);
-				for($i=1; $i<$length; $i++)
-				{
-					$isbn = $isbn.$expl_isbn[$i];
-				}				
-			}
-			elseif($cle=="Title"||$cle=="Titre"||$cle=="title"||$cle=="titre")
-			{
-				echo "<strong style='color:red;'>".$valeur."</strong><br />";
-			}
-			elseif($cle=="ISBN"||$cle=="isbn")
-			{
-				echo $valeur.'<br />';
-				echo '<img src="images.amazon.com/images/P/'.$valeur.'.01.SZZZZZZZ.jpg" alt="couverture"/>';
-			}
-			elseif(filter_var($valeur, FILTER_VALIDATE_URL))
-			{
-				echo "<a href=".$valeur.">".$valeur."</a>";
-			}
-			elseif($cle=="Title"||$cle=="Titre"||$cle=="title"||$cle=="titre")
-			{
-				echo "<strong style='color: rgb(180, 46 , 69);'>".$valeur."</strong><br />";
-			}
-			else
-			{
-				echo $valeur.'<br />';
-			}		
-		}
-	}
-	?>
-		
 				
-		</div>
+				
+				if($cle=="ISBN"||$cle=="isbn"||$cle=="Isbn")
+				{
+				/*enlève le "-" de l'isbn*/
+				$expl_isbn = explode("-" , $valeur);
+				$isbn = $expl_isbn[0];
+				$length = count($expl_isbn);
+					for($i=1; $i<$length; $i++)
+					{
+						$isbn = $isbn.$expl_isbn[$i];
+					}
+					
+					$length = strlen($isbn);
+					//conversion isbn13->isbn10
+					if($length>10)
+					{
+					
+					$isbn = substr($isbn, 3);
+					
+					$checksum = 0;
+					$weight = 10;
+					
+					$n = str_split($isbn);
+					foreach ($n as $c) 
+					{
+						$checksum += $c*$weight;	
+						$weight -= 1;
+					}
+					
+					$checksum = 11-($checksum % 11);
+				
+					if ($checksum == 10)
+					{
+						$isbn += $checksum;	
+						$isbn=strval($isbn);
+					}
+					if ($checksum == 3)
+					{
+						$isbn=strval($isbn);
+						$isbn = substr($isbn, 0, -1);
+						$isbn = $isbn."X";
+					}
+					else if ($checksum == 11)
+					{
+						$isbn=strval($isbn);
+						$isbn = $isbn."0";
+					}
+					else
+					{
+					$isbn += $checksum;	
+					$isbn=strval($isbn);
+					}
+
+					
+					$length = strlen($isbn);	
+					if($length==9)
+					{
+					$isbn='0'.$isbn;
+					}		
+					
+					}
+							
+				$image = 'http://images.amazon.com/images/P/'.$isbn.'.01.SZZZZZZZ.jpg';
+				}
+				elseif($cle=="Title"||$cle=="Titre"||$cle=="title"||$cle=="titre")
+				{
+				}
+				
+			}
+		}
+		?>
+		<article class="search-result row">
+			<div class="col-xs-12 col-sm-12 col-md-3">
+				<a href="#" title="Lorem ipsum" class="thumbnail"><img src="<?php echo $image; ?>" alt="couverture" style="max-width: 150px;" /></a>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-2">
+				<ul class="meta-search">
+					<li><i class="glyphicon glyphicon-calendar"></i> <span>02/15/2014</span></li>
+					<li><i class="glyphicon glyphicon-time"></i> <span>4:28 pm</span></li>
+					<li><i class="glyphicon glyphicon-tags"></i> <span>People</span></li>
+				</ul>
+			</div>
+			<div class="col-xs-11 col-sm-12 col-md-7 excerpet">
+				<h3><a href="#" title="">Voluptatem, exercitationem, suscipit, distinctio</a></h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, exercitationem, suscipit, distinctio, qui sapiente aspernatur molestiae non corporis magni sit sequi iusto debitis delectus doloremque.</p>						
+                <span class="plus"><a href="<?php echo $url; ?>" title="Lien"><i class="glyphicon glyphicon-plus"></i></a></span>
+			</div>
+		</article>
 	<?php
 	}
+	
 	
 
 		
 	//Affichage d'une recherche
 	public static function printRetour($data)
 	{	
-		foreach ($data as &$value) 
-		{
+	
+	$OuvragesParPage=10; 	 
+	$total= count($data);
+	
+	//Nous allons maintenant compter le nombre de pages.
+	$nombreDePages=ceil($total/$OuvragesParPage);
+	 
+	if(isset($_GET['page'])) // Si la variable $_GET['page'] existe...
+	{
+		 $pageActuelle=intval($_GET['page']);
+	 
+		 if($pageActuelle>$nombreDePages) // Si la valeur de $pageActuelle (le numéro de la page) est plus grande que $nombreDePages...
+		 {
+			  $pageActuelle=$nombreDePages;
+		 }
+	}
+	else // Sinon
+	{
+		 $pageActuelle=1; // La page actuelle est la n°1    
+	}
+	 
+	$premiereEntree=($pageActuelle-1)*$OuvragesParPage; // On calcul la première entrée à lire
+	 
+	?>
+	<div class="col-lg-12 panel panel-info">
+	<hgroup class="mb20">
+		<h1>Search Results</h1>
+		<h2 class="lead"><strong class="text-danger"><?php echo $total; ?></strong> ouvrages</h2>								
+	</hgroup>
+	<?php 
+	 
+	$data = new ArrayIterator($data);
+	foreach (new LimitIterator($data, $premiereEntree, $OuvragesParPage) as $value) 
+	{
 			$value->printOuvrage();
-		}	
+	}
+	 
+	 ?>
+	 </div>	 
+	 <?php
+		
+		pagination($nombreDePages, $pageActuelle);		
+
 	}
 }
 ?>

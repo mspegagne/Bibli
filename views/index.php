@@ -7,7 +7,7 @@
 	<form class="form-inline" action="index.php?afficher=index" method="post" name="search" >
 	
 		<div class="row">
-			<div class="col-lg-offset-4 col-lg-4">
+			<div class="col-lg-offset-5 col-lg-4">
 				<div class="form-group">
 					<label class="sr-only" for="search">Texte</label>
 					<input name="search" type="search" class="form-control" id="search" placeholder="Recherche...">
@@ -21,7 +21,7 @@
 
 <br />
 
-</div>
+
 
 <?php
 

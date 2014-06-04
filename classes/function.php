@@ -13,4 +13,37 @@ function wd_remove_accents($str, $charset='utf-8')
 	return $str;
 }
 
+function pagination($nombreDePages, $pageActuelle)
+{
+ ?>
+
+ <div class="row">
+	 <div class="col-lg-6">
+	 <ul class="pagination">
+
+<?php
+
+for($i=1; $i<=$nombreDePages; $i++) //On fait notre boucle
+{
+	 //On va faire notre condition
+	 if($i==$pageActuelle) //Si il s'agit de la page actuelle...
+	 {
+		 echo '<li class="active" ><a href="#">'.$i.'</a></li>'; 
+	 }	
+	 else //Sinon...
+	 {
+		 echo '<li><a href="#">'.$i.'</a></li>'; 
+	 }
+}
+
+	?>
+	</ul>
+	</div>
+</div>
+<?php
+
+
+}
+
+
 ?>
