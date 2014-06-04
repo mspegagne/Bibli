@@ -29,7 +29,7 @@ if(isset($_POST['search']) AND $_POST['search']!=null)
 {
 	$keywords=$_POST['search'];
 	$retour=Ouvrage::getList($keywords);
-	Ouvrage::printRetour($retour);
+	Ouvrage::printRetour($retour, $keywords);
 	if(empty($retour))
 	{
 	?>
@@ -41,6 +41,23 @@ if(isset($_POST['search']) AND $_POST['search']!=null)
 	<?php
 	}
 }
+if(isset($_GET['search']) AND $_GET['search']!=null)
+{
+	$keywords=$_GET['search'];
+	$retour=Ouvrage::getList($keywords);
+	Ouvrage::printRetour($retour, $keywords);
+	if(empty($retour))
+	{
+	?>
+	<div class="row" style="margin-left: 15px;">
+		<div class="col-lg-10 panel panel-info">
+			<div class="panel-body">Aucun résultat...</div>
+		</div>
+	</div>
+	<?php
+	}
+}
+
 
 include_once ("views/index.php");
 

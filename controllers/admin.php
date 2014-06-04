@@ -38,7 +38,7 @@ if(isset($_FILES['bdd']) AND $_FILES['bdd']['error'] == 0)
 	$data = '';
 	$infosfichier = pathinfo($_FILES['bdd']['name']);
 	$extension_upload = $infosfichier['extension'];
-    $extensions_autorisees = array('csv');
+    $extensions_autorisees = array('csv', 'CSV');
    
    if (in_array($extension_upload, $extensions_autorisees))
    {
@@ -117,6 +117,85 @@ if(isset($_GET['suppr']))
 	<?php 
 }
 
+//enregistre une nouvelle relation
+if(isset($_POST['sql']))
+{
+	$sql=$_POST['sql'];
+	$csv=$_POST['csv'];
+
+	$values= array("sql"=>$sql,"csv"=>$csv);	
+				
+				
+	$bd = Db::getInstance();
+	if($bd->autoExecute('relation', $values, 'INSERT'))
+	{
+	?>
+	<script type="text/javascript">
+		$(window).load(function () {
+			$('#relation').modal('show');
+		});
+	</script>
+	<?php 
+	}
+
+	else{
+
+	}
+
+}
+
+function afficheRelation()
+{
+	$bd = Db::getInstance();
+	$requete = "SELECT * FROM relation;";
+	$res = $bd->q($requete);
+	
+	?> <ul class="list-group"> <?php
+	
+	foreach($res as $value)
+	{
+		$sql = stripslashes($value['sql']);
+		$csv = stripslashes($value['csv']);
+		
+
+		?>
+		 <div href="#" class="list-group-item">
+		 
+			<span class="list-group-item-heading"><h4><?php echo $csv." "; ?><span class="glyphicon glyphicon-arrow-right" ></span><?php echo " ".$sql; ?><a href="index.php?afficher=admin&amp;supprrel=<?php echo $csv; ?>"><span class="glyphicon glyphicon-remove pull-right" style="margin-left: 10px;"></span></a></h4></span>
+			
+		 </div>
+          
+		<?php
+
+	}	
+
+	?> </ul> <?php
+}
+
+//déclenchement suppression relation
+if(isset($_GET['supprrel']))
+{
+	$nom=$_GET['supprrel'];
+	$bd = Db::getInstance();
+	$query = "DELETE FROM relation WHERE csv='".$nom."'";
+	if($bd->q($query))
+	{ 
+	
+	}
+
+	else{
+	
+	}
+	
+	
+	?>
+	<script type="text/javascript">
+		$(window).load(function () {
+			$('#supprrel').modal('show');
+		});
+	</script>
+	<?php 
+}
 
 include_once ("views/admin.php");
 

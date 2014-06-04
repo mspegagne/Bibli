@@ -124,55 +124,7 @@ class Ouvrage
 						$isbn = $isbn.$expl_isbn[$i];
 					}
 					
-					$length = strlen($isbn);
-					//conversion isbn13->isbn10
-					if($length>10)
-					{
-					
-					$isbn = substr($isbn, 3);
-					
-					$checksum = 0;
-					$weight = 10;
-					
-					$n = str_split($isbn);
-					foreach ($n as $c) 
-					{
-						$checksum += $c*$weight;	
-						$weight -= 1;
-					}
-					
-					$checksum = 11-($checksum % 11);
-				
-					if ($checksum == 10)
-					{
-						$isbn += $checksum;	
-						$isbn=strval($isbn);
-					}
-					if ($checksum == 3)
-					{
-						$isbn=strval($isbn);
-						$isbn = substr($isbn, 0, -1);
-						$isbn = $isbn."X";
-					}
-					else if ($checksum == 11)
-					{
-						$isbn=strval($isbn);
-						$isbn = $isbn."0";
-					}
-					else
-					{
-					$isbn += $checksum;	
-					$isbn=strval($isbn);
-					}
-
-					
-					$length = strlen($isbn);	
-					if($length==9)
-					{
-					$isbn='0'.$isbn;
-					}		
-					
-					}
+					$isbn = isbn13($isbn);
 							
 				$image = 'http://images.amazon.com/images/P/'.$isbn.'.01.SZZZZZZZ.jpg';
 				}
@@ -207,7 +159,7 @@ class Ouvrage
 
 		
 	//Affichage d'une recherche
-	public static function printRetour($data)
+	public static function printRetour($data, $search)
 	{	
 	
 	$OuvragesParPage=10; 	 
@@ -250,7 +202,7 @@ class Ouvrage
 	 </div>	 
 	 <?php
 		
-		pagination($nombreDePages, $pageActuelle);		
+		pagination($nombreDePages, $pageActuelle, $search);		
 
 	}
 }

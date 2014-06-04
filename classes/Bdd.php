@@ -116,25 +116,15 @@ class Bdd
 			{
 				global $entete ;
 				
-				$fp = fopen($nomFich, "r") ;        // Ouverture du fichier
-				if( ! $fp) die("Abandon ".$nomFich." non lisible") ;
-
-				// Lecture de la première ligne 
-
-				$entete = fgetcsv($fp, 0, ",");
-
-				// Boucle de lecture du reste du fichier
+			
+				$file = file_get_contents($nomFich);
+				$data = array_map("str_getcsv", preg_split('/\r*\n+|\r+/', $file));
+				$entete = $data[0];
+				unset($data[0]);
+				foreach ($data as $key => $value){
+				$tab[]=$value;
+				}
 				
-					$file = file_get_contents($nomFich);
-					$data = array_map("str_getcsv", preg_split('/\r*\n+|\r+/', $file));
-					$entete = $data[0];
-					unset($data[0]);
-					foreach ($data as $key => $value){
-					$tab[]=$value;
-					}
-				
-				
-				fclose($fp) ;
 			}
 			
 			

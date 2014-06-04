@@ -20,6 +20,28 @@
     </div>
 </div>
 
+<div class="modal fade" id="relation">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-body">
+          Relation bien ajoutée !
+          <button type="button" class="close" data-dismiss="modal">x</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="modal fade" id="suppr">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-body">
+          Relation bien supprimée !
+          <button type="button" class="close" data-dismiss="modal">x</button>
+        </div>
+      </div>
+    </div>
+</div>
+
 
 
 <div class="page-header">
@@ -28,7 +50,7 @@
 
 
 <div class="row">
-  <div class="col-md-6">
+<div class="col-md-6">
 	<div class="well well-sm">
 	  <form class="form-horizontal" action="index.php?afficher=admin" method="post" name="ajoutbdd" enctype="multipart/form-data">
 	  <fieldset>
@@ -38,7 +60,7 @@
 		<div class="form-group">
 		  <label class="col-md-3 control-label" for="nom">Nom</label>
 		  <div class="col-md-9">
-		<input id="nom" name="nom" type="text" placeholder="" class="form-control">
+		<input id="nom" name="nom" type="text" placeholder="" class="form-control" required>
 		  </div>
 		</div>
 
@@ -75,6 +97,53 @@
 	  <fieldset>
 		<legend class="text-center">Liste des BDD</legend>
 			<?php afficheList(); ?>
+	  </fieldset>
+	  </form>
+	</div>
+  </div>
+</div>
+ 
+<div class="row">
+  <div class="col-md-6">
+	<div class="well well-sm">
+	  <form class="form-horizontal" action="index.php?afficher=admin" method="post" name="ajoutrelation" enctype="multipart/form-data">
+	  <fieldset>
+		<legend class="text-center">Ajouter une relation</legend>
+
+		<!-- Nom input-->
+		<div class="form-group">
+		  <label class="col-md-3 control-label" for="sql">Nom Affichage</label>
+		  <div class="col-md-9">
+		<input id="sql" name="sql" type="text" placeholder="" class="form-control" required>
+		  </div>
+		</div>
+
+		<!-- Nom input-->
+		<div class="form-group">
+		  <label class="col-md-3 control-label" for="csv">Nom CSV</label>
+		  <div class="col-md-9">
+		<input id="csv" name="csv" type="text" placeholder="" class="form-control" required>
+		  </div>
+		</div>
+
+		<!-- Form actions -->
+		<div class="form-group">
+		  <div class="col-md-12 text-right">
+			<button type="submit" class="btn btn-info"><span class="glyphicon glyphicon-send"></span>  Envoyer</button>
+		  </div>
+		</div>
+	  </fieldset>
+	  </form>
+	</div>
+  </div>
+  
+  
+  <div class="col-md-6">
+	<div class="well well-sm">
+	  <form>
+	  <fieldset>
+		<legend class="text-center">Liste des relations</legend>
+			<?php afficheRelation(); ?>
 	  </fieldset>
 	  </form>
 	</div>
