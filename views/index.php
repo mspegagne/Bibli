@@ -40,9 +40,10 @@
 
 if(isset($_POST['search']) AND $_POST['search']!=null)
 {
-	$keywords=$_POST['search'];
+
+	$keywords=htmlspecialchars($_POST['search']);
 	if(isset($_POST['bdd']))
-	$bdd=$_POST['bdd'];
+	$bdd=htmlspecialchars($_POST['bdd']);
 	else
 	$bdd='all';
 	$keywords=$keywords.'-=-'.$bdd;
@@ -52,7 +53,7 @@ if(isset($_POST['search']) AND $_POST['search']!=null)
 }
 if(isset($_GET['search']) AND $_GET['search']!=null)
 {
-	$keywords=$_GET['search'];
+	$keywords=htmlspecialchars($_GET['search']);
 	$retour=Ouvrage::getList($keywords);
 	Ouvrage::printRetour($retour, $keywords);
 	
