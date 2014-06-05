@@ -167,22 +167,13 @@ class Ouvrage
 	$infos='<ul>';
 	$i=0;
 	$debut='';
-
+	
 		foreach($values as $cle => $valeur)
 		{
-			
+		
+		
 			if((!is_numeric($cle)) AND $cle!='id')
 			{
-			
-			if($i==0)
-			{
-				$debut=$cle;
-				$requete = "SELECT * FROM relation WHERE csv='".$debut."';";
-				$res = $bd->getValue($requete);
-				if($res!=null)
-				echo $res;
-			}
-			$i++;
 			
 				$requete = 'SELECT * FROM relation WHERE csv="'.$cle.'";';
 				$res = $bd->getValue($requete);
@@ -207,7 +198,7 @@ class Ouvrage
 				$image = 'http://images.amazon.com/images/P/'.$isbn.'.01.SZZZZZZZ.jpg';
 				}
 				
-				elseif($cle=="Title"||$cle=="Titre"||$cle=="title"||$cle=="titre")
+				elseif($cle=="Title"||$cle=="Titre"||$cle=="title"||$cle=="titre" || $cle=="nom")
 				{
 				$titre=$valeur;
 				}

@@ -141,22 +141,22 @@ class Bdd
 				{
 					if($col==(count($entete)-1))
 					{
-						$table.= wd_remove_accents($entete[$col])." VARCHAR(20)";
+						$table.= clean(wd_remove_accents($entete[$col]))." VARCHAR(20)";
 					}
 					else
 					{
-						$table.= wd_remove_accents($entete[$col])." VARCHAR(20), ";
+						$table.= clean(wd_remove_accents($entete[$col]))." VARCHAR(20), ";
 					}
 				}
 				else
 				{
 					if($col==(count($entete)-1))
 					{
-						$table.= wd_remove_accents($entete[$col])." TEXT";
+						$table.= clean(wd_remove_accents($entete[$col]))." TEXT";
 					}
 					else
 					{
-						$table.= wd_remove_accents($entete[$col])." TEXT, ";
+						$table.= clean(wd_remove_accents($entete[$col]))." TEXT, ";
 					}
 				}
 			}
