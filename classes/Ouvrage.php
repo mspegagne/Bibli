@@ -193,12 +193,12 @@ class Ouvrage
 						$isbn = $isbn.$expl_isbn[$i];
 					}
 					
-					$isbn = isbn13($isbn);
+					$isbn = isbn13to10($isbn);
 							
 				$image = 'http://images.amazon.com/images/P/'.$isbn.'.01.SZZZZZZZ.jpg';
 				}
 				
-				elseif($cle=="Title"||$cle=="Titre"||$cle=="title"||$cle=="titre" || $cle=="nom")
+				elseif($cle=="Title"||$cle=="Titre"||$cle=="title"||$cle=="titre")
 				{
 				$titre=$valeur;
 				}
